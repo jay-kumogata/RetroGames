@@ -1,2 +1,2 @@
-# HspGames
-Games in Hot Soup Processor
+# HspScripts
+Scripts in Hot Soup Processor
