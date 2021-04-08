@@ -1,0 +1,375 @@
+# ****************************************************************************
+# ***               Vertical Brix v1.0 (C) Paul Robson 1996                ***
+# ****************************************************************************
+# ****************************************************************************
+#
+# ****************************************************************************
+#
+#       r7      lives
+#       r8      score
+#       r9      bat y
+#       ra,rb   location of ball
+#       rc,rd   direction of ball
+#       re      Number of brix remaining in wall
+#
+# ****************************************************************************
+
+:const TopLine     	0               # top line of breakout
+:const BottomLine  	31              # bottom line of breakout
+:const LeftSide    	0               # left side of game area
+:const RightSide   	63              # right side of game area
+:const BrickX      	34              # brick start
+:const BrickXCt    	7               # number of bricks across , x
+:const BrickYCt    	10              # and y
+:const BatX     		2               # bat x position
+:const Sound     		1               # 1 sound,0 nosound
+:const KeyUp     		1               # up key
+:const KeyDown     	4               # down key
+:const KeyStart    	7              	# start key
+
+: main
+	clear
+	Title
+: wstart
+	v0 := KeyStart                 		# wait for start
+	if v0 -key then jump wstart
+
+: Begin
+	v8 := 0                        		# score = 0
+	v7 := 3                        		# lives = 3
+	DrawBorder
+  InitBat
+  InitBall
+  DrawBricks
+  DrawScore
+  DrawLives
+	v0 := key
+: Loop
+	MoveBat
+  MoveBat
+  MoveBall
+  Collide
+	if va != 0 then jump Loop
+
+	vc := 1                        	# ball back out
+  DrawLives		                   	# dec lives
+  v7 += -1
+	DrawLives
+
+	v0 := 120                      	# wait 2 secs
+	delay := v0
+: wait
+	v0 := delay
+	if v0 != 0 then jump wait
+	
+	if v7 != 0 then jump Loop
+	DrawLives                   		# erase lives,we've finished
+
+: minus2
+	v0 := KeyStart
+	if v0 -key then jump minus2
+	jump Begin
+#	exit
+
+# ****************************************************************************
+# ***                         initialise the bat                           ***
+# ****************************************************************************
+: InitBat
+	v9 := 16
+	v0 := BatX
+	i := BatSpr
+	sprite v0 v9 5
+	;
+
+: BatSpr
+	0b10000000
+  0b10000000
+  0b10000000
+  0b10000000
+  0b10000000
+
+# ****************************************************************************
+# ***                            move the bat                              ***
+# ****************************************************************************
+: MoveBat
+	v0 := KeyUp
+	if v0 key then jump MoveUp
+	v0 := KeyDown
+	if v0 key then jump MoveDown
+	;
+	
+: MoveUp
+	v0 := v9	                  # move it up
+	v0 += -1
+	if v0 == TopLine then ;
+	jump MoveIt
+: MoveDown
+	v0 := v9
+	v0 += 1
+	if v0 == 27 then ;						# BottomLine-4
+	jump MoveIt
+: MoveIt
+	v1 := BatX                 		# redraw the graphic
+	i := BatSpr
+	sprite  v1 v9 5
+  sprite  v1 v0 5
+	v9 := v0                  		# do the move
+	;
+
+
+# ****************************************************************************
+# ***                      has the bat hit the ball                        ***
+# ****************************************************************************
+: Collide
+	v0 := va										# va (x) must be batx
+	v0 += -2
+	if v0 != 0 then ;
+	v0 := vb										# v0 = bally-baty
+	v0 -= v9
+	if vf == 0 then ;						# if bally < baty exit
+	v1 := v0										# if v0 >= 5 exit
+	v2 := 5
+	v1 -= v2
+	if vf != 0 then ;
+	i := dirtab									# get the new y direction
+	i += v0											# out of the table
+	load v0
+	vd := v0
+	
+	if vb ==  1 then vd := 1			# TopLine+1
+	if vb == 30 then vd := -1			# BottomLine-1
+	
+	vc := 1												# bounce back out
+	v0 := 10											# 10*sound
+	buzzer := v0
+	;
+: dirtab -1 -1 0 1 1
+
+# ****************************************************************************
+# ***                    initialise the ball register                      ***
+# ****************************************************************************
+: InitBall
+	vb := random 30			# BottomLine-TopLine-1
+	vb += 1							# TopLine+1
+	va := 4
+	vc := 1
+	vd := 1
+	i := Pixel
+	sprite va vb 1
+	;
+
+
+# ****************************************************************************
+# ***                move the ball,bouncing off the walls                  ***
+# ***                       destroys v0,v1,v2,v3,v4                        ***
+# ****************************************************************************
+: MoveBall
+	v0 := va                   # save position in va,vb
+	v1 := vb
+	va += vc                   # work out new position
+	vb += vd
+	i := Pixel									# bounce off the walls
+	if vb == 1	then vd := 1		# TopLine+1
+	if vb == 30 then vd := -1		# BottomLine-1
+	if va == 62 then vc := -1		# RightSide-1
+	if va == 0  then vc := 1		# DEBUGGING,NO LOSS OF BALL
+	
+	sprite v0 v1 1							# Draw the ball,delete old ball
+	sprite va vb 1
+	if vf == 0 then ;						# ball has hit something - stop
+	v0 := va										# if hit the bat,pass !
+	v1 := 33										# BrickX-1
+	v0 -= v1										# if < brickx forget it !
+	if vf == 0 then ;
+
+	v0 := va										# ball position in v0,v1
+	v1 := vb										# convert to ball coordinate
+	v0 += -34										# -BrickX
+	v1 += -1										# -TopLine-1
+	v2 := -1										# v2,v3 will be the ball location
+	v3 := -1										# in logical coordinates.
+	v4 := 3
+: div3x
+	v2 += 1											# divide v0 by 3
+	v0 -= v4
+	if vf != 0 then jump div3x
+: div3y
+	v3 += 1
+	v1 -= v4
+	if vf != 0 then jump div3y
+	v0 := v2										# v0,v1 contain the ball coords (log)
+	v1 := v3
+	v0 += v2										# convert them to physical coords
+	v0 += v2
+	v1 += v3
+	v1 += v3
+	v0 += BrickX
+	v1 += 1											# TopLine+1
+	i := Brick									# erase the brick
+	sprite  v0 v1 3
+	ve += -1										# decrement bricks remaining counter
+	v0 := 0											# bounce the ball
+	vc =- v0
+	v0 := 2											# 2*sound
+	buzzer := v0
+	DrawScore               		# increment the score
+	v8 += 1
+	DrawScore
+	if ve != 0 then ;						# cleared the wall ?
+	DrawBricks									# redraw it
+	;
+
+# ****************************************************************************
+# ***                           Draw the border                            ***
+# ***                         destroys r0,r1,r2,i                          ***
+# ****************************************************************************
+: DrawBorder
+	clear                      			# start with a clear screen
+  v0 := LeftSide             			# (r0,r1) and (r0,r2) are start pos
+  v1 := TopLine              			# of the horizontal lines
+  v2 := BottomLine
+  i := Pixel
+: DBLoop 
+	sprite  v0 v1 1                 # draw the vertical lines
+  sprite  v0 v2 1
+  v0 += 1
+  if v0 != RightSide then jump DBLoop
+: DBLoop2
+	sprite  v0 v1 1                 # draw the horizontal lines
+  v1 += 1
+	if v1 != 32 then jump DBLoop2		# BottomLine+1
+	;
+: Pixel
+	0b10000000                			# pixel used for drawing walls.
+
+# ****************************************************************************
+# ***                        redraw all the bricks                         ***
+# ***                       destroys r0,r1,r2,r3,i                         ***
+# ****************************************************************************
+: DrawBricks
+	v1 := 1									# TopLine+1
+	v3 :=	BrickYCt
+	i := Brick
+: DBXLoop
+	v0 := BrickX
+	v2 := BrickXCt
+
+: DBXLp2
+	sprite v0 v1 3
+	v0 += 3
+	v2 += -1
+	if v2 != 0 then jump DBXLp2
+	v1 += 3
+	v3 += -1
+	if v3 != 0 then jump DBXLoop
+	ve := 70								# BrickXCt*BrickYCt
+	;
+	
+: Brick
+	0b11100000
+	0b10100000
+	0b11100000
+
+# ****************************************************************************
+# ***                       Draw the score (in r8)                         ***
+# ****************************************************************************
+: DrawScore
+	i := Temp
+	bcd v8
+	load v2
+	v3 := 3
+	v4 := 2												# TopLine+2
+	i := hex v0
+	sprite v3 v4 5
+	v3 += 5
+	i := hex v1
+	sprite v3 v4 5
+	v3 += 5
+	i := hex v2
+	sprite v3 v4 5
+	;
+: Temp 0 0 0
+
+# ****************************************************************************
+# ***                      draw the number of lives                        ***
+# ****************************************************************************
+: DrawLives
+	v0 := 20
+	v1 := 2												# TopLine+2
+	i := hex v7
+	sprite v0 v1 5
+	;
+
+# ****************************************************************************
+# ***                           draw the title                             ***
+# ****************************************************************************
+: Title
+	v0 := 10
+	v1 := 12
+	v2 := 9
+	v3 := 5
+	i := TitleSpr
+: TtlLoop
+	sprite v0 v1 5
+	i += v3
+	v0 += 5
+	v2 += -1
+	if v2 != 0 then jump TtlLoop
+	;
+	
+: TitleSpr
+	0b10010000
+	0b10010000
+	0b10010000
+	0b10010000
+	0b01100000
+
+	0b11100000
+	0b10010000
+	0b11100000
+	0b10010000
+	0b11100000
+
+	0b11100000
+	0b10010000
+	0b11100000
+	0b10010000
+	0b10010000
+	
+	0b00100000
+	0b00100000
+	0b00100000
+	0b00100000
+	0b00100000
+	
+	0b10010000
+	0b10010000
+	0b01100000
+	0b10010000
+	0b10010000
+
+	0b00000000
+	0b00000000
+	0b01100000
+	0b00000000
+	0b00000000
+	
+	0b11110000
+	0b10010000
+	0b11110000
+	0b10000000
+	0b10000000
+
+	0b11110000
+	0b10000000
+	0b11110000
+	0b00010000
+	0b11110000
+
+	0b11100000
+	0b10010000
+	0b11100000
+	0b10010000
+	0b10010000
+	
+	
