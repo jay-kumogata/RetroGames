@@ -1,0 +1,144 @@
+# coption binary
+# align off
+
+# v7: score
+# v8: trial
+# v9: x cord of ufo1
+# va: y cord of ufo2
+# ve: ミサイルを発射しているかフラグ
+
+: main
+	i := ufo1
+	v9 := 0x38
+	va := 0x08
+	sprite v9 va 3
+	i := ufo2
+	vb := 0x00
+	vc := 0x03
+	sprite vb vc 3
+	i := launcher
+	v4 := 0x1D
+	v5 := 0x1F
+	sprite v4 v5 1
+	v7 := 0x00
+	v8 := 0x0F
+	draw-score	
+: main-loop
+	draw-trial
+: gameover
+	if v8 == 0x00 then jump gameover
+	v4 := 0x1E
+	v5 := 0x1C
+	i := missile
+	sprite v4 v5 3
+	ve := 0x00
+: missile-loop
+	v6 := 0x80
+	vd := OCTO_KEY_Q
+	if vd key then v6 := 0xFF
+	vd := OCTO_KEY_W
+	if vd key then v6 := 0x00
+	vd := OCTO_KEY_E
+	if vd key then v6 := 0x01
+	if v6 != 0x80 then launch-missle
+: inner-loop
+	i := ufo2
+	sprite vb vc 3
+	vd := random 0x01
+	vb += vd
+	sprite vb vc 3
+	if vf != 0x00 then jump update-score-ufo2
+	i := ufo1
+	sprite v9 va 3
+	vd := random 0x01	
+	if vf != 0x00 then vd := 0xFF
+	v9 += 0xFE
+	sprite v9 va 3
+	if vf != 0x00 then jump update-score-ufo1
+	if ve == 0x00 then jump missile-loop
+	i := missile
+	sprite v4 v5 3
+	if v5 == 0x00 then jump update-trial
+	v5 += 0xFF
+	v4 += v6
+	sprite v4 v5 3
+	if vf != 0x01 then jump inner-loop
+	vd := 0x08
+	vd += v5
+	if vd == 0x08 then jump update-score-ufo1
+	jump update-score-ufo2
+
+: update-trial
+	draw-trial
+	v8 += 0xFF
+	jump main-loop
+: update-score-ufo1
+	draw-score
+	v7 += 0x05
+	jump update-score
+: update-score-ufo2
+	draw-score
+	v7 += 0x0F
+: update-score
+	draw-score
+	vd := 0x03
+	buzzer := vd
+	i := missile
+	sprite v4 v5 3
+	jump update-trial
+
+: draw-score
+	i := digits        	# LD   I,  digits as we cannot load an effective address
+	bcd v7
+	v3 := 0x00
+	draw-digits
+	return
+	
+: draw-trial
+	i := digits        	# LD   I,  digits as we cannot load an effective address
+	bcd v8
+	v3 := 0x32
+	draw-digits
+	return
+	
+: draw-digits
+	vd := 0x1B
+	load v2
+	i := hex v0
+	sprite v3 vd 5
+	v3 += 0x05
+	i := hex v1
+	sprite v3 vd 5
+	v3 += 0x05	
+	i := hex v2
+	sprite v3 vd 5
+	return
+	0x01
+	
+: ufo1
+	0x7C          #.11111..
+	0xFE          #1111111.
+	0x7C          #.11111..
+
+: ufo2
+	0x60          #.11.....
+	0xF0          #1111....
+	0x60          #.11.....
+
+: missile  
+	0x40          #.1......
+	0xE0          #111.....
+	0xA0          #1.1.....
+
+: launcher  
+	0xF8          #11111...
+	0xD4          #11..11..
+
+: launch-missle
+	ve := 0x01
+	vd := 0x10
+	buzzer := vd
+	return
+
+# storage for BCD decoding:
+: digits 0 0 0

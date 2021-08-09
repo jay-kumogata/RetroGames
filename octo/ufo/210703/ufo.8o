@@ -1,0 +1,136 @@
+# coption binary
+# align off
+
+: main
+	i := l2CD
+	v9 := 0x38
+	va := 0x08
+	sprite v9 va 3
+	i := l2D0
+  vb := 0x00
+	vc := 0x03
+	sprite vb vc 3
+	i := l2D6
+	v4 := 0x1D
+	v5 := 0x1F
+	sprite v4 v5 1
+	v7 := 0x00
+	v8 := 0x0F
+	l2A2	
+: l21E
+	l2AC
+: l222
+	if v8 == 0x00 then jump l222
+	v4 := 0x1E
+	v5 := 0x1C
+	i := l2D3
+	sprite v4 v5 3
+	ve := 0x00
+: l22E
+	v6 := 0x80
+	vd := 0x04
+	if vd key then v6 := 0xFF
+	vd := 0x05
+	if vd key then v6 := 0x00
+	vd := 0x06
+	if vd key then v6 := 0x01
+	if v6 != 0x80 then l2D8
+: l246
+	i := l2D0
+	sprite vb vc 3
+	vd := random 0x01
+	vb += vd
+	sprite vb vc 3
+	if vf != 0x00 then jump l292
+	i := l2CD
+	sprite v9 va 3
+	vd := random 0x01	
+	if vf != 0x00 then vd := 0xFF
+	v9 += 0xFE
+	sprite v9 va 3
+	if vf != 0x00 then jump l28C
+	if ve == 0x00 then jump l22E
+	i := l2D3
+	sprite v4 v5 3
+	if v5 == 0x00 then jump l286
+	v5 += 0xFF
+	v4 += v6
+	sprite v4 v5 3
+	if vf != 0x01 then jump l246
+	vd := 0x08
+	vd += v5
+	if vd == 0x08 then jump l28C
+	jump l292
+
+: l286
+	l2AC
+	v8 += 0xFF
+	jump l21E
+: l28C
+	l2A2
+	v7 += 0x05
+	jump l296
+: l292
+	l2A2
+	v7 += 0x0F
+: l296
+	l2A2
+	vd := 0x03
+	buzzer := vd
+	i := l2D3
+	sprite v4 v5 3
+	jump l286
+
+: l2A2
+	i := 0x2F8        # LD   I,  l2F8 as we cannot load an effective address
+	bcd v7
+	v3 := 0x00
+	l2B6
+	return
+	
+: l2AC
+	i := 0x2F8        # LD   I,  l2F8 as we cannot load an effective address
+	bcd v8
+	v3 := 0x32
+	l2B6
+	return
+	
+: l2B6
+	vd := 0x1B
+	load v2
+	i := hex v0
+	sprite v3 vd 5
+	v3 += 0x05
+	i := hex v1
+	sprite v3 vd 5
+	v3 += 0x05	
+	i := hex v2
+	sprite v3 vd 5
+	return
+	0x01
+	
+: l2CD
+	0x7C          #.11111..
+	0xFE          #1111111.
+	0x7C          #.11111..
+
+: l2D0
+	0x60          #.11.....
+	0xF0          #1111....
+	0x60          #.11.....
+
+: l2D3  
+	0x40          #.1......
+	0xE0          #111.....
+	0xA0          #1.1.....
+
+: l2D6  
+	0xF8          #11111...
+	0xD4          #11.1.1..
+
+: l2D8
+	ve := 0x01
+	vd := 0x10
+	buzzer := vd
+	return
+	
