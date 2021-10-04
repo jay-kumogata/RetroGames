@@ -1,0 +1,141 @@
+# Loads into the CHIP-8 emulator if there is no ROM/C8 specified0
+#
+# Written by Jeffrey Massung as an example0
+# Hack away and have fun!
+#
+
+: main
+	i := logo
+
+	# where to draw the logo
+	v0 := 11
+	v1 := 3
+	v2 := 7
+
+	# C
+	sprite	v0 v1 7
+	v0 += 7
+	i += v2
+
+	# H
+	sprite	v0 v1 7
+	v0 += 7
+	i += v2
+
+	# I
+	sprite	v0 v1 7
+	v0 += 7
+	i += v2
+
+	# P
+	sprite	v0 v1 7
+	v0 += 7
+	i += v2
+
+	# -
+	sprite	v0 v1 7
+	v0 += 5
+	i += v2
+
+	# 8
+	sprite	v0 v1 7
+	i += v2
+
+	# move a ball around the board
+	i := ball
+
+	# randomly pick a starting location
+	v0 := random 0x3f
+	v1 := random 0x1f
+
+	# initial direction of travel
+	v2 := 1
+	v3 := 1
+
+	# draw the initial ball
+	sprite	v0 v1 1
+
+	# update 30 times per second
+: myloop
+	v4 := 2
+	delay := v4
+: mywait
+	v4 := delay
+	if  v4 != 0 then jump mywait
+
+	# erase the ball
+	sprite	v0 v1 1
+
+	# move it
+	v0 += v2
+	v1 += v3
+
+	# draw it again in the new position
+	sprite	v0 v1 1
+
+	# is it at the top?
+	if v1 == 0 then v3 := 1
+
+	# is it at the bottom?
+	if v1 == 0x1f then v3 := -1
+
+	# is it at the left?
+	if v0 == 0 then v2 := 1
+
+	# is it at the right?
+	if v0 == 0x3f then v2 := -1
+
+	# repeat forever
+	jump	  myloop
+
+: ball
+	0b10000000
+
+: logo
+	0b01111000
+	0b11001100
+	0b11000000
+	0b11000000
+	0b11000000
+	0b11001100
+	0b01111000
+
+	0b11001100
+	0b11001100
+	0b11001100
+	0b11111100
+	0b11001100
+	0b11001100
+	0b11001100
+
+	0b11111100
+	0b00110000
+	0b00110000
+	0b00110000
+	0b00110000
+	0b00110000
+	0b11111100
+
+	0b11111000
+	0b11001100
+	0b11001100
+	0b11111000
+	0b11000000
+	0b11000000
+	0b11000000
+
+	0b00000000
+	0b00000000
+	0b00000000
+	0b11110000
+	0b00000000
+	0b00000000
+	0b00000000
+
+	0b01111000
+	0b11001100
+	0b11001100
+	0b01111000
+	0b11001100
+	0b11001100
+	0b01111000

@@ -1,0 +1,34 @@
+: main
+	i := registers
+	load v4
+	clear
+	loop
+		loop
+			vf := delay
+			if vf != 0 then
+		again
+		vf := 6
+		delay := vf
+		
+		scroll-down 4
+		vf := random 63
+		i := rock
+		sprite vf v2 5
+		if v3 key then v0 -= 3
+		if v4 key then v0 += 3
+		i := ship
+		sprite v0 v1 3
+		if vf == 0 then
+	again
+	vf := key
+	jump main
+	
+: registers
+	32
+	28
+	 0
+	:byte OCTO_KEY_A
+	:byte OCTO_KEY_D
+	
+: ship 0x20 0x70 0xF8
+: rock 0x70 0xD8 0xE8 0xB8 0x70

@@ -1,0 +1,87 @@
+# Octojam8サンプルを改造(StarForce風のキャラクタに変更)
+# ひたすら隕石をよける(dodge)ゲーム(2021年10月02日)
+
+: main
+	# レジスタを初期化
+	i := registers
+	load v4
+
+	hires
+	clear
+
+	# 宇宙船表示: あたり判定後にループ
+	i := ship
+	sprite v0 v1 8
+
+	# メインループ
+	loop
+	
+		# ディレイループ: 1周する時間が一定になるように待つ
+		loop
+			vf := delay
+			if vf != 0 then
+		again
+		vf := 10
+		delay := vf
+		
+		vf := random 7
+		if vf == 0 begin
+			# 岩表示: 乱数で表示位置を決める
+			ve := random 127
+			i := pyramid
+			sprite ve v2 8		
+		end
+		if vf == 1 begin
+			# 岩表示: 乱数で表示位置を決める
+			ve := random 127
+			i := dome
+			sprite ve v2 8		
+		end	
+		
+
+		# 宇宙船消去
+		i := ship
+		sprite v0 v1 8
+							
+		# 宇宙船移動
+		if v3 key then v0 -= 4
+		if v4 key then v0 += 4
+
+		# スクロールダウン: 宇宙船の高さ(4ピクセル)以上が必要
+		scroll-down 2
+		
+		# 宇宙船表示: あたり判定後にループ
+		i := ship
+		sprite v0 v1 8
+		
+		if vf == 0 then
+	again
+
+	# ゲームオーバー: キーを押すと再ゲーム
+	vf := key
+	jump main
+	
+: registers
+	64
+	48
+	 0
+	:byte OCTO_KEY_A
+	:byte OCTO_KEY_D
+
+# 宇宙船
+: ship 0x18 0x3C 0x24 0x76 0xE5 0xFE 0xBD 0x18
+#: ship 0x54 0xD6 0xBA 0xD6
+#: ship 0x14 0x36 0x2A 0x36
+#: ship 0x2A 0x6B 0x5D 0x6B 
+# 岩
+: rock 0x3C 0x7A 0xFD 0xFA 0xF5 0xE8 0x91 0x42 0x14
+#: rock 0x36 0x2A 0x36 0x14
+#: rock 0x60 0xD0 0xB0 0x60
+#: rock 0x18 0x2C 0x3C 0x18
+#: rock 0xD6 0xBA 0xD6 0x54
+
+: pyramid
+0x55 0xAA 0xD4 0xE8 0xF0 0xE8 0xD4 0xAA 0x55 
+
+: dome
+0x3C 0x7A 0xFD 0xFA 0xF5 0xE8 0x91 0x42 0x14
