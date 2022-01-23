@@ -1,0 +1,208 @@
+#########################################################
+#
+# Breakout (Brix hack) [David Winter, 1997]
+# digitally remastered by Jay Kumogata.
+#
+# Dec. 20, 2021 (ver.1) Decompiled from binary file[1]
+# Jan. 22, 2022 (ver.2) renamed labels and subroutines
+#
+# [1] Breakout (Brix hack) [David Winter, 1997].ch
+#
+##########################################################
+
+# Registers
+# --------- 
+# v0-v4	are scratch registers
+# v5	Score
+# v6	X coord. of ball
+# v7	Y coord. of ball
+# v8	X direction of ball motion
+# v9	Y direction of ball motion
+# vC	X coord. of paddle
+# vD	Y coord. of paddle
+# vE	Number of balls
+# vF	collision detection
+
+: main
+	vE := 0x05
+	v5 := 0x00
+	
+	# Draw block lines (vA: X coord. / vB: Y coord.)
+	vB := 0x06
+	loop
+		vA := 0x00
+		loop
+			i := block
+			sprite vA vB 0x01
+			vA += 0x04
+			if vA != 0x40 then
+		again
+		vB += 0x02
+		if vB != 0x12 then
+	again
+
+	# Draw paddle(vC: X coord.  / vD: Y coord.)
+	vC := 0x20
+	vD := 0x1F
+	i := paddle
+	sprite vC vD 0x01
+	draw-score
+
+	v0 := 0x00
+	v1 := 0x00
+	i := balls
+	sprite v0 v1 0x01
+	v0 += 0x08 
+	i := ball
+	sprite v0 v1 0x01
+
+	# Main loop
+	loop
+		# Delay loop( 0x40 x 1/60 sec. )
+		v0 := 0x40
+		delay := v0
+		loop
+			v0 := delay
+			if v0 != 0x00 then
+		again
+
+		# Ball creation
+		v6 := random 0b00001111
+		v7 := 0x1E
+		v8 := 0x01
+		v9 := 0xFF
+		i := ball
+		sprite v6 v7 0x01
+
+		# Game loop
+		loop
+			i := paddle
+			sprite vC vD 0x01
+
+			# Key input
+			v0 := 0x07		# A
+			if v0 key then
+			vC += 0xFE
+			v0 := 0x09		# D
+			if v0 key then
+			vC += 0x02
+			v0 := 0x3F
+			vC &= v0
+			sprite vC vD 0x01
+
+			# Erase ball, Update coord., Draw ball
+			i := ball
+			sprite v6 v7 0x01
+			v6 += v8
+			v7 += v9
+			v0 := 0x3F
+			v6 &= v0
+			v1 := 0x1F
+			v7 &= v1
+			if v7 == 0x1F then
+			jump bottom-line
+: return-point
+			if v6 == 0x00 then	# Left end?
+			v8 := 0x01
+			if v6 == 0x3F then	# Right end?
+			v8 := 0xFF
+			if v7 == 0x00 then	# Upper end?
+			v9 := 0x01
+			sprite v6 v7 0x01
+			if vF != 0x01 then	# Ball doesn't hit anything
+			jump contine
+			if v7 == 0x1F then	# Lower end?
+			jump contine
+			v0 := 0x05
+			v0 -= v7
+			if vF != 0x00 then	# Higher than 5th line? ( When number of balls and score is hit. )
+			jump contine
+			v0 := 0x01		# When ball hits block
+			buzzer := v0
+			v0 := v6
+			v1 := 0xFC
+			v0 &= v1
+			i := block
+			sprite v0 v7 0x01
+			v0 := 0xFE
+			v9 ^= v0		# Flip up and down
+			draw-score
+			v5 += 0x01
+			draw-score
+			if v5 == 0x60 then	# Clear stage
+			jump game-over
+: contine
+		again
+: bottom-line
+		v9 := 0xFF
+		v0 := v6
+		v0 -= vC
+		if vF != 0x01 then
+		jump miss
+		v1 := 0x02
+		v0 -= v1
+		if vF != 0x01 then
+		jump paddle-left			# When it hits left side of paddle
+		v0 -= v1
+		if vF != 0x01 then
+		jump paddle-center		# When it hits center of paddle
+		v0 -= v1
+		if vF != 0x01 then
+		jump paddle-right		# When it hits right side of paddle
+: miss
+		v0 := 0x20
+		buzzer := v0
+		i := ball
+		vE += 0xFF
+		v0 := vE
+		v0 += v0
+		v1 := 0x00
+		sprite v0 v1 0x01
+		if vE != 0x00 then
+	again
+	loop
+: game-over
+	again
+: paddle-left
+	v8 += 0xFF
+	if v8 == 0xFE then
+	v8 := 0xFF
+	jump paddle-center
+: paddle-right
+	v8 += 0x01
+	if v8 == 0x02 then
+	v8 := 0x01
+: paddle-center
+	v0 := 0x04
+	buzzer := v0
+	v9 := 0xFF
+	jump return-point
+
+# Draw score
+: draw-score
+	i := score
+	bcd v5
+	load v2
+	i := hex v1
+	v3 := 0x37
+	v4 := 0x00
+	sprite v3 v4 0x05
+	v3 += 0x05 
+	i := hex v2
+	sprite v3 v4 0x05
+	return
+
+: block
+	0xF0 0x00 
+
+: ball
+	0x80 0x00
+
+: paddle
+	0xFC 0x00
+
+: balls
+	0xAA 0x00
+
+: score
+	0x00 0x00 0x00 0x00

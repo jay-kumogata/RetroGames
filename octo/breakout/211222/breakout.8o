@@ -1,0 +1,178 @@
+# decompiled program:
+
+: main
+	vE := 0x05
+	v5 := 0x00
+	
+	# ブロック列を表示 (x座標: vA / y座標: vB)
+	vB := 0x06
+	loop
+		vA := 0x00
+		loop
+			i := block
+			sprite vA vB 0x01
+			vA += 0x04
+			if vA != 0x40 then
+		again
+		vB += 0x02
+		if vB != 0x12 then
+	again
+
+	# パドルを表示(x座標: vC / y座標: vD)
+	vC := 0x20
+	vD := 0x1F
+	i := paddle
+	sprite vC vD 0x01
+	draw-score
+
+	v0 := 0x00
+	v1 := 0x00
+	i := balls
+	sprite v0 v1 0x01
+	v0 += 0x08 # result is always 0x08
+	i := ball
+	sprite v0 v1 0x01
+
+	# メインループ
+	loop
+		# ディレイループ
+		v0 := 0x40
+		delay := v0
+		loop
+			v0 := delay
+			if v0 != 0x00 then
+		again
+		v6 := random 0b00001111
+		v7 := 0x1E
+		v8 := 0x01
+		v9 := 0xFF
+		i := ball
+		sprite v6 v7 0x01
+
+		# 
+		loop
+			i := paddle
+			sprite vC vD 0x01
+			v0 := 0x04
+			if v0 key then
+			vC += 0xFE
+			v0 := 0x06
+			if v0 key then
+			vC += 0x02
+			v0 := 0x3F
+			vC &= v0
+			sprite vC vD 0x01
+			i := ball
+			sprite v6 v7 0x01
+			v6 += v8
+			v7 += v9
+			v0 := 0x3F
+			v6 &= v0
+			v1 := 0x1F
+			v7 &= v1
+			if v7 == 0x1F then
+			jump label-7
+: label-5
+			if v6 == 0x00 then
+			v8 := 0x01
+			if v6 == 0x3F then
+			v8 := 0xFF
+			if v7 == 0x00 then
+			v9 := 0x01
+			sprite v6 v7 0x01
+			if vF != 0x01 then
+			jump label-6
+			if v7 == 0x1F then
+			jump label-6
+			v0 := 0x05
+			v0 -= v7
+			if vF != 0x00 then
+			jump label-6
+			v0 := 0x01
+			buzzer := v0
+			v0 := v6
+			v1 := 0xFC
+			v0 &= v1
+			i := block
+			sprite v0 v7 0x01
+			v0 := 0xFE
+			v9 ^= v0
+			draw-score
+			v5 += 0x01
+			draw-score
+			if v5 == 0x60 then
+			jump label-9
+: label-6
+		again
+: label-7
+		v9 := 0xFF
+		v0 := v6
+		v0 -= vC
+		if vF != 0x01 then
+		jump label-8
+		v1 := 0x02
+		v0 -= v1
+		if vF != 0x01 then
+		jump label-10
+		v0 -= v1
+		if vF != 0x01 then
+		jump label-12
+		v0 -= v1
+		if vF != 0x01 then
+		jump label-11
+: label-8
+		v0 := 0x20
+		buzzer := v0
+		i := ball
+		vE += 0xFF
+		v0 := vE
+		v0 += v0
+		v1 := 0x00
+		sprite v0 v1 0x01
+		if vE != 0x00 then
+	again
+	loop
+: label-9
+	again
+: label-10
+	v8 += 0xFF
+	if v8 == 0xFE then
+	v8 := 0xFF
+	jump label-12
+: label-11
+	v8 += 0x01
+	if v8 == 0x02 then
+	v8 := 0x01
+: label-12
+	v0 := 0x04
+	buzzer := v0
+	v9 := 0xFF
+	jump label-5
+
+: draw-score
+	i := score
+	bcd v5
+	load v2
+	i := hex v1
+	v3 := 0x37
+	v4 := 0x00
+	sprite v3 v4 0x05
+	v3 += 0x05 # result is always 0x3C
+	i := hex v2
+	sprite v3 v4 0x05
+	return
+
+: block
+	0xF0 0x00 
+
+: ball
+	0x80 0x00
+
+: paddle
+	0xFC 0x00
+
+: balls
+	0xAA 0x00
+
+: score
+	0x00 0x00 0x00 0x00
