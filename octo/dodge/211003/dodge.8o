@@ -2,10 +2,9 @@
 # 
 # Dodge game for Chip8 (based on a Octojam8 sample)
 # 
-# Operate the solvalou and avoid the domes and pyramids.
+# Operate the ship and avoid the rocks.
 # 
 # Sep 11, 2021 ver.1 (changed to StarForce-like character)
-# Oct 02, 2021 ver.2 (changed to Xevious-like character)
 #
 #############################################################
 
@@ -13,13 +12,11 @@
 	# Initialize registers
 	i := registers
 	load v4
-
-	hires
 	clear
 
-	# Draw solvalou
-	i := solvalou
-	sprite v0 v1 8
+	# Draw ship
+	i := ship
+	sprite v0 v1 4
 
 	# Main loop
 	loop
@@ -32,34 +29,28 @@
 		vf := 10
 		delay := vf
 		
-		vf := random 7
+		vf := random 3
 		if vf == 0 begin
-			# Draw pyramid: Determine position with random numbers
-			ve := random 127
-			i := pyramid
-			sprite ve v2 8		
-		end
-		if vf == 1 begin
-			# Draw dome: Determine position with random numbers
-			ve := random 127
-			i := dome
-			sprite ve v2 8
+			# Draw rock: Determine position with random numbers
+			ve := random 63
+			i := rock
+			sprite ve v2 4		
 		end
 		
-		# Erase solvalou
-		i := solvalou
-		sprite v0 v1 8
+		# Erase ship
+		i := ship
+		sprite v0 v1 4
 							
-		# Move solvalou
-		if v3 key then v0 -= 4
-		if v4 key then v0 += 4
+		# Move ship
+		if v3 key then v0 -= 2
+		if v4 key then v0 += 2
 
 		# Scroll down 
-		scroll-down 2
+		scroll-down 1
 		
-		# Draw solvalou: Loop after hit judgment
-		i := solvalou
-		sprite v0 v1 8
+		# Draw ship: Loop after hit judgment
+		i := ship
+		sprite v0 v1 4
 		
 		if vf == 0 then
 	again
@@ -69,18 +60,12 @@
 	jump main
 	
 : registers
-	64
-	48
-	 0
+	32
+	28
+	0
 	:byte OCTO_KEY_A
 	:byte OCTO_KEY_D
 
 # Character patterns
-: solvalou 
-0x18 0x3C 0x24 0x76 0xE5 0xFE 0xBD 0x18
-
-: pyramid
-0x55 0xAA 0xD4 0xE8 0xF0 0xE8 0xD4 0xAA 0x55 
-
-: dome
-0x3C 0x7A 0xFD 0xFA 0xF5 0xE8 0x91 0x42 0x14
+: ship 0x2A 0x6B 0x5D 0x6B 
+: rock 0x60 0xD0 0xB0 0x60
