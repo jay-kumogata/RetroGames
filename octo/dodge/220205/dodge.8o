@@ -6,16 +6,14 @@
 # 
 # Sep 11, 2021 ver.1 (change to StarForce-like characters)
 # Oct 02, 2021 ver.2 (change to Xevious-like characters)
-# Feb 04, 2022 ver.3 (change to 4-color characters)
-# Feb 26, 2022 ver.4 (added Xevious-like title music and bgm)
-# Mar 09, 2022 ver.5 (added AndorGenesis-like character)
+# Feb 04, 2022 ver.3 (cnange to 4-color characters)
 #
 #############################################################
 
 : main
 	# Initialize registers
 	i := registers
-	load v5
+	load v4
 
 	hires
 	clear
@@ -28,11 +26,9 @@
 	i := solvalou2
 	sprite v0 v1 8
 
-	# Play title music
-	melody-1
-
 	# Main loop
 	loop
+	
 		# Delay loop: Wait for one loop to be a certain time
 		loop
 			vf := delay
@@ -40,14 +36,8 @@
 		again
 		vf := 10
 		delay := vf
-	
-		# BGM
-		v5 += 1
-		vf := 15
-		vf &= v5
-		melody-2
-
-		vf := random 15
+		
+		vf := random 31
 		if vf == 0 begin
 			# Draw pyramid: Determine position with random numbers
 			ve := random 127
@@ -70,7 +60,7 @@
 		end
 		
 		#  Andor Genesis
-		vf := random 255
+		vf := random 127
 		if vf == 0 begin
 			# Draw dome: Determine position with random numbers
 			ve := random 127
@@ -81,7 +71,7 @@
 			i := ag2
 			sprite ve v2 0
 		end		
-
+		
 		# Erase solvalou
 		plane 1
 		i := solvalou1
@@ -105,7 +95,7 @@
 		plane 2
 		i := solvalou2
 		sprite v0 v1 8
-			
+		
 		if vf == 0 then
 	again
 
@@ -119,7 +109,6 @@
 	 0
 	:byte OCTO_KEY_A
 	:byte OCTO_KEY_D
-	0
 
 # Character patterns
 
@@ -144,7 +133,7 @@
 : ag1
 	0x1F 0xD8 0x3F 0xDC 0x7F 0x9E 0xE7 0x3F 
 	0xE7 0x7D 0xF9 0xDB 0xF9 0xF7 0xFE 0x5F 
-  0xE6 0x5F 0xCF 0xFB 0x1A 0x59 0xFF 0xFC 
+  	0xE6 0x5F 0xCF 0xFB 0x1A 0x59 0xFF 0xFC 
 	0xFD 0xFE 0x7B 0x9E 0x37 0xCC 0x1F 0xE0 
 
 : ag2 
@@ -152,57 +141,3 @@
 	0x9D 0xB1 0x6B 0x82 0x36 0x46 0x0C 0x3C
 	0x1C 0x38 0x32 0x4C 0xE9 0x9E 0x19 0xA3 
 	0x61 0xE1 0x03 0x60 0x06 0x30 0x18 0x18
-
-# Music data 
-
-: melody-1  
-	F-4 --- --- --- --- C-4 F-4 A-4 C-5 A-4 --- F-4
-	G-4 --- G-4 G-4 --- D-4 D-4 --- G-4 F-4 --- E-4
-	F-4 --- --- --- --- C-4 F-4 A-4 C-5 A-4 --- F-4
-	F$4 --- F$4 F$4 --- F-4 --- --- --- --- --- --- ;
-
-:macro nth N NOTE { if vf == N then NOTE }
-
-: melody-2
-	nth  0 C-4 nth  1 C-5 nth  2 B-4 nth  3 C-5 nth  4 E-5 nth  5 C-5 nth  6 B-4 nth  7 C-5 
-	nth  8 C-4 nth  9 C-5 nth 10 A$4 nth 11 C-5 nth 12 E-5 nth 13 C-5 nth 14 A$4 nth 15 C-5 
-	;
-	
-: ---
-	i := silence
-	jump play
-: note
-	pitch := vf
-	i := waveform
-: play
-	audio
-	vf     := 8   # actual note duration
-	delay  := vf
-	vf     := 60  # prevent background flicker
-	buzzer := vf
-	loop
-		vf := delay
-		if vf != 0 then
-	again
-	;
-
-:macro def-note NAME PITCH { : NAME vf := PITCH jump note }
-def-note E-5 179
-def-note C-5 163
-def-note B-4 159
-def-note A$4 155
-def-note A-4 151
-def-note G$4 147
-def-note G-4 143
-def-note F$4 139
-def-note F-4 135
-def-note E-4 131
-def-note D$4 127
-def-note D-4 123
-def-note C$4 119
-def-note C-4 115
-
-: waveform  0x00 0x00 0xFF 0xFF 0x00 0x00 0xFF 0xFF 0x00 0x00 0xFF 0xFF 0x00 0x00 0xFF 0xFF
-: silence   0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00
-
-# --------------------------------------------------
