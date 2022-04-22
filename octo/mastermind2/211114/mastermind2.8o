@@ -1,0 +1,194 @@
+##################################################################################
+#
+# 5 Row Mastermind (Robert Lindley, 1978)
+# digitally remasterd by Jay Kumogata on Nov. 14, 2021.
+#
+# Nov. 14, 2021 (ver.1) Decompiled from the source in the article[1]
+# 
+# [1] R. Lindley: 5 Row Mastermind, Viper Vol.1 Issue7, pp.22-26 (Feb. 1978).
+# 
+##################################################################################
+
+: main
+	hires
+	jump main2
+
+	        0 0 0 0 0 0 0 0 0 0 0 0 # 0x200
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 # 0x210
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 # 0x220
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 # 0x230
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 # 0x240
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 # 0x250
+
+: main2
+	i := dash
+	vD := 0x00
+	loop
+		vE := 0x00
+		loop
+			sprite vD vE 0x03
+			vE += 0x07
+			if vE != 0x23 then
+		again
+		vD += 0x06
+		if vD != 0x3C then
+	again
+	i := ans
+	vC := 0x00
+	loop
+		v0 := random 0b00000111
+		save v0
+		vC += 0x01
+		if vC != 0x05 then
+	again
+	vD := 0x00
+	vE := 0x00
+	vC := 0x00
+	loop
+		i := ans
+		load v4
+		save v4
+		vB := 0x00
+		loop
+			loop
+				loop
+					v0 := key
+					if v0 != 0x0F then
+					jump save-input
+: cancel-loop
+					if vB == 0x00 then
+				again
+				
+				vE += 0xF9
+				i := in
+				vB += 0xFF
+				i += vB
+				load v0
+				i := hex v0
+				sprite vD vE 0x05
+				i := dash
+				sprite vD vE 0x03
+				jump cancel-loop
+: save-input
+				vA := 0xF8
+				vA += v0
+				if vF != 0x00 then
+			again
+			i := dash
+			sprite vD vE 0x03
+			i := in
+			i += vB
+			save v0
+			i := hex v0
+			sprite vD vE 0x05
+			vE += 0x07
+			vB += 0x01
+			if vB != 0x05 then
+		again
+		v4 := 0x00
+		v8 := 0x00
+		vB := 0x00
+		loop
+			i := in
+			i += vB
+			load v0
+			v2 := v0
+			i := copy
+			i += vB
+			load v0
+			v3 := v0
+			bar-sr
+			i := in
+			i += vB
+			v0 := v2
+			save v0
+			i := copy
+			i += vB
+			v0 := v3
+			save v0
+			vB += 0x01
+			if vB != 0x05 then
+		again
+		if v8 != 0x05 then
+		jump white-bar-test
+		loop
+: show-answer
+			vE := 0x00
+			vD := 0x3C
+			v9 := 0x00
+			loop
+				i := ans
+				i += v9
+				load v0
+				i := hex v0
+				sprite vD vE 0x05
+				vE += 0x07
+				v9 += 0x01
+				if v9 != 0x05 then
+			again
+			v0 := 0x20
+			delay := v0
+			loop
+				v0 := delay
+				if v0 != 0x00 then
+			again
+		again
+: white-bar-test
+		v4 := 0x01
+		vA := 0x00
+		loop
+			vB := 0x00
+			i := in
+			i += vA
+			load v0
+			v2 := v0
+			loop
+				i := copy
+				i += vB
+				load v0
+				v3 := v0
+				bar-sr
+				i := copy
+				i += vB
+				v0 := v3
+				save v0
+				vB += 0x01
+				if vB != 0x05 then
+			again
+			vA += 0x01
+			if vA != 0x05 then
+		again
+		vD += 0x06
+		vE := 0x00
+		vC += 0x01
+		if vC != 0x0A then
+	again
+	jump show-answer
+
+
+: dotted-bar
+	0x90
+: white-bar
+	0xF0
+: dash
+	0x00
+	0x00
+	0x60
+	0x00
+
+: bar-sr
+	if v2 != v3 then
+	return
+	i := dotted-bar
+	if v4 != 0x00 then
+	i := white-bar
+	sprite vD vE 0x01
+	vE += 0x03
+	v8 += 0x01
+	v2 := 0x0E
+	v3 := 0x0F
+	return
+
+: ans 0 0 0 0 0
+: copy 0 0 0 0 0
+: in 0 0 0 0 0

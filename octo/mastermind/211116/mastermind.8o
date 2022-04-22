@@ -1,0 +1,215 @@
+##################################################################################
+#
+# 4 Row Mastermind (Robert Lindley, 1978)
+# remasterd by Jay Kumogata on Nov. 10, 2021.
+#
+# Nov. 06, 2021 (ver.1) Decompiled from binary file[1]
+# Nov. 10, 2021 (ver.2) Annotate from information in this article[2]
+# Nov. 16, 2021 (ver.3) Changed to pixel fonts
+#
+# [1] Mastermind FourRow (Robert Lindley, 1978).ch8
+# [2] R. Lindley: 5 Row Mastermind, Viper Vol.1 Issue7, pp.22-26 (Feb. 1978).
+# 
+##################################################################################
+
+: main
+	i := dash											# Point to dash
+	vD := 0x00										# Display X to leftend  
+	loop
+		vE := 0x00									# Display Y to top
+		loop
+			sprite vD vE 0x03					# Show dash
+			vE += 0x06   							# Move Y down
+			if vE != 0x18 then				# Stop at 4th dash
+		again	      	      				# Do next dash down  
+		vD += 0x06									# Move X right  
+		if vD != 0x3C then					# Stop at 10th dash
+	again        	      					# Do next column of dashes
+	
+	i := ans											# ANS (answer) location
+	random-no-sr									# Get another #	
+	random-no-sr									# Get another #	
+	random-no-sr									# Get another #	
+	random-no-sr									# Get another #	
+
+	vD := 0x00										# Display X to leftend
+	vE := 0x00										# Display Y to top
+	
+	vC := 0x00										# 10 try loop counter	
+	loop
+		i := ans										# ANS location
+		load v3											# Get four # from ANS
+		save v3											# Put in working COPY of ANS 
+		vB := 0x00									# Counter for 4 inputs
+		loop
+			loop
+				loop
+					loop
+						v0 := key						# Key -> V0
+						if v0 != 0x0F then	# Test for cancel signal - Key F
+						jump save-input  		# Bypass input cancel
+: cancel-loop
+						if vB == 0x00 then	# End of input cancel
+					again	      	      	# Exit - alldone  
+					vE += 0xFA						# Backup display Y  
+					i := in								# IN (input) location
+					vB += 0xFF						# Decrement loop counter
+					i += vB								# Add array offset
+					load v0								# Recover previous input
+					char-sr
+					sprite vD vE 0x05			# Erase previous input
+					i := dash    					# dash location
+					sprite vD vE 0x03			# Return dash to display
+					jump cancel-loop			# Continue cancel loop
+: save-input
+					vA := 0xF9						# -7
+					vA += v0							# Add to key value
+					if vF != 0x00 then		# Test for key < 7
+				again										# 
+				if v0 == 0x00 then			# Test for key = 0
+			again
+			
+			i := dash									# Dash location
+			sprite vD vE 0x03					# Erase dash
+			i := in										# IN location
+			i += vB										# Loop count is IN array offset
+			save v0										# Input key to IN array		
+			char-sr
+			sprite vD vE 0x05					# Show input value
+			vE += 0x06								# Move down
+			vB += 0x01								# Incr. input loop count
+			if vB != 0x04 then
+		again
+		
+		v4 := 0x00									# V4 signal for dotted bar
+		v8 := 0x00									# V8 correct count for this try
+		vB := 0x00									# "Test for correct" loop counter
+		loop
+			i := in										# IN location
+			i += vB										# Loop count is array offset
+			load v0										# Get next IN #
+			v2 := v0									# Move to V2
+			i := copy									# COPY location
+			i += vB										# array offset
+			load v0										# Get COPY #
+			v3 := v0									# Move to V3
+			bar-sr										# Call Bar subroutine	
+			i := in										# IN location
+			i += vB										# array offset
+			v0 := v2
+			save v0										# Save ( possibly modified ) IN #
+			i := copy									# COPY location
+			i += vB										# array offset
+			v0 := v3									 
+			save v0										# Save 	( possibly modified ) COPY #
+			vB += 0x01								# Incr. loop indexs
+			if vB != 0x04 then				# Are all 4 rows tested
+		again	      	      				# continue testing       
+		if v8 != 0x04 then					# If all correct - end of game
+		jump white-bar-test					# Branch to white bar test
+
+	: show-answer
+		loop
+			vE := 0x00								# Display to top - Show Answer
+			vD := 0x3C								# Display to right end
+			v9 := 0x00								# Answer loop count
+			loop				
+				i := ans								# ANS location
+				i += v9									# array offset
+				load v0									# Get next ANS #
+				char-sr
+				sprite vD vE 0x05				# Show ANS #
+				vE += 0x06							# Move down
+				v9 += 0x01							# Incr. loop count
+				if v9 != 0x04 then			# Stop at 4 numbers
+			again											# Get more #
+			v0 := 0x20								# Blink time
+			delay := v0								# Set timer
+			loop
+				v0 := delay							# Test timer
+				if v0 != 0x00 then			# Test timer
+			again											# Test timer
+		again												# End of blink answer loop
+		
+: white-bar-test
+		v4 := 0x01									# V4 white bar signal
+		vA := 0x00									# IN loop index - outer loop
+		loop												
+			vB := 0x00								# COPY loop index - inner loop	
+			i := in										# IN location
+			i += vA										# array offset
+			load v0										# Get IN #
+			v2 := v0
+			loop
+				i := copy								# COPY location
+				i += vB									# array offset
+				load v0									# Get COPY #
+				v3 := v0
+				bar-sr									# Call Bar subroutine
+				i := copy								# COPY location
+				i += vB									# array offset
+				v0 := v3
+				save v0									# Save ( possibly modified ) COPY #
+				vB += 0x01							# Incr. COPY loop index
+				if vB != 0x04 then			# Test for 4 iterations
+			again											# continue loop
+			vA += 0x01								# Incr. IN loop index
+			if vA != 0x04 then				# Test for 4 iterations
+		again												# continue loop	
+		vD += 0x06									# Move to next column
+		vE := 0x00									# Move to top row
+		vC += 0x01									# Incr. TRY loop
+		if vC != 0x0A then					# Is this the 10th try?
+	again													# Process next try
+	jump show-answer							# Done - Go to show answer
+
+: dotted-bar
+	0x90													# Dotted bar 
+: white-bar
+	0xF0													# White bar
+: dash
+	0x00 0x20 0x60 0x00 					# Dash
+
+: random-no-sr
+	loop
+		loop
+			v0 := random 0b00000111		# Random # 0 through 7
+			if v0 == 0x00 then				# V0 = 0 ?   
+		again												# YES - Again
+		if v0 == 0x07 then					# V0 = 7 ? 
+	again													# YES - Again
+	save v0												# Put # in ANS array
+	return												# Return
+
+: bar-sr
+	if v2 != v3 then							# V2 = V3 ?
+	return	    									# NO - Just Return
+	i := dotted-bar								# Dotted bar location
+	if v4 != 0x00 then						# 0 in V4 means use dotted bar
+	i := white-bar								# White bar location
+	sprite vD vE 0x01							# Show bar
+	vE += 0x02   									# Move down  
+	v8 += 0x01										# Incr. correct count
+	v2 := 0x0E										# Cross out IN #
+	v3 := 0x0F										# Cross out COPY #
+	return												# Return
+
+: ans	0 0 0 0 									# ANS - answer
+: copy	0 0 0 0   							# COPY - copy of answer
+: in	0 0 0 0 									# IN - key input
+
+: char-sr
+	if v0 == 0x01 then i := one
+	if v0 == 0x02 then i := two
+	if v0 == 0x03 then i := three
+	if v0 == 0x04 then i := four
+	if v0 == 0x05 then i := five
+	if v0 == 0x06 then i := six
+	return
+
+: one 0x20 0x60 0xA0 0x20 0x20
+: two 0xE0 0x10 0x20 0x40 0xF0
+: three 0xE0 0x10 0x60 0x10 0xE0
+: four 0x30 0x50 0x90 0x70 0x10
+: five 0x70 0x80 0xE0 0x10 0xE0
+: six 0x60 0x80 0xE0 0x90 0x60 
