@@ -1,0 +1,45 @@
+// <Basicで描くフラクタル No.7>  マンデルブロート集合 プログラムA
+// http://imura.la.coocan.jp/40FractalCG/Mandel/mandel.html
+
+	screen 0, 640, 400							// SCREEN3:640×400
+	color 0,0,0 : boxf 0,0,640,400
+	kl=20										// KL:最大繰り返し回数
+	ks=700										// KS:複素平面の縦横の分割数
+	rs=-2.2 : re=0.5 : is=-1.35 : ie=1.35		// 複素平面の範囲:実部･虚部の始点と終点の入力
+	mr=640.0/(re-rs) : mi=400.0/(ie-is)			// 描画領域に座標系を導入する
+	dr=(re-rs)/ks : di=(ie-is)/ks				// DR,DI:実部と虚部の増分
+	cr=rs : repeat ks							// CR:複素定数(C)の実部 実軸方向のループ
+		ci=is : repeat ks						// CI:複素定数(C)の虚部 虚軸方向のループ
+			zr=0.0 : zi=0.0						// ZR,ZI:複素変数(Z)の実部と虚部 初期値を代入
+			k=0									// K:繰り返し計算の回数のカウント変数
+*l120											// ----複素関数f(Z)の計算----			
+			k=k+1								// 繰り返し計算のカウント
+			if k>kl : goto *l230				// その点(C)がMB集合に含まれると判断して次の点に進む
+			r=zr*zr-zi*zi+cr					// R:f(Z)=Z*Z+A の実部
+			i=2.0*zr*zi+ci						// I:f(Z)=Z*Z+A の虚部
+			if (r*r+i*i)>4.0 : goto *l200		// Znが発散したと判断して点(C)の表示処理に移る
+			zr=r : zi=i							// Znが発散したと判断されないとき繰り返し計算を続行
+			goto *l120							// 計算を繰り返す
+*l200											// ----点の表示処理----
+			col=k \ 7							// COL:点の表示色(0～6)を計算する
+
+			if col=3 : color 255,  0,  0
+			if col=1 : color   0,255,  0
+			if col=5 : color 255,255,  0
+			if col=0 : color   0,  0,255
+			if col=4 : color 255,  0,255
+			if col=2 : color   0,255,255
+			if col=6 : color 255,255,255	
+
+			col=k \ 16
+			color 16*k,16*k,16*(16-k)			// 青色と黄色のグラデーション
+			
+			
+			x=(cr*0.67-0.3-rs)*mr				// 実軸補正
+			y=(-ci-(-ie))*mi					// 虚軸補正
+			pset x,y							// 点(C)を色(1～7)で表示
+*l230
+		ci=ci+di : loop							// 虚軸方向のループを繰り返す
+	cr=cr+dr : loop								// 実軸方向のループを繰り返す
+*l250
+	stop
