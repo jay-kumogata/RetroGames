@@ -12,7 +12,7 @@ ___
 
 自機が円だったので三角形に変更しました．ミサイル発射と同時に向きを変えるように改造しました．prelude.atan2を使うとなぜかうまくいきました．点数はダミーで表示しています．monadchip8と違いmonadを使わないpureなasteroid実装です．数式というか，経過時間に応じて状態が変化するシミュレータという感じでしょうか．
 
-![](https://github.com/jay-kumogata/Nostalgia/blob/main/asteroids/screenshots/asteroids01.png)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/haskell/asteroids/screenshots/asteroids01.png)
 
 ### 2021-04-29
 
@@ -20,7 +20,7 @@ emacs環境を整えて，haskell modeを最新化しました．.emacs.d/init.e
 
 ダミー表示だった点数はちゃんと表示するようにしました．ただ，ミサイルを撃つ度に点数が増えるロジックにしたので，どんどん点数が増える変なゲームになりました．
 
-![](https://github.com/jay-kumogata/Nostalgia/blob/main/asteroids/screenshots/asteroids02.png)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/haskell/asteroids/screenshots/asteroids02.png)
 
 ### 2021-04-30
 
@@ -56,7 +56,7 @@ Atari社Asteroidsのhaskell実装の続きです．点数ロジックを追加�
 
 ### 2021-05-02
 
-真夜中に目が覚めてしまったので，少しウォーキングをしました．9月まではコードを書くのをやめることにしました（禁コーディングです）．ということで，ここまでの[成果](https://github.com/jay-kumogata/Nostalgia/tree/main/asteroids)をgithubに上げました．[アステロイド開発記](https://github.com/jay-kumogata/Nostalgia/wiki/210427_AsteroidsNote)もwikiに上げました．そして，ステイホーム連休もDAY2になりました．
+真夜中に目が覚めてしまったので，少しウォーキングをしました．9月まではコードを書くのをやめることにしました（禁コーディングです）．ということで，ここまでの[成果](https://github.com/jay-kumogata/RetroGames/tree/main/haskell/asteroids)をgithubに上げました．[アステロイド開発記](https://github.com/jay-kumogata/RetroGames/blob/main/doc/210427_AsteroidsNote.md)もwikiに上げました．そして，ステイホーム連休もDAY2になりました．
 
 ### 2021-05-03
 
@@ -84,9 +84,9 @@ Atari社Asteroidsのhaskell実装の続きです．点数ロジックを追加�
 
 ### 2021-08-28
 
-アステロイド（アタリ社 / 1979年）のHaskell実装を少し改良しました．ゲーム黎明期の全方位シューティングです．クリックした方向にミサイルを発射して，隕石を分裂・消滅させていきます．隕石を分裂させたら100点，消滅させたら500点です．#アタリ #アステロイド #Haskell cf. https://github.com/jay-kumogata/Nostalgia/tree/main/asteroids
+アステロイド（アタリ社 / 1979年）のHaskell実装を少し改良しました．ゲーム黎明期の全方位シューティングです．クリックした方向にミサイルを発射して，隕石を分裂・消滅させていきます．隕石を分裂させたら100点，消滅させたら500点です．#アタリ #アステロイド #Haskell cf. https://github.com/jay-kumogata/RetroGames/tree/main/haskell/asteroids
 
-![](https://github.com/jay-kumogata/Nostalgia/blob/main/asteroids/screenshots/asteroids00.png)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/haskell/asteroids/screenshots/asteroids00.png)
 
 ___
 Copyright (c) 2021 Kumogata Jay. All Rights Reserved.
