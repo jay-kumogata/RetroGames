@@ -4,6 +4,8 @@
 
 PyxelChip8 is a Chip8 emulator that runs on Pyxel/Python library.
 
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/VBRIX02.gif)
+
 ## How to Play
 
 - (a) Install the Python3.8 (python-3.8.9.exe), which can be obtained from https://www.python.org/downloads/
