@@ -14,7 +14,7 @@ class PyxelChip8:
 
     # 0: white 1: yellow 2: blue 3: green
     # 4: red 5: default 6: pink 7: pale green
-    theme = 5
+    theme = 8
     
     # References
     _Sys = None
@@ -26,7 +26,7 @@ class PyxelChip8:
     # Constructor
     def __init__( self ):
         pyxel.init( self.width*self.pixel, self.height*self.pixel ,
-                    title="PyxelChip8 v0.1", fps=60)
+                    title="PyxelChip8 v0.1", fps=20)
         pyxel.load( "PyxelChip8.pyxres")
         
         # Create Chip8's System
