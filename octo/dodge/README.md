@@ -1,5 +1,17 @@
 # Dodge for CHIP-8
 
+## Introduction
+
+Dodge is an action game. Operate Solvalou and avoid enemy characters. 
+
+## How to Play
+
+You can play [in your browser](https://johnearnest.github.io/Octo/index.html?key=mo04OUlO).
+
+## How to Controll
+
+Operate Solvalou with the [A] / [D] key or the [<-] / [->] keys.
+
 ## Revisions
 
 ### Ver. 5
@@ -41,3 +53,13 @@ You can play [here](https://johnearnest.github.io/Octo/index.html?key=RjDV5jpJ)
 and operate it with the [A] / [D] key or the [<-] / [->] keys.
 
 <img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/dodge16.png" width="300">
+
+### Ver. 1
+
+I changed the character of Dodge introduced as a sample game in [Octojam8](https://itch.io/jam/octojam-8).
+I was conscious of the masterpiece Star Force of Tehkan (currently Koei Tecmo Games). 
+Avoid falling meteorites. 
+You can play [here](https://johnearnest.github.io/Octo/index.html?key=qRs0BFdX)
+and operate it with the [A] / [D] key or the [<-] / [->] keys.
+
+<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/dodge04.png" width="300">
