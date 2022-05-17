@@ -10,8 +10,8 @@ You can play [here](https://johnearnest.github.io/Octo/index.html?key=cXOhX6AA).
 
 ## How to Play
 
-Move Amabie (*1) left or right with the [A] or [D] key.
-Press [S] key to throw an Ofuda (*2) and release [S] key to rupture it. 
+Move Amabie left or right with the [A] / [D] key.
+Press [S] key to throw an Ofuda and release [S] key to rupture it. 
 Defeat incoming plagues that land in Japan.
 
 ## Explanation
