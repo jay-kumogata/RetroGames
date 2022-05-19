@@ -4,7 +4,7 @@
 
 "Hinamatsuri", also called Doll's Day or Girl's Day, is a religious festival in Japan 
 and celebrated on 3 March of each year.
-At "Hinamatsuri" festival, "Ohinasama" (honored palace officials and honored dolls) 
+At "Hinamatsuri" festival, "Ohinasama" (honored dolls and honored palace officials) 
 are displayed to celebrate the growth of girls.
 
 ## How to Play
@@ -48,6 +48,20 @@ You can play [here](https://johnearnest.github.io/Octo/index.html?key=AkMBvOSt).
 This is the 2nd version of drawing Ohinasama with XO-Chip/CHIP-8.
 I drew "Bonbori" (a traditional lighting equipment in Japan) and "Daiza" (a pedestal).
 It's becoming more like Ohinasama.
+"Kaioui" is a play of drawing pictures in clams and matching them like a memory game.
+There is a record of playing in the Heian period (710-1192 A.D.).
 You can play [here](https://johnearnest.github.io/Octo/index.html?key=paS5Dd9g).
 
 <img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/ohinasama11.png" width="300">
+
+### Ver. 1
+
+Since it's about to be "Hinamatsuri" (Doll's Day or Girl's Day),
+I tried to draw "Ohinanasama"  (honored dolls and honored palace officials) with XO-Chip/CHIP-8.
+It may be the first in the world. 
+At the next version, I might try to draw "Sanninkanjo" (three official women).
+This also prepare to make a game called "Kaioui".
+You can play [here](https://johnearnest.github.io/Octo/index.html?key=RaScBoUk).
+
+<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/ohinasama01.png" width="300">
+
