@@ -42,3 +42,12 @@ Since the sound function is also extended in XO-Chip, I will also try to add BGM
 You can play [here](https://johnearnest.github.io/Octo/index.html?key=AkMBvOSt).
 
 <img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/ohinasama21.png" width="300">
+
+### Ver. 2
+
+This is the 2nd version of drawing Ohinasama with XO-Chip/CHIP-8.
+I drew "Bonbori" (a traditional lighting equipment in Japan) and "Daiza" (a pedestal).
+It's becoming more like Ohinasama.
+You can play [here](https://johnearnest.github.io/Octo/index.html?key=paS5Dd9g).
+
+<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/ohinasama11.png" width="300">
