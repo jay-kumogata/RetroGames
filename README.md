@@ -25,3 +25,9 @@ Retrospective games and documents
 |18|2022-02-26|[dodge_v4](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge33.png" width="100">|
 |19|2022-03-06|[dodge_v5](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge43.png" width="100">|
 
+## Demo list
+
+|No.|Date|Title|Platform|Content|
+|---|----|----|---------|-------|
+|1|2020-10-18|[ball](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/ball)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/ball/screenshots/hsp01.png" width="100">|
+|2|2020-10-24|[mandel](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/mandel)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/mandel/screenshots/hsp03.png" width="100">|
