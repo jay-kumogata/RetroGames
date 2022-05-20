@@ -5,23 +5,23 @@ Retrospective games and documents
 
 |No.|Date|Title|Platform|Content|
 |---|----|----|---------|-------|
-|1|2021-03-08|[pong](https://github.com/jay-kumogata/RetroGames/tree/main/octo/pong)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/pong02.png" width="100">|
-|2|2021-03-20|[amabie](https://github.com/jay-kumogata/RetroGames/tree/main/octo/amabie)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/amabie03.png" width="100">|
-|3|2021-04-07|[vbrix](https://github.com/jay-kumogata/RetroGames/tree/main/octo/vbrix)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/vbrix03.png" width="100">|
-|4|2021-07-05|[ufo](https://github.com/jay-kumogata/RetroGames/tree/main/octo/ufo)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/ufo02.png" width="100">|
-|5|2021-08-14|[snake](https://github.com/jay-kumogata/RetroGames/tree/main/octo/snake)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/snake02.png" width="100">|
+|1|2021-03-08|[pong](https://github.com/jay-kumogata/RetroGames/tree/main/octo/pong)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/pong02.png" width="100">|
+|2|2021-03-20|[amabie](https://github.com/jay-kumogata/RetroGames/tree/main/octo/amabie)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/amabie03.png" width="100">|
+|3|2021-04-07|[vbrix](https://github.com/jay-kumogata/RetroGames/tree/main/octo/vbrix)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/vbrix03.png" width="100">|
+|4|2021-07-05|[ufo](https://github.com/jay-kumogata/RetroGames/tree/main/octo/ufo)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/ufo02.png" width="100">|
+|5|2021-08-14|[snake](https://github.com/jay-kumogata/RetroGames/tree/main/octo/snake)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/snake02.png" width="100">|
 |6|2021-08-28|[asteroids](https://github.com/jay-kumogata/RetroGames/tree/main/haskell/asteroids)|Haskell|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/haskell/asteroids/screenshots/asteroids02.png" width="100">|
-|7|2021-09-12|[dodge](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge03.png" width="100">|
-|8|2021-10-02|[dodge_v2](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|Octo/SChip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge15.png" width="100">|
-|9|2021-11-10|[mastermind(4row)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind103.png" width="100">|
-|10|2021-11-13|[mastermind(5row)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind2)|Octo/SChip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind213.png" width="100">|
-|11|2021-11-16|[mastermind(4row)_v2](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind113.png" width="100">|
-|12|2021-11-17|[mastermind(4row)_v3](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind123.png" width="100">|
-|13|2021-11-19|[mastermind(5row)_v2](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind2)|Octo/SChip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind223.png" width="100">|
-|14|2021-12-05|[lunarlander(new)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/lander)|Octo/SChip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/lander03.png" width="100">|
-|15|2021-12-12|[lunarlander(old)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/lander2)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/lander203.png" width="100">|
-|16|2022-01-21|[breakout](https://github.com/jay-kumogata/RetroGames/tree/main/octo/breakout)|Octo/Chip8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/breakout03.png" width="100">|
-|17|2022-02-04|[dodge_v3](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|Octo/XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge23.png" width="100">|
-|18|2022-02-26|[dodge_v4](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|Octo/XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge33.png" width="100">|
-|19|2022-03-06|[dodge_v5](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|Octo/XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge43.png" width="100">|
+|7|2021-09-12|[dodge](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge03.png" width="100">|
+|8|2021-10-02|[dodge_v2](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|SCHIP|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge15.png" width="100">|
+|9|2021-11-10|[mastermind(4row)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind103.png" width="100">|
+|10|2021-11-13|[mastermind(5row)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind2)|SCHIP|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind213.png" width="100">|
+|11|2021-11-16|[mastermind(4row)_v2](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind113.png" width="100">|
+|12|2021-11-17|[mastermind(4row)_v3](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind123.png" width="100">|
+|13|2021-11-19|[mastermind(5row)_v2](https://github.com/jay-kumogata/RetroGames/tree/main/octo/mastermind2)|SCHIP|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/mastermind223.png" width="100">|
+|14|2021-12-05|[lunarlander(new)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/lander)|SCHIP|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/lander03.png" width="100">|
+|15|2021-12-12|[lunarlander(old)](https://github.com/jay-kumogata/RetroGames/tree/main/octo/lander2)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/lander203.png" width="100">|
+|16|2022-01-21|[breakout](https://github.com/jay-kumogata/RetroGames/tree/main/octo/breakout)|CHIP-8|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/breakout03.png" width="100">|
+|17|2022-02-04|[dodge_v3](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge23.png" width="100">|
+|18|2022-02-26|[dodge_v4](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge33.png" width="100">|
+|19|2022-03-06|[dodge_v5](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge43.png" width="100">|
 
