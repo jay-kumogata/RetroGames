@@ -1,18 +1,11 @@
 # RetroGames
 Retrospective games and documents
 
-## Demo list
+## Emulator list
 
 |No.|Date|Title|Platform|Content|
 |---|----|----|---------|-------|
-|1|2020-10-18|[ball](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/ball)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/ball/screenshots/hsp01.png" width="100">|
-|2|2020-10-24|[mandel](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/mandel)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/mandel/screenshots/hsp03.png" width="100">|
-|3|2021-08-29|[clock](https://github.com/jay-kumogata/RetroGames/tree/main/octo/clock)|Chip8|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/clock03.png" width="100">|
-|4|2021-09-01|[maze](https://github.com/jay-kumogata/RetroGames/tree/main/octo/maze)|Chip8|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/maze02.png" width="100">|
-|5|2021-09-29|[boot](https://github.com/jay-kumogata/RetroGames/tree/main/octo/boot)|Chip8|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/boot02.png" width="100">|
-|6|2022-02-25|[ohinasama](https://github.com/jay-kumogata/RetroGames/tree/main/octo/ohinasama)|XO-Chip|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/ohinasama42.png" width="100">|
-|7|2022-05-01|[turing](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/turing)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/turing/screenshots/turing01.gif" width="100">|
-|8|2022-05-05|[pyxelchip8](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pyxelchip8)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/pyxelchip8/screenshots/VBRIX02.gif" width="100">|
+|1|2022-05-05|[pyxelchip8](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pyxelchip8)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/pyxelchip8/screenshots/VBRIX02.gif" width="100">|
 
 ## Game list
 
@@ -38,4 +31,14 @@ Retrospective games and documents
 |18|2022-02-26|[dodge_v4](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge33.png" width="100">|
 |19|2022-03-06|[dodge_v5](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge43.png" width="100">|
 
+## Demo list
 
+|No.|Date|Title|Platform|Content|
+|---|----|----|---------|-------|
+|1|2020-10-18|[ball](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/ball)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/ball/screenshots/hsp01.png" width="100">|
+|2|2020-10-24|[mandel](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/mandel)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/mandel/screenshots/hsp03.png" width="100">|
+|3|2021-08-29|[clock](https://github.com/jay-kumogata/RetroGames/tree/main/octo/clock)|Chip8|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/clock03.png" width="100">|
+|4|2021-09-01|[maze](https://github.com/jay-kumogata/RetroGames/tree/main/octo/maze)|Chip8|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/maze02.png" width="100">|
+|5|2021-09-29|[boot](https://github.com/jay-kumogata/RetroGames/tree/main/octo/boot)|Chip8|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/boot02.png" width="100">|
+|6|2022-02-25|[ohinasama](https://github.com/jay-kumogata/RetroGames/tree/main/octo/ohinasama)|XO-Chip|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/ohinasama42.png" width="100">|
+|7|2022-05-01|[turing](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/turing)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/turing/screenshots/turing01.gif" width="100">|
