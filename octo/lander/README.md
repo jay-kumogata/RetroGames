@@ -11,9 +11,10 @@ but the Apollo program's lunar lander simulator seems to be the original.
 
 ## How to play
 
-Operate the lunar module and land on the surface of the moon.  
+
 You can play [in your browser](https://johnearnest.github.io/Octo/index.html?key=jQyyYdGT).
 
 ## How to Controll
 
-Use the [W] / [A] / [D] keys to move up / left / right. 
+Use the [W] / [A] / [D] keys to move up / left / right.  
+Operate the lunar module and land on the surface of the moon.
