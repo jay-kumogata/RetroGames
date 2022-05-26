@@ -16,7 +16,7 @@ You can play [in your browser](https://johnearnest.github.io/Octo/index.html?key
 
 ## How to Controll
 
-Use the [W] / [A] / [D] keys or [up-arrow] / [left-arrow] / [right-arrow] keys to move up / left / right.  
+Use the [W] / [A] / [D] key or [up-arrow] / [left-arrow] / [right-arrow] key to move up / left / right.  
 Operate the lunar module and land on the surface of the moon.
 
 ## Explanation
