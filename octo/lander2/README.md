@@ -13,5 +13,5 @@ You can play [in your browser](https://johnearnest.github.io/Octo/index.html?key
 
 ## How to Controll
 
-After selecting the level with the [1]/[2]/[3] key, land the lunar landing ship on the lunar surface. 
-Press the [2]/[Q]/[E] key to move up/left/right.
+After selecting the level with the [1] / [2] / [3] key, land the lunar landing ship on the lunar surface. 
+Press the [2] / [Q] / [E] key to move up / left / right.
