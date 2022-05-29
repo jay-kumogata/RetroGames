@@ -1,8 +1,8 @@
-# Lunar Lander for CHIP-8
+# Lunar Lander (Jeffrey Massung / 2017) for CHIP-8
 
 ## Introduction
 
-[Lunar Lander](https://github.com/massung/CHIP-8/blob/master/games/sources/lander.c8) (Mr. Jeffrey Massung / 2017) was also reprinted in octo assembly language. 
+[Lunar Lander](https://github.com/massung/CHIP-8/blob/master/games/sources/lander.c8) (Jeffrey Massung / 2017) was also reprinted in octo assembly language. 
 This is a game where you operate a lunar module and land on the moon. 
 Lunar Lander (Atari / 1979) is a famous implementation, 
 but the Apollo program's lunar lander simulator seems to be the original. 
