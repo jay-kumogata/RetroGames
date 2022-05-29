@@ -2,19 +2,30 @@
 
 ## Introduction
 
-This is a game to guess 4 numbers from 1 to 6.
-If the number and position match, a dotted bar will be displayed at the bottom.
-If only the numbers match, a white bar will be displayed at the bottom.
+The 4 row version of mastermind is a game where you can guess 4 numbers from 1 to 6. 
+You can try 10 times. 
+If both the value and position of the number match, a "dotted bar" is displayed at the bottom, 
+and if only the value matches, a "white bar" is displayed at the bottom. 
+Please guess the 4 numbers referring to the hint.
 
 ## How to Play
 
-
-
 ## How to Controll
 
-The [1] / [2] / [3] / [Q] / [W] / [E] keys correspond to the numbers 1 / 2 / 3 / 4 / 5 / 6.
+Enter each numbers with the [1] / [2] / [3] / [Q] / [W] / [E] keys. 
+You can cancel the input with the [V] key. 
 
 ## Revisions
+
+### Ver.2
+
+I changed the number font of the 4 row version of mastermind to be a little fashionable. 
+I also made dice and mahjong tile versions, but I couldn't express them well with 4x5 pixels. 
+After all Mr. Dotman is great. 
+Next, let's make a slightly Japanese-style "Hanafuda" version.
+You can play [here](https://johnearnest.github.io/Octo/index.html?key=pBwOheiC).
+
+<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/mastermind113.png" width="300">
 
 ### Ver.1
 
