@@ -14,7 +14,7 @@ Move Amabie left or right with the [A] / [D] key.
 Press [S] key to throw an Ofuda and release [S] key to rupture it. 
 Defeat incoming plagues that land in Japan.
 
-## Explanation
+## Remarks
 
 This game has been developed by changing characters of Octo's [deep8](https://github.com/JohnEarnest/Octo/tree/gh-pages/examples).
 
