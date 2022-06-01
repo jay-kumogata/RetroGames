@@ -2,7 +2,6 @@
 
 ## Introduction
 
-I also ported [snake](https://github.com/massung/CHIP-8/blob/master/games/sources/snake.c8) to octo assembly language. 
 It is a famous game where you control a snake and eat food. 
 Each time you eat food, the snake grows longer. 
 
@@ -18,5 +17,6 @@ Use the [W] / [S] / [A] / [D] keys to move up / down / left / right.
 
 ## Remarks
 
+I also ported [snake](https://github.com/massung/CHIP-8/blob/master/games/sources/snake.c8) to octo assembly language. 
 Hustle (1977 / Gremlin) might be the original.
 At that time, there was a ported version of NEC's PC-8001.
