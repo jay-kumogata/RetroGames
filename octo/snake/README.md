@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I also copied [snake](https://github.com/massung/CHIP-8/blob/master/games/sources/snake.c8) to octo assembly language. 
+I also ported [snake](https://github.com/massung/CHIP-8/blob/master/games/sources/snake.c8) to octo assembly language. 
 It is a famous game where you control a snake and eat food. 
 Each time you eat food, the snake grows longer. 
 
