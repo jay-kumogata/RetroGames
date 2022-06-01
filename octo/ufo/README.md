@@ -13,7 +13,7 @@ You can play [in your browser](https://johnearnest.github.io/Octo/index.html?key
 
 ## How to Controll
 
-Use [4] ([Q] key), [5] ([W] key), and [6] ([E] key) to launch missiles to the right / up / left. 
+Use [Q] / [W] / [E] keys to launch missiles to the right / up / left. 
 
 ## Remarks
 
