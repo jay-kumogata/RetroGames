@@ -1,4 +1,4 @@
-# Snake for CHIP-8
+# UFO for CHIP-8
 
 ## Introduction
 
