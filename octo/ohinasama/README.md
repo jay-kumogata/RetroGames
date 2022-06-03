@@ -2,14 +2,16 @@
 
 ## Introduction
 
-"Hinamatsuri", also called Doll's Day or Girl's Day, is a religious festival in Japan 
-and celebrated on 3 March of each year.
-At "Hinamatsuri" festival, "Ohinasama" (honored dolls and honored palace officials) 
-are displayed to celebrate the growth of girls.
+It is a demo to celebrate "Hinamatsuri" by decorating "Ohinasama".
 
 ## How to Play
 
 You can play [in your browser](https://johnearnest.github.io/Octo/index.html?key=k3SV71pE).
+
+## Remarks
+
+"Hinamatsuri", also called Doll's Day or Girl's Day, is a religious festival in Japan and celebrated on 3 March of each year.
+At "Hinamatsuri" festival, "Ohinasama", honored dolls and honored palace officials, are decorated to celebrate the growth of girls.
 
 ## Revisions
 
