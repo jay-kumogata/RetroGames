@@ -18,7 +18,7 @@ Please execute the following from the Pyxel (version 1.7.0) environment.
 
 	> python turing.py
 
-## Explanation
+## Remarks
 
 Initially it starts from a random state. 
 As time goes by, you can see that an island is formed. 
