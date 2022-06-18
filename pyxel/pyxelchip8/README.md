@@ -13,8 +13,8 @@ PyxelChip8 is a CHIP-8 emulator that runs on Pyxel/Python library.
   - C> pip install pyxel
 - (c) Unzip the Chip8 Game Pack (c8games.zip) archive, which can be obtained from http://www.zophar.net/roms.phtml?op=show&type=chip8
 - (d) From the command line, run:
-  - C> python PyxelChip8.py <ROM file name>
-  - Example: C> python PyChip8.py c8games/VBRIX
+  - C> python PyxelChip8.py \<ROM file name\>
+  - Example: C> python PyxelChip8.py c8games/VBRIX
 - (e) Click [x] when finished
 
 ## How to control
