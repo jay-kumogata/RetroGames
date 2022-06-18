@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Chip8Mini is a CHIP-8 emulator that runs on Pyxel/Python library.
+Chip8mini is a CHIP-8 emulator that runs in the game cabinet.  
+The focus is on pixel art in game cabinets.
 
-
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/chip8mini09.gif">
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/chip8mini09.gif" width="120">
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/chip8mini08.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/chip8mini09.gif)
 
 ## How to Play
 
@@ -16,7 +16,7 @@ Chip8Mini is a CHIP-8 emulator that runs on Pyxel/Python library.
 - (c) Unzip the Chip8 Game Pack (c8games.zip) archive, which can be obtained from http://www.zophar.net/roms.phtml?op=show&type=chip8
 - (d) From the command line, run:
   - C> python PyxelChip8.py <ROM file name>
-  - Example: C> python PyChip8.py c8games/VBRIX
+  - Example: C> python PyChip8.py c8games/PONG
 - (e) Click [x] when finished
 
 ## How to control
