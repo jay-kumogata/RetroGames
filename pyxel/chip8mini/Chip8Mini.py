@@ -1,4 +1,4 @@
-# Chip8Mini v0.1: A CHIP8 emulator in Pyxel/Python
+# Chip8Mini v0.2: A CHIP8 emulator in Pyxel/Python
 # Copyright (c) 2022 Kumogata Computing Laboratory.
 # All Rights Reserved.
 
@@ -14,9 +14,9 @@ class Chip8Mini:
     cabinet_width = 80
     cabinet_height = 120
     
-    # 0: amabie 1: breakout 2: reserved 3: reserved
+    # 0: amabie 1: breakout 2: snakes 3: reserved
     # 4: reserved 5: reserved 6: reserved 7: reserved
-    theme = 1
+    theme = 2
     
     # References
     _Sys = None
@@ -28,11 +28,13 @@ class Chip8Mini:
     # Constructor
     def __init__( self ):
         pyxel.init( self.cabinet_width, self.cabinet_height,
-                    title="Chip8Mini v0.1", fps=20)
+                    title="Chip8Mini v0.2", fps=60)
         if self.theme == 0: 
             pyxel.load( "Amabie.pyxres")
         elif self.theme == 1: 
             pyxel.load( "Breakout.pyxres")
+        elif self.theme == 2: 
+            pyxel.load( "Snakes.pyxres")
             
         # Create Chip8's System
         self._Sys = System()
@@ -62,10 +64,14 @@ class Chip8Mini:
             for _x in range( self.width ) :
                 if ( self._Sys._PPU.PPU_GetPixel( _x, _y ) ) :
                     # Draw Rectangle
-                    pyxel.pset( _x+8,_y+24,13)
+                    pyxel.pset( _x+8,_y+24, 13)  # gray
+#                    pyxel.pset( _x+8,_y+24, 9)  # amber                    
+#                    pyxel.pset( _x+8,_y+24,10) # yellow
                 else :
                     # Draw None
-                    pyxel.pset( _x+8,_y+24,1)
+                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
+#                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
+#                    pyxel.pset( _x+8,_y+24, 9)  # amber
 
     # Original |1|2|3|C| Mapping to |1|2|3|4|
     #          |4|5|6|D|            |Q|W|E|R|
@@ -144,3 +150,6 @@ class Chip8Mini:
 
 # Main            
 Chip8Mini()
+
+# End of Chip8Mini.py
+

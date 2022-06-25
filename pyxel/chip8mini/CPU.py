@@ -55,7 +55,6 @@ class CPU:
                 if ( self.INST == 0x00E0 ) :
                     # 0x00E0 : Erase the Screen
                     self.parent._PPU.PPU_Erase()
-                    # self.parent._PPU.PPU_Blit()
 
                 elif ( self.INST == 0x00EE ) :
                     # 0x00EE : Return from a CHIP-8 subroutine
@@ -136,9 +135,12 @@ class CPU:
 
                 # 0x8XY6 : VX = VX SHR 1 ( VX = VX / 2 ), VF = Carry
                 elif ( _Z == 0x6 ) :
-                    self.V[ 0xF ] = self.V[ _X ] & 0x01
-                    self.V[ _X ] >>= 1
-                    
+                    if ( _X == 0xF ) :
+                        self.V[ 0xF ] = self.V[ _X ] & 0x01
+                    else :
+                        self.V[ 0xF ] = self.V[ _X ] & 0x01
+                        self.V[ _X ] >>= 1
+                        
                 # 0x8XY7 : VX = VY - VX, VF = Not Borrow
                 elif ( _Z == 0x7 ) :
                     self.V[ _X ] = self.V[ _Y ] - self.V[ _X ]
@@ -239,13 +241,15 @@ class CPU:
                 elif ( _ZZ == 0x55 ) :
                     # 0xFX55 : Save V0..VX in memory starting at M(I)
                     for _T in range( _X + 1 ) :
-                        self.CPU_Write( self.I + _T, self.V[ _T ] )
-
+                        self.CPU_Write( self.I, self.V[ _T ] )
+                        self.I += 1
+                        
                 elif ( _ZZ == 0x65 ) :
                     # 0xFX65 : Load V0..VX from memory starting at M(I)
                     for _T in range( _X + 1 ) :
-                        self.V[ _T ] = self.CPU_Read( self.I + _T )
-
+                        self.V[ _T ] = self.CPU_Read( self.I )
+                        self.I += 1
+                        
             #print ("PC:%04x,I:%04x,INST:%04x,SP:%04x" %(self.PC,self.I,self.INST,self.SP))
             #print ("V0:%02x,V1:%02x,V2:%02x,V3:%02x" %(self.V[0],self.V[1],self.V[2],self.V[3]))
             #print ("V4:%02x,V5:%02x,V6:%02x,V7:%02x" %(self.V[4],self.V[5],self.V[6],self.V[7]))

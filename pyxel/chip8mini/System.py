@@ -61,7 +61,12 @@ class System :
                 self._IO.Sound -= 1
 
             # Wait
-            time.sleep( 0.00425 )
+            time.sleep( 0.136 )            
+#            time.sleep( 0.068 )            
+#            time.sleep( 0.034 )
+#            time.sleep( 0.017 )
+#            time.sleep( 0.0085 )
+#            time.sleep( 0.00425 )
                 
     # ------------------------------------------------------------
     #   Finalize Resources
@@ -98,27 +103,5 @@ class System :
             # Failed
             return -1
             
-    # ------------------------------------------------------------
-    #   Blit
-    # ------------------------------------------------------------
-    # def Blit( self ):
-    #    print("Blit.\n")
-
-    # ------------------------------------------------------------
-    #   Point Set
-    # ------------------------------------------------------------
-    # def pset( self, x, y, c ):
-    #    x += 10
-    #    y += 10
-    #    white = (255, 255, 255)
-    #    black = (0, 0, 0)
-    #    rect = self.parent.Rect(x*3, y*3, 3, 3 )
-
-        # Draw rectangle
-    #    if ( c == 1 ):
-    #        self.parent.draw.rect( self._CRT, white, rect )
-    #    elif ( c == 0 ):
-    #        self.parent.draw.rect( self._CRT, black, rect )
-
 # End of System.py
 
