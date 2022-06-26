@@ -87,15 +87,4 @@ class PPU:
                     # XOR Mode
                     self.PPU_XorPixel( vx + x, vy + y, 1 )
 
-    # Blit screen
-    # def PPU_Blit( self ) :
-    #    for _y in range( self._HEIGHT ) :
-    #        for _x in range( self._WIDTH ) :
-    #            if ( self.PPU_GetPixel( _x, _y ) ) :
-    #                self.parent.pset( _x, _y, 1 )
-    #            else :
-    #                self.parent.pset( _x, _y, 0 )
-    #
-    #    self.parent.Blit()
-
 # End of PPU.py

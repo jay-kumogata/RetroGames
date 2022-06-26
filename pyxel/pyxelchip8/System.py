@@ -98,27 +98,4 @@ class System :
             # Failed
             return -1
             
-    # ------------------------------------------------------------
-    #   Blit
-    # ------------------------------------------------------------
-    # def Blit( self ):
-    #    print("Blit.\n")
-
-    # ------------------------------------------------------------
-    #   Point Set
-    # ------------------------------------------------------------
-    # def pset( self, x, y, c ):
-    #    x += 10
-    #    y += 10
-    #    white = (255, 255, 255)
-    #    black = (0, 0, 0)
-    #    rect = self.parent.Rect(x*3, y*3, 3, 3 )
-
-        # Draw rectangle
-    #    if ( c == 1 ):
-    #        self.parent.draw.rect( self._CRT, white, rect )
-    #    elif ( c == 0 ):
-    #        self.parent.draw.rect( self._CRT, black, rect )
-
 # End of System.py
-
