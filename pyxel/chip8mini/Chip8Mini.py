@@ -1,4 +1,4 @@
-# Chip8Mini v0.2: A CHIP8 emulator in Pyxel/Python
+# Chip8Mini v0.3: A CHIP8 emulator in Pyxel/Python
 # Copyright (c) 2022 Kumogata Computing Laboratory.
 # All Rights Reserved.
 
@@ -16,7 +16,7 @@ class Chip8Mini:
     
     # 0: amabie 1: breakout 2: snakes 3: mastermind
     # 4: reserved 5: reserved 6: reserved 7: reserved
-    theme = 2
+    theme = 3
     
     # References
     _Sys = None
@@ -28,7 +28,7 @@ class Chip8Mini:
     # Constructor
     def __init__( self ):
         pyxel.init( self.cabinet_width, self.cabinet_height,
-                    title="Chip8Mini v0.2", fps=60)
+                    title="Chip8Mini v0.3", fps=20)
         if self.theme == 0: 
             pyxel.load( "Amabie.pyxres")
         elif self.theme == 1: 
@@ -67,13 +67,13 @@ class Chip8Mini:
                 if ( self._Sys._PPU.PPU_GetPixel( _x, _y ) ) :
                     # Draw Rectangle
 #                    pyxel.pset( _x+8,_y+24, 13)  # gray
-#                    pyxel.pset( _x+8,_y+24, 9)  # amber                    
-                    pyxel.pset( _x+8,_y+24,10) # yellow
+                    pyxel.pset( _x+8,_y+24, 9)  # amber                    
+#                    pyxel.pset( _x+8,_y+24,10)  # yellow
                 else :
                     # Draw None
 #                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
-#                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
-                    pyxel.pset( _x+8,_y+24, 9)  # amber
+                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
+#                    pyxel.pset( _x+8,_y+24, 9)  # amber
 
     # Original |1|2|3|C| Mapping to |1|2|3|4|
     #          |4|5|6|D|            |Q|W|E|R|
