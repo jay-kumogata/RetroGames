@@ -61,9 +61,9 @@ class System :
                 self._IO.Sound -= 1
 
             # Wait
-            time.sleep( 0.136 )            
+#            time.sleep( 0.136 )            
 #            time.sleep( 0.068 )            
-#            time.sleep( 0.034 )
+            time.sleep( 0.034 )
 #            time.sleep( 0.017 )
 #            time.sleep( 0.0085 )
 #            time.sleep( 0.00425 )

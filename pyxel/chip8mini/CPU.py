@@ -119,8 +119,8 @@ class CPU:
                 elif ( _Z == 0x4 ) :
                     self.V[ _X ] += self.V[ _Y ]
                     if ( self.V[ _X ] & 0x100 ) :
-                        self.V[ 0xF ] = 1
                         self.V[ _X ] &= 0xFF
+                        self.V[ 0xF ] = 1
                     else:
                         self.V[ 0xF ] = 0
 
@@ -128,8 +128,8 @@ class CPU:
                 elif ( _Z == 0x5 ) :
                     self.V[ _X ] -= self.V[ _Y ]
                     if ( self.V[ _X ] < 0 ) :
-                        self.V[ 0xF ] = 0
                         self.V[ _X ] += 0x100
+                        self.V[ 0xF ] = 0
                     else:
                         self.V[ 0xF ] = 1
 
@@ -145,8 +145,8 @@ class CPU:
                 elif ( _Z == 0x7 ) :
                     self.V[ _X ] = self.V[ _Y ] - self.V[ _X ]
                     if ( self.V[ _X ] < 0 ) :
-                        self.V[ 0xF ] = 0
                         self.V[ _X ] += 0x100
+                        self.V[ 0xF ] = 0
                     else:
                         self.V[ 0xF ] = 1
 
@@ -154,8 +154,8 @@ class CPU:
                 elif ( _Z == 0xE ) :
                     self.V[ _X ] <<= 1
                     if ( self.V[ _X ] & 0x100 ) :
-                        self.V[ 0xF ] = 1
                         self.V[ _X ] &= 0xFF
+                        self.V[ 0xF ] = 1
                     else:
                         self.V[ 0xF ] = 0
 
