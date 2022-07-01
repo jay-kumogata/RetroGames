@@ -8,6 +8,7 @@ The focus is on pixel art in game cabinets.
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Amabie08.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Breakout01.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Snake01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Mastermind01.gif)
 
 ## How to Play
 
