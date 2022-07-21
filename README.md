@@ -43,3 +43,4 @@ Retrospective games and documents
 |5|2021-09-29|[boot](https://github.com/jay-kumogata/RetroGames/tree/main/octo/boot)|Chip8|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/boot02.png" width="100">|
 |6|2022-02-25|[ohinasama](https://github.com/jay-kumogata/RetroGames/tree/main/octo/ohinasama)|XO-Chip|<img src="https://github.com/jay-kumogata/Nostalgia/raw/main/octo/screenshots/ohinasama42.png" width="100">|
 |7|2022-05-01|[turing](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/turing)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/turing/screenshots/turing01.gif" width="100">|
+|8|2022-07-21|[nixie](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/nixie)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/nixie/screenshots/Nixie01.gif" width="100">|
