@@ -6,7 +6,7 @@ Retrospective games and documents
 |No.|Date|Title|Platform|Content|
 |---|----|----|---------|-------|
 |1|2022-05-05|[pyxelchip8](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pyxelchip8)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/pyxelchip8/screenshots/VBRIX02.gif" width="100">|
-|2|2022-06-18|[chip8mini](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/chip8mini)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Amabie08.gif" width="100"> <img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Breakout01.gif" width="100"> <img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Snake02.gif" width="100"> <img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Mastermind01.gif" width="100">|
+|2|2022-06-18|[chip8mini](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/chip8mini)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Amabie08.gif" width="100"> <img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Breakout01.gif" width="100"> <img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Snake02.gif" width="100"> <img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Mastermind01.gif" width="100"> <img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/chip8mini/screenshots/Neon01.gif" width="100">|
 
 ## Game list
 
