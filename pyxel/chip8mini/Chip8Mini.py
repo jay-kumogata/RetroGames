@@ -15,8 +15,8 @@ class Chip8Mini:
     cabinet_height = 120
     
     # 0: amabie 1: breakout 2: snakes 3: mastermind
-    # 4: reserved 5: reserved 6: reserved 7: reserved
-    theme = 3
+    # 4: neon 5: reserved 6: reserved 7: reserved
+    theme = 4
     
     # References
     _Sys = None
@@ -37,6 +37,8 @@ class Chip8Mini:
             pyxel.load( "Snakes.pyxres")
         elif self.theme == 3: 
             pyxel.load( "Mastermind.pyxres")
+        elif self.theme == 4: 
+            pyxel.load( "Neon.pyxres")
             
         # Create Chip8's System
         self._Sys = System()
@@ -67,14 +69,19 @@ class Chip8Mini:
                 if ( self._Sys._PPU.PPU_GetPixel( _x, _y ) ) :
                     # Draw Rectangle
 #                    pyxel.pset( _x+8,_y+24, 13)  # gray
-                    pyxel.pset( _x+8,_y+24, 9)  # amber                    
+#                    pyxel.pset( _x+8,_y+24, 9)  # amber                    
 #                    pyxel.pset( _x+8,_y+24,10)  # yellow
+#                    pyxel.pset( _x+8,_y+24, 8)  # magenta pink
+                    pyxel.pset( _x+8,_y+24, 12) # light blue
                 else :
                     # Draw None
 #                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
-                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
+#                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
 #                    pyxel.pset( _x+8,_y+24, 9)  # amber
+#                    pyxel.pset( _x+8,_y+24, 0)  # black
+                    pyxel.pset( _x+8,_y+24, 1)  # dark blue
 
+                    
     # Original |1|2|3|C| Mapping to |1|2|3|4|
     #          |4|5|6|D|            |Q|W|E|R|
     #          |7|8|9|E|            |A|S|D|F|
