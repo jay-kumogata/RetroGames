@@ -257,4 +257,15 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Neon01.gif)
 
+### 2022-08-16
+
+2022年5月頃に，Pyxelの練習を兼ねて，Turingパターンデモを作りました．
+その時には，「FitzHugh-Nagumoモデル」を利用したのですが，「Gray-Scottモデル」という方程式系のデモも作ってみました．
+デモの途中で，「ミャクミャク様」のようなパターンも現れます．少し気持ちが悪いです．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/grayscott/screenshots/grayscott_spots01.gif" width="256">
+
+なお，書籍「作って動かすALife - 実装を通した人工生命モデル理論入門」の[サンプルコード](https://github.com/alifelab/alife_book_src/tree/master/chap02)を参考にさせていただきました．
+
+
 以上
