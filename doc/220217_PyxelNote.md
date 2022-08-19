@@ -267,5 +267,12 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 
 なお，書籍「作って動かすALife - 実装を通した人工生命モデル理論入門」の[サンプルコード](https://github.com/alifelab/alife_book_src/tree/master/chap02)を参考にさせていただきました．
 
+### 2022-08-17
+
+「Gray-Scottモデル」に与える初期条件を変えると，現れるパターンも変わってきます．
+初期条件でバクテリアVと餌Uを配置して，時間経過でバクテリアVがどう増えてくかと考えると分かりやすいかも（本当かな）．
+これは「さまよえる泡（Wandering Bubbles）」という名称みたいです．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/grayscott/screenshots/grayscott_wanderingbubbules01.gif" width="256">
 
 以上
