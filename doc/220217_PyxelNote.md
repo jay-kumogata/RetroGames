@@ -275,4 +275,13 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/grayscott/screenshots/grayscott_wanderingbubbules01.gif" width="256">
 
+### 2022-09-11
+
+今週は，「マンデルブロ集合」を表示させてみました．
+ズームインとズームアウトも作ってみました．
+大昔に博物館で観たCGデモをイメージしてみましたが，少し違う気がします．
+Pyxel 1.7.0を利用しています．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mandelbrot/screenshots/mandelbrot01.gif)
+
 以上
