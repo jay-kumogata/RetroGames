@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 # Pyxelを使ってMandelbrot集合を表示(2022.09.11)
 # 「morikomorou’s blog
 # 【python】matplotlibでフラクタル図形(マンデルブロ集合)を描く」を参考にしました．
 # https://mori-memo.hateblo.jp/entry/2022/02/08/012422
 
+# -*- coding: utf-8 -*-
 import numpy as np
 import pyxel
 
@@ -17,7 +17,7 @@ im_v = .1
 
 def mandelbrot(max, comp):
     re, im = comp[0], comp[1]
-    #実部がre、虚部がimの複素数を作成
+    #実部がre，虚部がimの複素数を作成
     c = complex(re, im)
 
     #Z_nの初項は0
