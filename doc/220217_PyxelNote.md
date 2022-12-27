@@ -51,32 +51,6 @@ Chip8版のキャラクタ(数字等)が，6x6ピクセルなので3倍弱に拡
 Chip8の画面(64x32ピクセル)は，3倍に拡大して，192x96ピクセルで初期化しました．
 画面設計は完了です．
 
-### 2022-05-01
-
-Alan Turingという数学者がいます．
-彼の大きな業績としては，Turing Machine(計算モデル)，Turing Test(人工知能)，Turing Bombe(暗号解読)が有名です．
-そして，晩年のあまり知られていない業績として，Turing Pattern(セルオートマトン)もあります．
-とある偏微分方程式を数値的に解くと，自然界で見られる模様が現れるというものです(産業的な応用は現時点では不明です)．
-[Python実装](https://ipython-books.github.io/124-simulating-a-partial-differential-equation-reaction-diffusion-systems-and-turing-patterns/)があるので，練習も兼ねて，Pyxelで表示させてみました．
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/turing/screenshots/turing01.gif)
-
-最初はランダムな状態から開始されています．
-時間が経過していくと，島ができてくるのが分かります．
-Pyxelでは，パレットが固定されているので，ヒートマップのような表示はできません．
-ここでは，負の値は暗い色で，正の値は明るい色で表示されるように工夫しました．
-しかしながら，計算機が遅い時代に手で計算してたAlan Turingは，やはり天才です．
-
-Turing Patternsを表示するには，いろいろなモデルがあるようです．
-ここでは，元東京大学教授の南雲仁一氏が考案した「FitzHugh–Nagumoモデル」を利用しています．
-他にも，「Gray-Scottモデル」等があるようですが，Pyxelの練習ですでので，これ以上は深入りしないことにします．
-
-### 2022-05-02
-
-[Github Wiki](https://github.com/jay-kumogata/RetroGames/wiki/220217_PyxelNote)の方にも転載しました．
-また，[ソースコード](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/turing)も上げました．
-一連のtweetsは，絵的には美しくないので，しばらくしたら削除すると思います(ナウシカのセリフではありませんが)．
-
 ### 2022-05-05
 
 15年以上前に書いたPython版Chip8エミュレータ([PyChip8](https://github.com/jay-kumogata/PyChip8))をPyxelで書き直しました．
@@ -256,32 +230,5 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 この物質的な発展が無限に続くような，そんな楽観的な空気感が伝わるように描きました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Neon01.gif)
-
-### 2022-08-16
-
-2022年5月頃に，Pyxelの練習を兼ねて，Turingパターンデモを作りました．
-その時には，「FitzHugh-Nagumoモデル」を利用したのですが，「Gray-Scottモデル」という方程式系のデモも作ってみました．
-デモの途中で，「ミャクミャク様」のようなパターンも現れます．少し気持ちが悪いです．
-
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/grayscott/screenshots/grayscott_spots01.gif" width="256">
-
-なお，書籍「作って動かすALife - 実装を通した人工生命モデル理論入門」の[サンプルコード](https://github.com/alifelab/alife_book_src/tree/master/chap02)を参考にさせていただきました．
-
-### 2022-08-17
-
-「Gray-Scottモデル」に与える初期条件を変えると，現れるパターンも変わってきます．
-初期条件でバクテリアVと餌Uを配置して，時間経過でバクテリアVがどう増えてくかと考えると分かりやすいかも（本当かな）．
-これは「さまよえる泡（Wandering Bubbles）」という名称みたいです．
-
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/grayscott/screenshots/grayscott_wanderingbubbules01.gif" width="256">
-
-### 2022-09-11
-
-今週は，「マンデルブロ集合」を表示させてみました．
-ズームインとズームアウトも作ってみました．
-大昔に博物館で観たCGデモをイメージしてみましたが，少し違う気がします．
-Pyxel 1.7.0を利用しています．
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mandelbrot/screenshots/mandelbrot01.gif)
 
 以上
