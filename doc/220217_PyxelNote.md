@@ -231,4 +231,11 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Neon01.gif)
 
+### 2023-02-13
+
+年末年始に，Pyxel版Chip8エミュレータ（PyxelChip8） を少し改良しました．週末にソースコードを少し整理しました．
+後楽園球場の電光掲示版を意識したテーマを追加しています．David Winter氏の有名なINVADERSを動かしてみました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif)
+
 以上
