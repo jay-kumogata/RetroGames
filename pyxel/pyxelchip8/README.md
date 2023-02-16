@@ -4,7 +4,7 @@
 
 PyxelChip8 is a CHIP-8 emulator that runs on Pyxel/Python library.
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif" width="300">
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif" width="300"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif" width="300">
 
 ## How to Play
 
