@@ -238,4 +238,10 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif)
 
+### 2023-02-17
+
+緑と桃色のテーマも追加してみました．いわゆるブロック崩し（BRIX）を動かしてみました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif)
+
 以上
