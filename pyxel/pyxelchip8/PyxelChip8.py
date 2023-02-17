@@ -15,7 +15,8 @@ class PyxelChip8:
     # 0: white 1: yellow 2: blue 3: green
     # 4: red 5: default 6: pink 7: pale green
     # 8: default 9: orange sign 10: green sign
-    theme = 9
+    # 11: green and pink 12: gray and pink
+    theme = 11
     
     # References
     _Sys = None
