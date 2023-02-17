@@ -240,7 +240,7 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 
 ### 2023-02-17
 
-緑と桃色のテーマも追加してみました．いわゆるブロック崩し（BRIX）を動かしてみました．
+桃の節句に因んで，緑と桃色のテーマも追加してみました．いわゆるブロック崩し（BRIX）を動かしてみました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif)
 
