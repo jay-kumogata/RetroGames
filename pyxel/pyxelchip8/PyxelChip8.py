@@ -1,4 +1,4 @@
-# PyxelChip8 v0.2: A CHIP8 emulator in Pyxel/Python
+# PyxelChip8 v0.3: A CHIP8 emulator in Pyxel/Python
 # Copyright (c) 2022,2023 Kumogata Computing Laboratory.
 # All Rights Reserved.
 
@@ -28,7 +28,7 @@ class PyxelChip8:
     # Constructor
     def __init__( self ):
         pyxel.init( self.width*self.pixel, self.height*self.pixel ,
-                    title="PyxelChip8 v0.2", fps=30)
+                    title="PyxelChip8 v0.3", fps=30)
         pyxel.load( "PyxelChip8.pyxres")
         
         # Create Chip8's System
