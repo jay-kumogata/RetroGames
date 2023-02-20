@@ -234,14 +234,21 @@ Chip8Miniの第5弾として，今週はネオン管を使った筐体デザイ�
 ### 2023-02-13
 
 年末年始に，Pyxel版Chip8エミュレータ（PyxelChip8） を少し改良しました．週末にソースコードを少し整理しました．
-後楽園球場の電光掲示版を意識したテーマを追加しています．David Winter氏の有名なINVADERSを動かしてみました．
+後楽園球場の電光掲示版を意識したテーマを追加しています．David Winter氏の有名なINVADERS.ch8を動かしてみました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif)
 
 ### 2023-02-17
 
-桃の節句に因んで，緑と桃色のテーマも追加してみました．いわゆるブロック崩し（BRIX）を動かしてみました．
+桃の節句に因んで，緑と桃色のテーマも追加してみました．いわゆるブロック崩し（BRIX.ch8）を動かしてみました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif)
+
+### 2023-02-20
+
+桃色とグレーのテーマも追加してみました．Chip8のテストコード（test_opcode.ch8）を動かしてみました．
+無事全ての命令で合格となりました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/test_opcode.gif)
 
 以上
