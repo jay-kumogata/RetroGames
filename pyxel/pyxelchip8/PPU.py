@@ -15,8 +15,8 @@ class PPU:
     _FONT_TOP = 0x0F10
 
     # Registers
-    VRAM = []
-
+    VRAM = None
+    
     # Hexadecimal Fonts
     HEXFONT = [ 0xF0, 0x90, 0x90, 0x90, 0xF0,  # 0
                 0x20, 0x60, 0x20, 0x20, 0x70,  # 1
@@ -42,9 +42,8 @@ class PPU:
     # PPU Initialize
     def PPU_Init( self, p ) :
         # Initialize VRAM
-        for _x in range( self._WIDTH * self._HEIGHT ) :
-            self.VRAM.append( 0 )
-
+        self.VRAM = [[0 for i in range( self._HEIGHT )] for j in range( self._WIDTH )]
+            
         self.PPU_Erase()
 
         self.parent = p
@@ -59,19 +58,19 @@ class PPU:
         for _x in range( self._WIDTH ) :
             for _y in range( self._HEIGHT ) :
                 self.PPU_SetPixel( _x, _y, 0 )
-
+                
     # Set Pixel
     def PPU_SetPixel( self, x, y, c ) :
-        self.VRAM[ ( y % self._HEIGHT ) * self._WIDTH + ( x % self._WIDTH ) ] = c
-
+        self.VRAM[ x % self._WIDTH ][y % self._HEIGHT] = c
+        
     # Xor Pixel
     def PPU_XorPixel( self, x, y, c ) :
-        self.VRAM[ ( y % self._HEIGHT ) * self._WIDTH + ( x % self._WIDTH ) ] ^= c
-
+        self.VRAM[ x % self._WIDTH ][y % self._HEIGHT] ^= c
+        
     # Get Pixel
     def PPU_GetPixel( self, x, y ) :
-        return self.VRAM[ ( y % self._HEIGHT ) * self._WIDTH + ( x % self._WIDTH ) ]
-
+        return self.VRAM[x % self._WIDTH ][y % self._HEIGHT]
+        
     # Draw sprite
     def PPU_Draw( self, vx, vy, n, i ) :
         # Clear Collision Detect Flag
