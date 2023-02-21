@@ -270,6 +270,7 @@ Pythonでも，Ctypesライブラリで，c_uint16が使えるみたいのです
 
 桃色とグレーのテーマも追加してみました．Chip8のテストコード（test_opcode.ch8）を動かしてみました．
 無事全ての命令で合格となりました．
+Chip8miniで修正した不具合も同時に直しました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/test_opcode.gif)
 
