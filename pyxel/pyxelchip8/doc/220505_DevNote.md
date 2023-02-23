@@ -97,7 +97,7 @@ Chip8miniで修正した不具合も同時に直しました．
 
 ### 2023-02-23
 
-Chip8の多種多様な拡張があります．最も有名なのが，SuperChipです．そこで，PyxelChip8にも，SuperChipの命令を追加していくことにしました．
+Chip8の多種多様な拡張があります．最も有名なのが，SuperChip拡張です．そこで，PyxelChip8にも，SuperChipの命令を追加していくことにしました．
 
 - CPU:
   - 00FE: Disable high-resolution mode 命令
@@ -105,5 +105,12 @@ Chip8の多種多様な拡張があります．最も有名なのが，SuperChip
   - DXY0: Draw 16 x 16 sprite命令
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie03.gif" width="300">
+
+なお，SuperChip拡張の[互換性情報(Compatibility notes)](https://chip-8.github.io/extensions/#super-chip-10)によると，低解像度モード(low resolution mode)は，高解像度モード(high resolution mode)の画面(128x64ピクセル)に，2x2ピクセルの点を描画して実現せよとのことです．
+理由は，低解像度モードで，上下スクロールした時に，正しく1/2ピクセル単位で動作するためです．
+ですので，今回もそのように実装してみました．
+次は，スクロール機能ですが，気分がのってきたら実装することにします．
+今日は祝日なので，散歩でもしています．
+
 
 以上
