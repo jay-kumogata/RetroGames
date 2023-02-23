@@ -97,7 +97,7 @@ Chip8miniで修正した不具合も同時に直しました．
 
 ### 2023-02-23
 
-Chip8の多種多様な拡張があります．最も有名なのが，SuperChip拡張です．そこで，PyxelChip8にも，SuperChipの命令を追加していくことにしました．
+Chip8には，多種多様な拡張があります．最も有名なのが，SuperChip拡張です．そこで，PyxelChip8にも，SuperChipの命令を追加していくことにしました．
 
 - CPU:
   - 00FE: Disable high-resolution mode 命令
