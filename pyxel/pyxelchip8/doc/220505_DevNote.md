@@ -97,9 +97,9 @@ Chip8miniで修正した不具合も同時に直しました．
 
 ### 2023-02-23
 
-Chip8の多種多様な拡張で，最も有名なのが，SuperChipです．PyxelChip8にも，SuperChipの命令を追加していきます．
+Chip8の多種多様な拡張があります．最も有名なのが，SuperChipです．そこで，PyxelChip8にも，SuperChipの命令を追加していくことにしました．
 
-- CPU
+- CPU:
   - 00FE: Disable high-resolution mode 命令
   - 00FF: Enable high-resolution mode 命令
   - DXY0: Draw 16 x 16 sprite命令
