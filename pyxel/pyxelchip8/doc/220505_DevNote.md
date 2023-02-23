@@ -7,7 +7,7 @@ Pyxelの場合には，1画面を処理する毎に，ロジック更新(update(
 そのため，Chip8エミュレータのようなプログラムは，比較的書きやすいです．
 おまけ機能として，Chip8の1ドットをPyxelの4x4x16色ピクセルで表現してみました．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/PONG01.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/PONG01.gif" width="200">
 
 ### 2022-05-06
 
@@ -28,7 +28,7 @@ VBRIXが動作しない不具合は，エミュレーションのスレッドを
 その結果，動きが速くなってしまったので，適当にスリープ処理を入れています．
 vsyncタイミングも超適当な実装なので，明日修正するかもしれません．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/VBRIX02.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/VBRIX02.gif" width="200">
 
 Chip8命令でキー入力を待つ命令を実装するコードで，単純にウェイト処理(busy wait)していると，キー入力を監視するスレッドにCPU時間が割り当てられず，永遠にウェイトしてしまう不具合がありました．
 前回Pygameを利用した時に修正していた不具合でしたが，同じ間違いをしてしまいました．
@@ -52,7 +52,7 @@ Pyxel版Chip8エミュレータ(PyxelChip8)の進捗です．
 修正は不要で特に問題なく動作しました．
 妖怪アマビエが活躍して，このまま疫病が終息することを期待します．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif" width="200">
 
 なお，拙作[amabie](https://github.com/jay-kumogata/RetroGames/tree/main/octo/amabie)の方では，バイナリ(amabie.ch8)とカートリッジ画像(amabie.gif)も追加で配布しています．
 
@@ -64,7 +64,7 @@ Pyxel版Chip8エミュレータ(PyxelChip8)の進捗です．
 GIFアニメを再度録画しました．
 また，前回より，PyxelChip8の色味を桃色系に変更しています．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie01.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie01.gif" width="200">
 
 ### 2022-05-22
 
@@ -79,13 +79,13 @@ Pyxelの宣伝に少しは役立てたでしょうか．
 年末年始に，Pyxel版Chip8エミュレータ（PyxelChip8） を少し改良しました．週末にソースコードを少し整理しました．
 後楽園球場の電光掲示版を意識したテーマを追加しています．David Winter氏の有名なINVADERS.ch8を動かしてみました．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif" width="200">
 
 ### 2023-02-17
 
 桃の節句に因んで，緑と桃色のテーマも追加してみました．いわゆるブロック崩し（BRIX.ch8）を動かしてみました．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif" width="200">
 
 ### 2023-02-21
 
@@ -93,7 +93,7 @@ Pyxelの宣伝に少しは役立てたでしょうか．
 無事全ての命令で合格となりました．
 Chip8miniで修正した不具合も同時に直しました．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/test_opcode.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/test_opcode.gif" width="200">
 
 ### 2023-02-23
 
@@ -104,6 +104,6 @@ Chip8の多種多様な拡張で，最も有名なのが，SuperChipです．Pyx
   - 00FF: Enable high-resolution mode 命令
   - DXY0: Draw 16 x 16 sprite命令
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie03.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie03.gif" width="200">
 
 以上
