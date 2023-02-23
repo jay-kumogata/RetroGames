@@ -1,4 +1,4 @@
-# PyxelChip8 v0.3: A CHIP8 emulator in Pyxel/Python
+# PyxelChip8 v0.4: A CHIP8 emulator in Pyxel/Python
 # Copyright (c) 2022,2023 Kumogata Computing Laboratory.
 # All Rights Reserved.
 
@@ -12,6 +12,10 @@ class PyxelChip8:
     height = 32
     pixel = 4
 
+    hi_width = 128
+    hi_height = 64
+#    hi_pixel = 4
+    
     # 0: white 1: yellow 2: blue 3: green
     # 4: red 5: default 6: pink 7: pale green
     # 8: default 9: orange sign 10: green sign
@@ -27,8 +31,8 @@ class PyxelChip8:
     
     # Constructor
     def __init__( self ):
-        pyxel.init( self.width*self.pixel, self.height*self.pixel ,
-                    title="PyxelChip8 v0.3", fps=30)
+        pyxel.init( self.hi_width*self.pixel, self.hi_height*self.pixel ,
+                    title="PyxelChip8 v0.4", fps=30)
         pyxel.load( "PyxelChip8.pyxres")
         
         # Create Chip8's System
@@ -54,10 +58,9 @@ class PyxelChip8:
 
     def draw( self ):
         pyxel.cls(0)
-        
-        for _y in range( self.height ) :
-            for _x in range( self.width ) :
-                if ( self._Sys._PPU.PPU_GetPixel( _x, _y ) ) :
+        for _y in range( self.hi_height ) :
+            for _x in range( self.hi_width ) :
+                if ( self._Sys._PPU.PPU_GetVRAM( _x, _y ) ):
                     # Draw Rectangle
                     pyxel.blt( _x*self.pixel, _y*self.pixel, 
                                0, 0, self.theme*self.pixel,

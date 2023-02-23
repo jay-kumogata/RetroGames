@@ -61,6 +61,14 @@ class CPU:
                     self.SP += 1;
                     self.PC = self.STACK[ self.SP & 0xF ]
 
+                elif ( self.INST == 0x00FE ) :
+                    # 00FE: Disable high-resolution mode (SuperChip instruction)
+                    self.parent._PPU.PPU_SetHiResMode( False )
+
+                elif ( self.INST == 0x00FF ) :
+                    # 00FF: Enable high-resolution mode
+                    self.parent._PPU.PPU_SetHiResMode( True )
+                    
             elif ( _I == 0x1000 ):
                 # 0x1NNN : Jump to NNN
                 self.PC = _NNN
@@ -182,10 +190,14 @@ class CPU:
                 #self.V[ _X ] = randint( 0, _KK - 1 )                
 
             elif ( _I == 0xD000 ) :
+                # DXY0: Draw 16 x 16 sprite (only if high-resolution mode is enabled)
+                if ( _N == 0 and self.parent._PPU.PPU_GetHiResMode() ) :
+                    self.parent._PPU.PPU_Draw16x16( self.V[ _X ], self.V[ _Y ], _N, self.I )
+
                 # 0xDXYN : Draws a sprite (VX,VY) starting at M(I).
                 #          VF = collision.
-                self.parent._PPU.PPU_Draw( self.V[ _X ], self.V[ _Y ], _N, self.I )
-                # self.parent._PPU.PPU_Blit()
+                else :
+                    self.parent._PPU.PPU_Draw( self.V[ _X ], self.V[ _Y ], _N, self.I )
 
             elif ( _I == 0xE000 ) :
                 _ZZ = self.INST & 0x00FF
@@ -254,7 +266,7 @@ class CPU:
             #print ("V0:%02x,V1:%02x,V2:%02x,V3:%02x" %(self.V[0],self.V[1],self.V[2],self.V[3]))
             #print ("V4:%02x,V5:%02x,V6:%02x,V7:%02x" %(self.V[4],self.V[5],self.V[6],self.V[7]))
             #print ("V8:%02x,V9:%02x,VA:%02x,VB:%02x" %(self.V[8],self.V[9],self.V[10],self.V[11]))
-            #print ("VC:%02x,VD:%02x,VE:%02x,VF:%02x\n" %(self.V[12],self.V[13],self.V[14],self.V[15]))
+            #print ("VC:%02x,VD:%02x,VE:%02x,VF:%02x" %(self.V[12],self.V[13],self.V[14],self.V[15]))
 
         return 0
 
