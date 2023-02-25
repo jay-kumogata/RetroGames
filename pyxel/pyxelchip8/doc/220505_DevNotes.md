@@ -112,22 +112,25 @@ Chip8には，多種多様な拡張があります．最も有名なのが，Sup
 次は，スクロール機能ですが，気分がのってきたら実装することにします．
 今日は祝日なので，散歩でもしています．
 
-### 2023-02-25
+### 2023-02-24
 
-SuperChip 1.0/1.1/XO-CHIP命令を追加しました．
-ゼビウス風ゲーム(dodge2.ch8)が動作しました．
+SuperChip 1.0/1.1命令の一部を実装しました．
 
-- 関数名を修正(PPU_EnableHighRes(), PPU_isHighRes())
 - 0x00CN: Scroll display N pixels down; in low resolution mode, N/2 pixels命令
 - 0x00FB: Scroll right by 4 pixels; in low resolution mode, 2 pixels命令
 - 0x00FC: Scroll left by 4 pixels; in low resolution mode, 2 pixels命令
-- 0x00DN: Scroll up N pixels (XO-CHIP) 命令
-- 0x00FD: Exit interpreter命令
-- 0xFX30: Point I to 10-byte font sprite for digit VX (only digits 0-9)命令
+- 関数名を修正(PPU_EnableHighRes(), PPU_isHighRes())
 
-PyxelChip8ですが，SuperChip 1.0/1.1/XO-CHIP命令の一部を実装しました．
-特に，0x00CN: Scroll display N pixels down命令を実装したので，障害物を避けるゲームが動作しました．
+ゼビウス風の障害物を避けるゲーム(dodge2.ch8)が動作しました．
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/dodge01.gif" width="300">
+
+### 2023-02-25
+
+SuperChip 1.0/1.1/XO-CHIP命令の一部を実装しました．
+
+- 0x00FD: Exit interpreter命令
+- 0x00DN: Scroll up N pixels (XO-CHIP) 命令
+- 0xFX30: Point I to 10-byte font sprite for digit VX (only digits 0-9)命令
 
 以上
