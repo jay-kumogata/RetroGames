@@ -1,4 +1,4 @@
-# PyxelChip8 v0.4: A CHIP8 emulator in Pyxel/Python
+# PyxelChip8 v0.5: A CHIP8 emulator in Pyxel/Python
 # Copyright (c) 2022,2023 Kumogata Computing Laboratory.
 # All Rights Reserved.
 
@@ -20,7 +20,7 @@ class PyxelChip8:
     # 4: red 5: default 6: pink 7: pale green
     # 8: default 9: orange sign 10: green sign
     # 11: green and pink 12: gray and pink
-    theme = 12
+    theme = 9
     
     # References
     _Sys = None
@@ -32,7 +32,7 @@ class PyxelChip8:
     # Constructor
     def __init__( self ):
         pyxel.init( self.hi_width*self.pixel, self.hi_height*self.pixel ,
-                    title="PyxelChip8 v0.4", fps=30)
+                    title="PyxelChip8 v0.5", fps=30)
         pyxel.load( "PyxelChip8.pyxres")
         
         # Create Chip8's System

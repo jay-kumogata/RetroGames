@@ -52,7 +52,18 @@ class CPU:
 
             # Instructions
             if ( _I == 0x0000 ) :
-                if ( self.INST == 0x00E0 ) :
+
+                if ( _Y == 0xC ) :
+                    # 0x00CN: Scroll display N pixels down; in low resolution mode, 
+                    #         N/2 pixels (SuperChip 1.1)
+                    self.parent._PPU.PPU_ScrollDown( _N )
+
+                elif ( _Y == 0xD ) :
+                    # 0x00DN: Scroll display N pixels up; in low resolution mode,
+                    #         N/2 pixels (XO-CHIP)
+                    self.parent._PPU.PPU_ScrollUp( _N )
+                    
+                elif ( self.INST == 0x00E0 ) :
                     # 0x00E0 : Erase the Screen
                     self.parent._PPU.PPU_Erase()
 
@@ -61,13 +72,27 @@ class CPU:
                     self.SP += 1;
                     self.PC = self.STACK[ self.SP & 0xF ]
 
+                elif ( self.INST == 0x00FB ) :
+                    # 0x00FB: Scroll right by 4 pixels; in low resolution mode, 
+                    #         2 pixels (SuperChip 1.1)
+                    self.parent._PPU.PPU_ScrollLeft()
+
+                elif ( self.INST == 0x00FC ) :
+                    # 0x00FC: Scroll left by 4 pixels; in low resolution mode,
+                    #         2 pixels (SuperChip 1.1) 
+                    self.parent._PPU.PPU_ScrollRight()
+
+                elif ( self.INST == 0x00FD ) :
+                    # 00FD: Exit interpreter (SuperChip 1.0) 
+                    sys.exit()
+                    
                 elif ( self.INST == 0x00FE ) :
-                    # 00FE: Disable high-resolution mode (SuperChip instruction)
-                    self.parent._PPU.PPU_SetHiResMode( False )
+                    # 00FE: Disable high-resolution mode (SuperChip 1.0)
+                    self.parent._PPU.PPU_EnableHighRes( False )
 
                 elif ( self.INST == 0x00FF ) :
-                    # 00FF: Enable high-resolution mode
-                    self.parent._PPU.PPU_SetHiResMode( True )
+                    # 00FF: Enable high-resolution mode (SuperChip 1.0)
+                    self.parent._PPU.PPU_EnableHighRes( True )
                     
             elif ( _I == 0x1000 ):
                 # 0x1NNN : Jump to NNN
@@ -190,8 +215,9 @@ class CPU:
                 #self.V[ _X ] = randint( 0, _KK - 1 )                
 
             elif ( _I == 0xD000 ) :
-                # DXY0: Draw 16 x 16 sprite (only if high-resolution mode is enabled)
-                if ( _N == 0 and self.parent._PPU.PPU_GetHiResMode() ) :
+                # 0xDXY0: Draw 16 x 16 sprite (only if high-resolution 
+                #         mode is enabled) (SuperChip 1.0)
+                if ( _N == 0 and self.parent._PPU.PPU_isHighRes() ) :
                     self.parent._PPU.PPU_Draw16x16( self.V[ _X ], self.V[ _Y ], _N, self.I )
 
                 # 0xDXYN : Draws a sprite (VX,VY) starting at M(I).
@@ -243,6 +269,11 @@ class CPU:
                     #          char in VX
                     self.I = self.parent._PPU._FONT_TOP + self.V[ _X ] * 5
 
+                elif ( _ZZ == 0x30 ) :
+                    # FX30: Point I to 10-byte font sprite for digit 
+                    #       VX (only digits 0-9) ( SuperChip 1.1 )
+                    self.I = self.parent._PPU._HIGH_FONT_TOP + self.V[ _X ] * 10
+                    
                 elif ( _ZZ == 0x33 ) :
                     # 0xFX33 : Store BCD representation of VX in M(I)..M(I+2)
                     _A = self.V[ _X ]
@@ -278,9 +309,11 @@ class CPU:
             return 0
         elif ( wAddr < self.parent._PPU._FONT_TOP ) :
             return self.parent._RAM[ wAddr - 0x200 ]
-        else :
+        elif ( wAddr < self.parent._PPU._HIGH_FONT_TOP ) :
             return self.parent._PPU.HEXFONT[ wAddr - self.parent._PPU._FONT_TOP ]
-
+        else :
+            return self.parent._PPU.HIGH_HEXFONT[ wAddr - self.parent._PPU._HIGH_FONT_TOP ]
+            
     def CPU_ReadW( self, wAddr ) :
         return ( self.CPU_Read( wAddr ) << 8 ) | self.CPU_Read( wAddr + 1 )
 
@@ -292,5 +325,34 @@ class CPU:
             return
         else :
             return
+
+    # ------------------------------------------------------------
+    #   Reference
+    # ------------------------------------------------------------
+    #
+    # Memory Map
+    #
+    # +----------------+= 0xFFF (4095) End of Chip-8 RAM
+    # |                |
+    # +----------------+= 0xF60 Font Top Addr for SuperChip
+    # +----------------+= 0xF10 Font Top Addr for Chip8
+    # |                |
+    # |                |
+    # | 0x200 to 0xFFF |
+    # | Chip-8 Program |
+    # |                |
+    # |                |
+    # |                |
+    # |                |
+    # |                |
+    # +- - - - - - - - += 0x600 (1536) Start of ETI 660 Chip-8 programs
+    # |                |
+    # |                |
+    # |                |
+    # +----------------+= 0x200 (512) Start of most Chip-8 programs
+    # | 0x000 to 0x1FF |
+    # | Reserved for   |
+    # |  interpreter   |
+    # +----------------+= 0x000 (0) Start of Chip-8 RAM
 
 # End of CPU.py
