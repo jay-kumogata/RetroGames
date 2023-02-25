@@ -2,9 +2,9 @@
 
 ## Introduction
 
-PyxelChip8 is a CHIP-8 emulator that runs on Pyxel/Python library.
+PyxelChip8 is a CHIP-8/SUPER-CHIP emulator that runs on Pyxel/Python library.
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif" width="200"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif" width="200"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif" width="200">
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif" width="200"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif" width="200"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif" width="200">  <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/dodge01.gif" width="200">
 
 ## How to Play
 
@@ -38,12 +38,18 @@ The keys are mapped as follows.
 - Stack (16 word length and stack pointer)
 
 ### Graphics
-- Sprite (CHIP-8 Mode: 8 x 1 .. 15)
+- Sprite (Size: 8 x 1 .. 15, 16 x 16 pixel)
 - Collision Flag
-- Hexadecimal font
-  
+- Hexadecimal font (Size: 8 x 5, 8 x 10 pixel)
+
 ### Instruction set
-- CHIP-8 instructions (assignment, arithmetic, conditional branch, subroutine call, draw sprite, etc.)
+- CHIP-8 instructions 
+  - Assignment, Arithmetic, Conditional Branch, Subroutine Call, Draw Sprite, etc.
+- SUPER-CHIP instructions 
+  - Halt, Enable/Disable High-resolution mode, Draw 16x16 sprite, 
+  - Scroll down/left/right, Big font sprites
+- XO-CHIP instructions
+  - Scroll up
 
 ### Keyboard
 - Hexadecimal keyboard
