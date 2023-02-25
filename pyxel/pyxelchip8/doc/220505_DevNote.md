@@ -99,10 +99,10 @@ Chip8miniで修正した不具合も同時に直しました．
 
 Chip8には，多種多様な拡張があります．最も有名なのが，SuperChip拡張です．そこで，PyxelChip8にも，SuperChipの命令を追加していくことにしました．
 
-- CPU:
-  - 00FE: Disable high-resolution mode 命令
-  - 00FF: Enable high-resolution mode 命令
-  - DXY0: Draw 16 x 16 sprite命令
+
+- 0x00FE: Disable high-resolution mode命令
+- 0x00FF: Enable high-resolution mode命令
+- 0xDXY0: Draw 16 x 16 sprite命令
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie03.gif" width="300">
 
@@ -112,5 +112,20 @@ Chip8には，多種多様な拡張があります．最も有名なのが，Sup
 次は，スクロール機能ですが，気分がのってきたら実装することにします．
 今日は祝日なので，散歩でもしています．
 
+### 2023-02-25
+
+SuperChip 1.0/1.1/XO-CHIP命令を追加しました．
+
+- 関数名を修正(PPU_EnableHighRes(), PPU_isHighRes())
+- 0x00CN: Scroll display N pixels down; in low resolution mode, N/2 pixels命令
+- 0x00FB: Scroll right by 4 pixels; in low resolution mode, 2 pixels命令
+- 0x00FC: Scroll left by 4 pixels; in low resolution mode, 2 pixels命令
+- 0x00DN: Scroll up N pixels (XO-CHIP) 命令
+- 0x00FD: Exit interpreter命令
+- 0xFX30: Point I to 10-byte font sprite for digit VX (only digits 0-9)命令
+
+ゼビウス風ゲーム(dodge2.ch8)が動作しました．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/dodge01.gif" width="300">
 
 以上
