@@ -30,7 +30,8 @@ The keys are mapped as follows.
 ## Specification
 ### Memory
 - RAM (200H - F10H)
-- Hexadecimal font (F10H -F60H)
+- Small Hexadecimal font (F10H - F5FH)
+- Big Hexadecimal font (F60H - FFFH)
 
 ### Registers
 - Data Registers (V0 .. VF)
@@ -41,7 +42,7 @@ The keys are mapped as follows.
 ### Graphics
 - Sprite (Size: 8 x 1 .. 15, 16 x 16 pixel)
 - Collision Flag
-- Hexadecimal font (Size: 8 x 5, 8 x 10 pixel)
+- Small and big hexadecimal fonts (Size: 8 x 5, 8 x 10 pixel)
 
 ### Instruction set
 - CHIP-8 instructions 
