@@ -4,6 +4,7 @@
 
 Chip8mini is a CHIP-8 emulator that runs inside the game cabinet.  
 The focus is on pixel art in game cabinets.
+[Dev notes](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/doc/220610_DevNotes.md) here.
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Amabie08.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/chip8mini/screenshots/Breakout01.gif)
