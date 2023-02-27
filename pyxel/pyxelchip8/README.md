@@ -5,7 +5,7 @@
 PyxelChip8 is a CHIP-8/SUPER-CHIP emulator that runs on Pyxel/Python library.
 [Dev Notes](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/doc/220505_DevNotes.md) here.
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif" width="200"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif" width="200"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif" width="200">  <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/dodge01.gif" width="200">
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/amabie02.gif" width="256"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/INVADERS01.gif" width="256"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/BRIX01.gif" width="256">  <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/dodge01.gif" width="256">
 
 ## How to Play
 
