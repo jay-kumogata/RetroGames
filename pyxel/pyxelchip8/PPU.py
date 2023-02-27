@@ -10,9 +10,6 @@ class PPU:
     # ------------------------------------------------------------
 
     # Constants
-    _FONT_TOP = 0x0F10
-    _HIGH_FONT_TOP = 0x0F60
-
     _WIDTH = 64
     _HEIGHT = 32
 
@@ -22,41 +19,6 @@ class PPU:
     # Registers
     VRAM = None
     HIGH_RES = False
-
-    # Hexadecimal Fonts
-    HEXFONT = [ 0xF0, 0x90, 0x90, 0x90, 0xF0,  # 0
-                0x20, 0x60, 0x20, 0x20, 0x70,  # 1
-                0xF0, 0x10, 0xF0, 0x80, 0xF0,  # 2
-                0xF0, 0x10, 0xF0, 0x10, 0xF0,  # 3
-                0x90, 0x90, 0xF0, 0x10, 0x10,  # 4
-                0xF0, 0x80, 0xF0, 0x10, 0xF0,  # 5
-                0xF0, 0x80, 0xF0, 0x90, 0xF0,  # 6
-                0xF0, 0x10, 0x20, 0x40, 0x40,  # 7
-                0xF0, 0x90, 0xF0, 0x90, 0xF0,  # 8
-                0xF0, 0x90, 0xF0, 0x10, 0xF0,  # 9
-                0xF0, 0x90, 0xF0, 0x90, 0x90,  # A
-                0xE0, 0x90, 0xE0, 0x90, 0xE0,  # B
-                0xF0, 0x80, 0x80, 0x80, 0xF0,  # C
-                0xE0, 0x90, 0x90, 0x90, 0xE0,  # D
-                0xF0, 0x80, 0xF0, 0x80, 0xF0,  # E
-                0xF0, 0x80, 0xF0, 0x80, 0x80 ] # F
-
-    HIGH_HEXFONT = [ 0xFF, 0xFF, 0xC3, 0xC3, 0xC3, 0xC3, 0xC3, 0xC3, 0xFF, 0xFF,  # 0
-                     0x0C, 0x0C, 0x3C, 0x3C, 0x0C, 0x0C, 0x0C, 0x0C, 0x3F, 0x3F,  # 1
-                     0xFF, 0xFF, 0x03, 0x03, 0xFF, 0xFF, 0xC0, 0xC0, 0xFF, 0xFF,  # 2
-                     0xFF, 0xFF, 0x07, 0x07, 0xFF, 0xFF, 0x07, 0x07, 0xFF, 0xFF,  # 3
-                     0xC3, 0xC3, 0xC3, 0xC3, 0xFF, 0xFF, 0x03, 0x03, 0x03, 0x03,  # 4
-                     0xFF, 0xFF, 0xC0, 0xC0, 0xFF, 0xFF, 0x03, 0x03, 0xFF, 0xFF,  # 5
-                     0xFF, 0xFF, 0xC0, 0xC0, 0xFF, 0xFF, 0xC3, 0xC3, 0xFF, 0xFF,  # 6
-                     0xFF, 0xFF, 0x03, 0x03, 0x0C, 0x0C, 0x30, 0x30, 0x30, 0x30,  # 7
-                     0xFF, 0xFF, 0xC3, 0xC3, 0xFF, 0xFF, 0xC3, 0xC3, 0xFF, 0xFF,  # 8
-                     0xFF, 0xFF, 0xC3, 0xC3, 0xFF, 0xFF, 0x03, 0x03, 0xFF, 0xFF,  # 9
-                     0xFF, 0xFF, 0xC3, 0xC3, 0xFF, 0xFF, 0xC3, 0xC3, 0xC3, 0xC3,  # A
-                     0xFC, 0xFC, 0xC3, 0xC3, 0xFC, 0xFC, 0xC3, 0xC3, 0xFC, 0xFC,  # B
-                     0xFF, 0xFF, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xFF, 0xFF,  # C
-                     0xFC, 0xFC, 0xC3, 0xC3, 0xC3, 0xC3, 0xC3, 0xC3, 0xFC, 0xFC,  # D
-                     0xFF, 0xFF, 0xC0, 0xC0, 0xFF, 0xFF, 0xC0, 0xC0, 0xFF, 0xFF,  # E
-                     0xFF, 0xFF, 0xC0, 0xC0, 0xFF, 0xFF, 0xC0, 0xC0, 0xC0, 0xC0 ] # F
     
     # ------------------------------------------------------------
     #   PPU Functions
@@ -99,26 +61,34 @@ class PPU:
     # Set Pixel
     def PPU_SetPixel( self, x, y, c ) :
         if ( self.HIGH_RES ):
-            # High Resolution Mode
-            self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] = c
+            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
+            if ( x < self._HIGH_WIDTH and y < self._HIGH_HEIGHT ) :
+                # High Resolution Mode
+                self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] = c
         else :
-            # Low Resolution Mode
-            self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2     ] = c
-            self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2     ] = c
-            self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2 + 1 ] = c
-            self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2 + 1 ] = c
+            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
+            if ( x < self._WIDTH and y < self._HEIGHT ) :
+                # Low Resolution Mode
+                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2     ] = c
+                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2     ] = c
+                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2 + 1 ] = c
+                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2 + 1 ] = c
             
     # Xor Pixel
     def PPU_XorPixel( self, x, y, c ) :
         if ( self.HIGH_RES ):
-            # High Resolution Mode
-            self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] ^= c
+            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
+            if ( x < self._HIGH_WIDTH and y < self._HIGH_HEIGHT ) :
+                # High Resolution Mode
+                self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] ^= c
         else :
-            # Low Resolution Mode
-            self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2     ] ^= c
-            self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2     ] ^= c
-            self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2 + 1 ] ^= c
-            self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2 + 1 ] ^= c
+            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
+            if ( x < self._WIDTH and y < self._HEIGHT ) :
+                # Low Resolution Mode
+                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2     ] ^= c
+                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2     ] ^= c
+                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2 + 1 ] ^= c
+                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2 + 1 ] ^= c
 
     # Get Pixel
     def PPU_GetPixel( self, x, y ) :

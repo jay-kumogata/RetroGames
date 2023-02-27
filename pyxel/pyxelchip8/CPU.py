@@ -1,5 +1,6 @@
 import time
 from random import *
+from Profile import *
 
 class CPU:
 
@@ -20,6 +21,9 @@ class CPU:
     STACK = [ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ]
     SP = 0
 
+    # Others
+    FLAGS = [ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ]
+    
     # ------------------------------------------------------------
     #   CPU Emulation                                             
     # ------------------------------------------------------------
@@ -60,7 +64,7 @@ class CPU:
 
                 elif ( _Y == 0xD ) :
                     # 0x00DN: Scroll display N pixels up; in low resolution mode,
-                    #         N/2 pixels (XO-CHIP)
+                    #         N/2 pixels (XO-CHIP )
                     self.parent._PPU.PPU_ScrollUp( _N )
                     
                 elif ( self.INST == 0x00E0 ) :
@@ -83,7 +87,7 @@ class CPU:
                     self.parent._PPU.PPU_ScrollRight()
 
                 elif ( self.INST == 0x00FD ) :
-                    # 00FD: Exit interpreter (SuperChip 1.0) 
+                    # 00FD: Exit interpreter (SuperChip 1.0)
                     sys.exit()
                     
                 elif ( self.INST == 0x00FE ) :
@@ -207,12 +211,7 @@ class CPU:
 
             elif ( _I == 0xC000 ) :
                 # 0xCXKK : VX = Random number AND KK
-
-                # TETRIS
                 self.V[ _X ] = randint( 0, _KK )
-
-                # VBRIX
-                #self.V[ _X ] = randint( 0, _KK - 1 )                
 
             elif ( _I == 0xD000 ) :
                 # 0xDXY0: Draw 16 x 16 sprite (only if high-resolution 
@@ -267,12 +266,12 @@ class CPU:
                 elif ( _ZZ == 0x29 ) :
                     # 0xFX29 : I points to the 4 x 5 font sprite of hex
                     #          char in VX
-                    self.I = self.parent._PPU._FONT_TOP + self.V[ _X ] * 5
+                    self.I = self.parent._FONT_TOP + self.V[ _X ] * 5
 
                 elif ( _ZZ == 0x30 ) :
                     # FX30: Point I to 10-byte font sprite for digit 
-                    #       VX (only digits 0-9) ( SuperChip 1.1 )
-                    self.I = self.parent._PPU._HIGH_FONT_TOP + self.V[ _X ] * 10
+                    #       VX (only digits 0-9) (SuperChip 1.1)
+                    self.I  = self.parent._HIGH_FONT_TOP + self.V[ _X ] * 10
                     
                 elif ( _ZZ == 0x33 ) :
                     # 0xFX33 : Store BCD representation of VX in M(I)..M(I+2)
@@ -280,25 +279,47 @@ class CPU:
                     self.CPU_Write( self.I,     int( _A / 100 ) )
                     self.CPU_Write( self.I + 1, int( ( _A % 100 ) / 10 ) )
                     self.CPU_Write( self.I + 2, int( _A % 10 ) )
-
+                    
                 elif ( _ZZ == 0x55 ) :
                     # 0xFX55 : Save V0..VX in memory starting at M(I)
                     for _T in range( _X + 1 ) :
-                        self.CPU_Write( self.I, self.V[ _T ] )
-                        self.I += 1
-                        
+                        # VIP: load and store operations make i changed. 
+                        if ( self.parent.profile == Profile.VIP ) :
+                            self.CPU_Write( self.I, self.V[ _T ] )
+                            self.I += 1
+                        # SCHIP: load and store operations leave i unchanged.  
+                        else :
+                            self.CPU_Write( self.I + _T, self.V[ _T ] )
+                            
                 elif ( _ZZ == 0x65 ) :
                     # 0xFX65 : Load V0..VX from memory starting at M(I)
                     for _T in range( _X + 1 ) :
-                        self.V[ _T ] = self.CPU_Read( self.I )
-                        self.I += 1
-                        
+                        # VIP: load and store operations make i changed. 
+                        if ( self.parent.profile == Profile.VIP ) :
+                            self.V[ _T ] = self.CPU_Read( self.I )
+                            self.I += 1
+                        # SCHIP: load and store operations leave i unchanged.  
+                        else :
+                            self.V[ _T ] = self.CPU_Read( self.I + _T )
+                            
+                elif ( _ZZ == 0x75 ) :
+                    # 0xFX75: As in SUPER-CHIP, store V0..VX in RPL user flags,
+                    #         but X is not limited to 7 (XO-CHIP)
+                    for _T in range( _X + 1 ) :
+                        self.FLAGS[ _T ] = self.V[ _T ] 
+
+                elif ( _ZZ == 0x85 ) :
+                    # 0xFX85: As in SUPER-CHIP, read V0..VX from RPL user flags,
+                    #         but X is not limited to 7
+                    for _T in range( _X + 1 ) :
+                        self.V[ _T ] = self.FLAGS[ _T ]
+
             #print ("PC:%04x,I:%04x,INST:%04x,SP:%04x" %(self.PC,self.I,self.INST,self.SP))
             #print ("V0:%02x,V1:%02x,V2:%02x,V3:%02x" %(self.V[0],self.V[1],self.V[2],self.V[3]))
             #print ("V4:%02x,V5:%02x,V6:%02x,V7:%02x" %(self.V[4],self.V[5],self.V[6],self.V[7]))
             #print ("V8:%02x,V9:%02x,VA:%02x,VB:%02x" %(self.V[8],self.V[9],self.V[10],self.V[11]))
             #print ("VC:%02x,VD:%02x,VE:%02x,VF:%02x" %(self.V[12],self.V[13],self.V[14],self.V[15]))
-
+                        
         return 0
 
     # ------------------------------------------------------------
@@ -307,12 +328,12 @@ class CPU:
     def CPU_Read( self, wAddr ) :
         if ( wAddr < 0x200 ) :
             return 0
-        elif ( wAddr < self.parent._PPU._FONT_TOP ) :
+        elif ( wAddr < self.parent._FONT_TOP ) :
             return self.parent._RAM[ wAddr - 0x200 ]
-        elif ( wAddr < self.parent._PPU._HIGH_FONT_TOP ) :
-            return self.parent._PPU.HEXFONT[ wAddr - self.parent._PPU._FONT_TOP ]
+        elif ( wAddr < self.parent._HIGH_FONT_TOP ) :
+            return self.parent.HEXFONT[ wAddr - self.parent._FONT_TOP ]
         else :
-            return self.parent._PPU.HIGH_HEXFONT[ wAddr - self.parent._PPU._HIGH_FONT_TOP ]
+            return self.parent.HIGH_HEXFONT[ wAddr - self.parent._HIGH_FONT_TOP ]
             
     def CPU_ReadW( self, wAddr ) :
         return ( self.CPU_Read( wAddr ) << 8 ) | self.CPU_Read( wAddr + 1 )
@@ -320,7 +341,7 @@ class CPU:
     def CPU_Write( self, wAddr, byData ) :
         if ( wAddr < 0x200 ) :
             return
-        elif ( wAddr < self.parent._PPU._FONT_TOP ) :
+        elif ( wAddr < self.parent._FONT_TOP ) :
             self.parent._RAM[ wAddr - 0x200 ] = byData
             return
         else :
