@@ -1,4 +1,5 @@
 import sys
+from Profile import *
 
 class PPU:
 
@@ -26,11 +27,12 @@ class PPU:
 
     # PPU Initialize
     def PPU_Init( self, p ) :
+        self.parent = p
+
         # Initialize VRAM
         self.VRAM = [[0 for i in range( self._HIGH_HEIGHT )] for j in range( self._HIGH_WIDTH )]
 
         self.PPU_Erase()
-        self.parent = p
         return 0
 
     # PPU Finalialize
@@ -47,65 +49,65 @@ class PPU:
     
     # Erase screen
     def PPU_Erase( self ) :
-        if ( self.HIGH_RES ):
-            # High Resolution Mode
-            for _x in range( self._HIGH_WIDTH ) :
-                for _y in range( self._HIGH_HEIGHT ) :
-                    self.PPU_SetPixel( _x, _y, 0 )
-        else:
-            # Low Resolution Mode
-            for _x in range( self._WIDTH ) :
-                for _y in range( self._HEIGHT ) :
-                    self.PPU_SetPixel( _x, _y, 0 )
-                    
-    # Set Pixel
-    def PPU_SetPixel( self, x, y, c ) :
-        if ( self.HIGH_RES ):
-            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
-            if ( x < self._HIGH_WIDTH and y < self._HIGH_HEIGHT ) :
-                # High Resolution Mode
-                self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] = c
-        else :
-            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
-            if ( x < self._WIDTH and y < self._HEIGHT ) :
-                # Low Resolution Mode
-                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2     ] = c
-                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2     ] = c
-                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2 + 1 ] = c
-                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2 + 1 ] = c
-            
+        for _x in range( self._HIGH_WIDTH ) :
+            for _y in range( self._HIGH_HEIGHT ) :
+                self.PPU_SetVRAM( _x, _y, 0 )
+
     # Xor Pixel
     def PPU_XorPixel( self, x, y, c ) :
-        if ( self.HIGH_RES ):
-            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
-            if ( x < self._HIGH_WIDTH and y < self._HIGH_HEIGHT ) :
-                # High Resolution Mode
-                self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] ^= c
+        if ( self.parent.profile == Profile.VIP ) :
+            # VIP: wrap sprites at screen edges instead of clipping.
+            self.PPU_XorVRAM2x2( x, y, c )
         else :
-            # VIP, SCHIP: clip sprites at screen edges instead of wrapping.
-            if ( x < self._WIDTH and y < self._HEIGHT ) :
+            # SCHIP: clip sprites at screen edges instead of wrapping.
+            if ( self.HIGH_RES ):
+                # High Resolution Mode
+                if ( x < self._HIGH_WIDTH and y < self._HIGH_HEIGHT ) :
+                    self.PPU_XorVRAM( x, y, c )
+            else :
                 # Low Resolution Mode
-                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2     ] ^= c
-                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2     ] ^= c
-                self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2 + 1 ] ^= c
-                self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2 + 1 ] ^= c
+                if ( x < self._WIDTH and y < self._HEIGHT ) :
+                    self.PPU_XorVRAM2x2( x, y, c )
 
     # Get Pixel
     def PPU_GetPixel( self, x, y ) :
         if ( self.HIGH_RES ):
             # High Resolution Mode
-            return self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] 
+            return self.PPU_GetVRAM( x, y )
         else :
             # Low Resolution Mode
-            return self.VRAM[(x % self._WIDTH) * 2 ][(y % self._HEIGHT) * 2]
+            return self.PPU_GetVRAM2x2( x, y )
 
-    # Get VRAM directly
+    # ------------------------------------------------------------
+    #   Access VRAM 
+    # ------------------------------------------------------------
+
+    # Set VRAM 
+    def PPU_SetVRAM( self, x, y, c ) :
+        self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] = c
+
+    # Xor VRAM 
+    def PPU_XorVRAM( self, x, y, c ) :
+        self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] ^= c
+        
+    # Xor VRAM 2x2 pixel 
+    def PPU_XorVRAM2x2( self, x, y, c ) :
+        self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2     ] ^= c
+        self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2     ] ^= c
+        self.VRAM[ (x % self._WIDTH) * 2     ][(y % self._HEIGHT) * 2 + 1 ] ^= c
+        self.VRAM[ (x % self._WIDTH) * 2 + 1 ][(y % self._HEIGHT) * 2 + 1 ] ^= c
+
+    # Get VRAM 
     def PPU_GetVRAM( self, x, y ) :
         return self.VRAM[ x % self._HIGH_WIDTH ][y % self._HIGH_HEIGHT] 
 
+    # Get VRAM 2x2 
+    def PPU_GetVRAM2x2( self, x, y ) :
+        return self.VRAM[(x % self._WIDTH) * 2 ][(y % self._HEIGHT) * 2]
+    
     # Enable High Resolution Mode
-    def PPU_EnableHighRes( self, f ) :
-        self.HIGH_RES = f
+    def PPU_EnableHighRes( self, mode ) :
+        self.HIGH_RES = mode
 
     # Check High Resolution Mode
     def PPU_isHighRes( self ) :
