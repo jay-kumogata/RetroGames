@@ -140,7 +140,7 @@ SuperChip 1.0/1.1/XO-CHIP命令の一部を実装しました．
 - 互換性プロファイル(VIP / SCHIP / XO-CHIP)を指定できるように変更
 - 0xFX75: store V0..VX in RPL user flags, but X is not limited to 7命令を実装
 - 0xFX85: read V0..VX from RPL user flags, but X is not limited to 7命令を実装
-- clip sprites at screen edges instead of wrapping." を実装(PPU_SetPixel(), XorPixel())
+- 画面の端でスプライトを切り落とす(折り返さない)機能を実装(PPU_SetPixel(), XorPixel())
 
 月面着陸ゲーム(lunar.ch8)が動作しました．
 
