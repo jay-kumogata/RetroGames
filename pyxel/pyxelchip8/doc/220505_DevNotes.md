@@ -133,6 +133,13 @@ SuperChip 1.0/1.1/XO-CHIP命令の一部を実装しました．
 - 0x00DN: Scroll up N pixels (XO-CHIP) 命令
 - 0xFX30: Point I to 10-byte font sprite for digit VX (only digits 0-9)命令
 
+### 2023-02-26
+
+本当に久しぶりに，エミュレータを開発しました．楽しいです．
+昨日一旦開発終了したのですが，また続きを書いてしまいました．
+LunarLanderという月面着陸ゲーム(lunar.ch8)が動作しました．
+ソースリストはGitHubの方に上げていないので，整理してから上げます．
+
 ### 2023-02-27
 
 SuperChip 1.0/1.1/XO-CHIP命令の一部を実装しました．
@@ -145,5 +152,13 @@ SuperChip 1.0/1.1/XO-CHIP命令の一部を実装しました．
 月面着陸ゲーム(lunar.ch8)が動作しました．
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelchip8/screenshots/lunar01.gif" width="384">
+
+### 2023-03-01
+
+PyxelChip8の動作チェックで，LunarLanderを何度か遊びました．
+いま遊んでも全然面白いゲームです．
+元々は，NASAの月面着陸シミュレーションという実用的なソフトウェアでした．
+が，それが，LunarLanderという遊びに変化したのだと想像します．
+「プレイ・マターズ」の遊びの特性である「流動的」の具体例かもしれません．
 
 以上
