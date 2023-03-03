@@ -8,9 +8,9 @@
 ゲーム史の本も読み漁ることにしました．
 
 - テーマリスト
-  - [01_ゲーム製作](https://github.com/jay-kumogata/RetroGames/blob/main/research/01_VideoGameMaking): ゲームを作ってみるテーマ
-  - [02_ゲーム歴史](https://github.com/jay-kumogata/RetroGames/blob/main/research/02_00_VideoGameHistory): ゲームの歴史を調べるテーマ
-  - [03_ゲーム収集](https://github.com/jay-kumogata/RetroGames/blob/main/research/03_VideoGameCollecting): ゲームを集めるテーマ
+  - [01_ゲーム製作](https://github.com/jay-kumogata/RetroGames/blob/main/research/01_VideoGameMaking.md): ゲームを作ってみるテーマ
+  - [02_ゲーム歴史](https://github.com/jay-kumogata/RetroGames/blob/main/research/02_00_VideoGameHistory.md): ゲームの歴史を調べるテーマ
+  - [03_ゲーム収集](https://github.com/jay-kumogata/RetroGames/blob/main/research/03_VideoGameCollecting.md): ゲームを集めるテーマ
   - 04_ハードオフめぐり旅: 計算機考古学/日本企業史研究からスピンアウト
   - 05_ブックオフめぐり旅: 計算機考古学/日本企業史研究からスピンアウト(ハードオフ以外の店舗はここ)
 

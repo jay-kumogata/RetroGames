@@ -5,7 +5,7 @@
 ビデオゲームを収集する記録です．
 
 - サブテーマリスト
-  - [01_収集リスト](https://github.com/jay-kumogata/RetroGames/blob/main/research/03_01_CollectionList): 収集したビデオゲームをリスト化
+  - [01_収集リスト](https://github.com/jay-kumogata/RetroGames/blob/main/research/03_01_CollectionList.md): 収集したビデオゲームをリスト化
 
 ### 2021-12-12
 
