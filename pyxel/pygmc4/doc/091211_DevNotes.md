@@ -96,7 +96,7 @@ CAL命令の続きを実装しました．
 
 LEDが左右に移動するサンプルが動作しました．
 
-### 2023-03-18
+### 2023-03-17
 
 Pyxelで，LEDを表示してみました．
 Twitterに投稿しました．
@@ -104,12 +104,20 @@ fxpファイルを読み込むように変更しました．
 ソースコードだけを公開することが可能になりました．
 少し整理して，出しておきます．
 
-### 2023-03-19
+### 2023-03-18
 
 2009年に，haskellでGMC4エミュを作りはじめて，2017年に，あきらめて，pythonで作りはじめて，放置してたのが出てきた．LED命令位まではうごいているっぽい．仕方ないから，pyxelでLED表示させてみようかな．と言って，LEDのドット絵を描きはじめました．
 
-『昔のフォルダを整理していたら』シリーズの第4弾です．LEDのドット絵を作って，少しPython書きました．gmc4cc (C Compiler for GMC-4)さんの「LEDが左右に動く」デモを動かしてみました．
+『昔のフォルダを整理していたら』シリーズの第4弾です．LEDのドット絵を作って，少しPython書きました．gmc4cc (C Compiler for GMC-4)さんの[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしてみました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led01.gif)
+
+### 2023-03-19
+
+『昔のフォルダを整理していたら』シリーズの第4弾です．
+2009年にHaskellで書き始めたGMC-4エミュですが，途中Pythonへの移植を経て，Pyxelで基板のドット絵を表示しました．
+gmc4cc (C Compiler for GMC-4)の[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led02.gif)
 
 以上
