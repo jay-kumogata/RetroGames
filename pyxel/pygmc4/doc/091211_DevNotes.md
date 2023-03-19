@@ -110,14 +110,14 @@ fxpファイルを読み込むように変更しました．
 
 『昔のフォルダを整理していたら』シリーズの第4弾です．LEDのドット絵を作って，少しPython書きました．gmc4cc (C Compiler for GMC-4)さんの[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしてみました．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led01.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led01.gif" width="320"> 
 
 ### 2023-03-19
 
 『昔のフォルダを整理していたら』シリーズの第4弾です．
-2009年にHaskellで書き始めたGMC-4エミュですが，途中Pythonへの移植を経て，Pyxelで基板のドット絵を表示しました．
-gmc4cc (C Compiler for GMC-4)の[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしました．
+2009年にHaskellで書き始めたGMC-4エミュですが，途中Pythonへの移植を経て，Pyxelで基板のドット絵を表示してみました．
+gmc4cc (C Compiler for GMC-4)の[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしてみました．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led02.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led02.gif" width="352"> 
 
 以上
