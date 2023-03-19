@@ -100,11 +100,16 @@ LEDが左右に移動するサンプルが動作しました．
 
 Pyxelで，LEDを表示してみました．
 Twitterに投稿しました．
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led01.gif)
-
 fxpファイルを読み込むように変更しました．
 ソースコードだけを公開することが可能になりました．
 少し整理して，出しておきます．
+
+### 2023-03-19
+
+2009年に，haskellでGMC4エミュを作りはじめて，2017年に，あきらめて，pythonで作りはじめて，放置してたのが出てきた．LED命令位まではうごいているっぽい．仕方ないから，pyxelでLED表示させてみようかな．と言って，LEDのドット絵を描きはじめました．
+
+『昔のフォルダを整理していたら』シリーズの第4弾です．LEDのドット絵を作って，少しPython書きました．gmc4cc (C Compiler for GMC-4)さんの「LEDが左右に動く」デモを動かしてみました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led01.gif)
 
 以上
