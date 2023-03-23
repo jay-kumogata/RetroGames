@@ -110,7 +110,7 @@ fxpファイルを読み込むように変更しました．
 
 『昔のフォルダを整理していたら』シリーズの第4弾です．LEDのドット絵を作って，少しPython書きました．gmc4cc (C Compiler for GMC-4)さんの[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしてみました．
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led01.gif" width="320"> 
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led01.gif)
 
 ### 2023-03-19
 
@@ -118,6 +118,41 @@ fxpファイルを読み込むように変更しました．
 2009年にHaskellで書き始めたGMC-4エミュですが，途中Pythonへの移植を経て，Pyxelで基板のドット絵を表示してみました．
 gmc4cc (C Compiler for GMC-4)の[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしてみました．
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led02.gif" width="352"> 
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led02.gif)
+
+### 2023-03-20
+
+v0.3開発を開始しました．
+7セグメントLEDを表示するロジックを実装しました．
+0からFまでの数字と小数点が正しく表示されるかチェックしました．
+以前書いた箇所が間違っていたので，修正しました．
+
+### 2023-03-21
+
+基板のドット絵に，本物と同じような薄緑色の配線を書き加えました．
+散歩してから，キー入力処理を実装しました．
+
+	Opコード 	ニーモニック 	内容 	Flag
+	0 	KA 	K→Ar 	キー入力有無
+
+フラグ処理を勘違いして実装していました．
+キー入力がある場合には，フラグ=1ではなく，フラグ=0という[仕様](https://ja.wikipedia.org/wiki/GMC-4)でした．
+その不具合を修正したところ，1,2,3のキーを押していき，合計が9を越えた人の負けという
+[9を越えたら負けゲーム](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/sum-game.c)
+が動作しました．
+ソースコードにマジックナンバーが多数存在していたので，定数を定義して置き換えました．
+
+### 2023-03-22
+
+少し基板のドット絵を修正しました．
+LEDの表示順が逆になっていました．
+左→右から右→左に変更しました．
+
+### 2023-03-23
+
+少し基板のドット絵を修正しました．
+GitHubの方に，ソースコードを公開しました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/nine01.gif)
 
 以上

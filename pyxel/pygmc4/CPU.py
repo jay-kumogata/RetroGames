@@ -41,8 +41,12 @@ class CPU:
             # Instructions
             if ( self.INST == 0x0 ) :
                 # 0x0 : KA : Key->A
-                self.A = self.A 
-                
+                if ( self.parent._IO.Key_F ) : 
+                    self.A = self.parent._IO.Key
+                    self.F = 0x0
+                else:
+                    self.F = 0x1
+                    
             elif ( self.INST == 0x1 ) :
                 # 0x1 : AO : A->7Seg.
                 self.parent._IO.LED_7Seg = self.parent._IO.LED_Fig[ self.A ]
@@ -72,14 +76,20 @@ class CPU:
             elif ( self.INST == 0x6 ) :
                 # 0x6 : M+ : M(50+Y)+A->A, F<-Carry
                 self.A = self.CPU_Read( 0x50+self.Y ) + self.A 
-                self.F = 0x1 if ( self.A & 0x10 ) else 0x0
-                self.A &= 0xF
+                if ( self.A & 0x10 ) :
+                    self.A &= 0xF
+                    self.F = 0x1
+                else :
+                    self.F = 0x0
 
             elif ( self.INST == 0x7 ) :
                 # 0x7 : M- : M(50+Y)-A->A, F<-Borrow
                 self.A = self.CPU_Read( 0x50+self.Y ) - self.A 
-                self.F = 0x1 if ( self.A < 0 ) else 0x0
-                self.A += 0x10
+                if ( self.A < 0 ) :
+                    self.A += 0x10
+                    self.F = 0x1    
+                else :
+                    self.F = 0x0
 
             elif ( self.INST == 0x8 ) :
                 # 0x8 : TIA n : n->A, 1->F
@@ -118,10 +128,10 @@ class CPU:
                 self.PC += 1
 
             elif ( self.INST == 0xE ) :
+                # 0xE : CAL XXXX
                 self.INST = self.CPU_Read( self.PC )
                 self.PC += 1
 
-                # 0xE : CAL XXXX
                 if ( self.F == 0x1 ) :
                     if ( self.INST == 0x0 ) :
                         # 0xE0: CAL RSTO : 7Seg. off
@@ -185,16 +195,19 @@ class CPU:
                         self.F = 0x1
                         
             elif ( self.INST == 0xF ) :
-                # 0xF : JUMP xy
+                # 0xF : JUMP xy, 1->F
                 if ( self.F == 0x1 ) :
                     self.PC = ( self.CPU_Read( self.PC ) << 4 ) + self.CPU_Read( self.PC + 1 )
                 else :
                     self.PC += 2
-                    self.F = 0x1
 
-#        print ("PC:%02x,INST:%02x,FLAG:%02x" %(self.PC,self.INST,self.F))
-#        print ("A:%02x,B:%02x,Y:%02x,Z:%02x" %(self.A,self.B,self.Y,self.Z))
-#        print ("A':%02x,B':%02x,Y':%02x,Z':%02x" %(self._A,self._B,self._Y,self._Z))
+                self.F = 0x1
+
+        # dummy wait
+        time.sleep(0.001)
+                
+#        print ("PC:%02x,INST:%01x,F:%01x,A:%01x,B:%01x,Y:%01x,Z:%01x,A':%01x,B':%01x,Y':%01x,Z':%01x"
+#               %(self.PC,self.INST,self.F,self.A,self.B,self.Y,self.Z,self._A,self._B,self._Y,self._Z))
 
 #        print ("LED :%01x %01x %01x %01x %01x %01x %01x"
 #               %(self.parent._IO.LED[0],self.parent._IO.LED[1],self.parent._IO.LED[2],
@@ -205,6 +218,10 @@ class CPU:
 #               %(self.parent._IO.LED_7Seg[0],self.parent._IO.LED_7Seg[1],self.parent._IO.LED_7Seg[2],
 #                 self.parent._IO.LED_7Seg[3],self.parent._IO.LED_7Seg[4],self.parent._IO.LED_7Seg[5],
 #                 self.parent._IO.LED_7Seg[6]))
+
+#        print ("Key_F:%01x,Key:%01x" %(self.parent._IO.Key_F,self.parent._IO.Key))
+#        print ("A:%01x,M(50+Y):%01x,Y:%01x" %(self.A,self.CPU_Read( 0x50+self.Y ),self.Y))
+#        print ("A:%01x,M(50+Y):%01x,Y:%01x" %(self.A,self.CPU_Read( 0x50+self.Y ),self.Y))
 
         return 0
                 

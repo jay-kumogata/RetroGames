@@ -34,7 +34,7 @@ class System :
             # Failed
             return -1
         
-        print (self._RAM)
+        # print (self._RAM)
 
         # Successful
         return 0
@@ -56,11 +56,9 @@ class System :
     #   Load FXP image
     # ------------------------------------------------------------
     def LoadFxp( self, FileName ) :
-        print (FileName)
         try:
             # Open ROM file
             _fp = open( FileName, 'r' ) 
-            print (_fp)
                 
             # Allocate Memory for FXP Image
             _n = 0
@@ -71,6 +69,8 @@ class System :
                 try:
                     _nb = re.search(r'<string>(\w+)</string>', _ln )
                     print (_nb.groups()[0])
+
+                    # Hex String to int
                     self._RAM[ _n ] = int( _nb.groups()[0], 16 )
                     _n += 1
 
