@@ -41,8 +41,8 @@ Haskellでは大して書いてなかったので，すぐに書きおなせま�
 メモリ読込も実装されていなかったので，CPU_Read(),Write()を実装しました．
 適当なサンプルを作って，TIA命令の動作を確認しました．
 
-	Opコード 	ニーモニック 	内容(CAL命令はFlag=1の時だけ実行) 	Flag
-	8 	TIA □ 	□→Ar 	1
+	Opコード		ニーモニック	内容			Flag
+	8		TIA □ 		□→Ar			1
 
 _(2023/03/18 この時点では，CPU.pyだけしかなく，算術演算が実装されている程度でした．動作チェックはされていませんでした．)_
 
@@ -50,30 +50,30 @@ _(2023/03/18 この時点では，CPU.pyだけしかなく，算術演算が実�
 
 引き続きで，一通り命令の動作をチェックしました．
 
-	Opコード 	ニーモニック 	内容(CAL命令はFlag=1の時だけ実行) 	Flag
-	2 	CH 	Ar⇔Br , Yr⇔Zr 	1
-	3 	CY 	Ar⇔Yr 	1
-	4 	AM 	Ar→(Yr) 	1
-	5 	MA 	(Yr)→Ar 	1
-	6 	M+ 	Ar+(Yr)→Ar 	桁上がり
-	7 	M- 	Ar-(Yr)→Ar 	マイナス
-	9 	AIA □ 	Ar+□→Ar 	桁上がり
-	A 	TIY □ 	□→Yr 	1
-	B 	AIY □ 	Yr+□→Yr 	桁上がり
-	C 	CIA □ 	Ar≠□→Flag 	不一致
-	D 	CIY □ 	Yr≠□→Flag 	不一致
-	F 	JUMP □□ 	if(Flag)goto□□ 	1
+	Opコード		ニーモニック 	内容			Flag
+	2		CH 		Ar⇔Br , Yr⇔Zr		1
+	3		CY 		Ar⇔Yr			1
+	4		AM 		Ar→(Yr) 		1
+	5		MA 		(Yr)→Ar 		1
+	6		M+ 		Ar+(Yr)→Ar 		桁上がり
+	7		M- 		Ar-(Yr)→Ar 		マイナス
+	9		AIA □ 		Ar+□→Ar			桁上がり
+	A		TIY □ 		□→Yr			1
+	B		AIY □ 		Yr+□→Yr			桁上がり
+	C		CIA □ 		Ar≠□→Flag		不一致
+	D		CIY □ 		Yr≠□→Flag		不一致
+	F		JUMP □□ 	if(Flag)goto□□		1
 
 ### 2023-03-06
 
 PyxelChip8の方がひと段落したので，LED命令関連の命令をまとめて実装しました．
 
-	Opコード 	ニーモニック 	内容(CAL命令はFlag=1の時だけ実行) 	Flag
-	1 	AO 	Ar→Op 	1
-	E0 	CAL RSTO 	0→数字LED 	1
-	E1 	CAL SETR 	1→2進LED[Y] 	1
-	E2 	CAL RSTR 	0→2進LED[Y] 	1
-	ED 	CAL DSPR 	(E)→2進LED[0:3],(F)→2進LED[4:6] 	1
+	Opコード		ニーモニック 	内容				Flag
+	1		AO 		Ar→Op				1
+	E0 		CAL RSTO 	0→数字LED			1
+	E1 		CAL SETR 	1→2進LED[Y]			1
+	E2 		CAL RSTR 	0→2進LED[Y]			1
+	ED 		CAL DSPR 	(E)→2進LED[0:3],(F)→2進LED[4:6]	1
 
 ### 2023-03-16
 
@@ -81,18 +81,18 @@ CAL命令の続きを実装しました．
 サウンド命令は，ダミーで実装しました．
 ウェイト命令も，実装しました．
 
-	Opコード 	ニーモニック 	内容(CAL命令はFlag=1の時だけ実行) 	Flag
-	E7 	CAL ENDS 	エンド音 	1
-	E8 	CAL ERRS 	エラー音 	1
-	E9 	CAL SHTS 	ショート音 	1
-	EA 	CAL LONS 	ロング音 	1
-	EB 	CAL SUND 	Arの音階の音 	1
-	EC 	CAL TIMR 	(Ar+1)×0.1sec待ち 	1
+	Opコード		ニーモニック 	内容			Flag
+	E7 		CAL ENDS 	エンド音			1
+	E8 		CAL ERRS 	エラー音			1
+	E9 		CAL SHTS 	ショート音		1
+	EA 		CAL LONS 	ロング音			1
+	EB 		CAL SUND 	Arの音階の音		1
+	EC 		CAL TIMR 	(Ar+1)×0.1sec待ち	1
 
 ジャンプ命令は，実装誤りを修正しました．
 
-	Opコード 	ニーモニック 	内容(CAL命令はFlag=1の時だけ実行) 	Flag
-	F 	JUMP □□ 	if(Flag)goto□□ 	1
+	Opコード		ニーモニック 	内容			Flag
+	F 		JUMP □□		if(Flag)goto□□		1
 
 LEDが左右に移動するサンプルが動作しました．
 
@@ -114,6 +114,7 @@ fxpファイルを読み込むように変更しました．
 
 ### 2023-03-19
 
+v0.2開発を開始しました．
 『昔のフォルダを整理していたら』シリーズの第4弾です．
 2009年にHaskellで書き始めたGMC-4エミュですが，途中Pythonへの移植を経て，Pyxelで基板のドット絵を表示してみました．
 gmc4cc (C Compiler for GMC-4)の[LEDが左右に動くデモ](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/pendulum.c)を動かしてみました．
@@ -132,8 +133,8 @@ v0.3開発を開始しました．
 基板のドット絵に，本物と同じような薄緑色の配線を書き加えました．
 散歩してから，キー入力処理を実装しました．
 
-	Opコード 	ニーモニック 	内容 	Flag
-	0 	KA 	K→Ar 	キー入力有無
+	Opコード		ニーモニック 	内容		Flag
+	0		KA 		K→Ar 		キー入力有無
 
 フラグ処理を勘違いして実装していました．
 キー入力がある場合には，フラグ=1ではなく，フラグ=0という[仕様](https://ja.wikipedia.org/wiki/GMC-4)でした．
@@ -154,5 +155,14 @@ LEDの表示順が逆になっていました．
 GitHubの方に，ソースコードを公開しました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/nine01.gif)
+
+『昔のフォルダを整理していたら』シリーズの第4弾です．
+Pyxelで動作するGMC-4エミュの続きです．
+基板のドット絵を少し修正して，キー入力処理を追加しました．
+gmc4ccさんの[9を越えたら負けゲーム](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/sum-game.c)が動きました．
+
+### 2023-03-24
+
+GMC-4の模擬器作成は，楽しいです．週末は，サウンド追加をしようかと．
 
 以上
