@@ -169,15 +169,16 @@ GMC-4の模擬器作成は，楽しいです．週末は，サウンド追加を
 ### 2023-03-25
 
 ウェイト処理で動作が遅くなっていたので，ウェイト値を調整しました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led03.gif)
+
 サウンド命令以外の命令を実装しました．
 
 	Opコード		ニーモニック 	内容			Flag
-	E4			CAL CMPL 		NOT(Ar)→Ar			1
-	E5			CAL CHNG 		A,B,Y,Z⇔A',B',Y',Z'	1
-	E6			CAL SIFT 		Ar%2→Flag,Ar/2→Ar		Ar[0]
-	EE			CAL DEM-		DEC((Y)-Ar)→(Y),Y-- 	1
-	EF			CAL DEM+		DEC((Y)+Ar)→(Y),Y-- 	1
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led03.gif)
+	E4		CAL CMPL 	NOT(Ar)→Ar		1
+	E5		CAL CHNG 	A,B,Y,Z⇔A',B',Y',Z'	1
+	E6		CAL SIFT 	Ar%2→Flag,Ar/2→Ar	Ar[0]
+	EE		CAL DEM-	DEC((Y)-Ar)→(Y),Y-- 	1
+	EF		CAL DEM+	DEC((Y)+Ar)→(Y),Y-- 	1
 
 以上
