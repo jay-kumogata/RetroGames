@@ -1,4 +1,4 @@
-# PyGmc4 v0.3: A GMC-4 emulator in Pyxel/Python
+# PyGmc4 v0.4: A GMC-4 emulator in Pyxel/Python
 # Copyright (c) 2023 Kumogata Computing Laboratory.
 # All Rights Reserved.
 
@@ -56,7 +56,7 @@ class PyGmc4:
     
     # Constructor
     def __init__( self ):
-        pyxel.init( self.width, self.height, title="PyGmc4 v0.3", fps=30)
+        pyxel.init( self.width, self.height, title="PyGmc4 v0.4", fps=30)
         pyxel.load( "PyGmc4.pyxres")
         
         # Create Gmc4's System

@@ -132,6 +132,7 @@ class CPU:
                 self.INST = self.CPU_Read( self.PC )
                 self.PC += 1
 
+                # Execute only if Flag=1
                 if ( self.F == 0x1 ) :
                     if ( self.INST == 0x0 ) :
                         # 0xE0: CAL RSTO : 7Seg. off
@@ -142,28 +143,30 @@ class CPU:
                         # 0xE1: CAL SETR : LED(Y) on
                         self.parent._IO.LED[ self.Y % 7 ] = 1
                         self.F = 0x1
-                            
+
                     elif ( self.INST == 0x2 ) :
                         # 0xE2: CAL RSTR : LED(Y) off
                         self.parent._IO.LED[ self.Y % 7 ] = 0
                         self.F = 0x1
 
-                    elif ( self.INST == 0xD ) :
-                        # 0xED: CAL DSPR : M (5F/5E)→LED
-                        m5e = self.CPU_Read( 0x5E )
-                        m5f = self.CPU_Read( 0x5F )
-
-                        # M(5E)->LED[0:3]
-                        self.parent._IO.LED[ 0 ] = (m5e & 0x1)
-                        self.parent._IO.LED[ 1 ] = (m5e & 0x2) >> 1
-                        self.parent._IO.LED[ 2 ] = (m5e & 0x4) >> 2
-                        self.parent._IO.LED[ 3 ] = (m5e & 0x8) >> 4
-                        # M(5F)->LED[4:6]
-                        self.parent._IO.LED[ 4 ] = (m5f & 0x1) 
-                        self.parent._IO.LED[ 5 ] = (m5f & 0x2) >> 1
-                        self.parent._IO.LED[ 6 ] = (m5f & 0x4) >> 2
+                    elif ( self.INST == 0x4 ) :
+                        # 0xE4: CAL CMPL : NOT(Ar)->Ar
+                        self.A = ~self.A & 0xF
                         self.F = 0x1
 
+                    elif ( self.INST == 0x5 ) :
+                        # 0xE5: CAL CHNG : A,B,Y,Z <-> A',B',Y',Z'
+                        self.A, self._A = self._A, self.A
+                        self.B, self._B = self._B, self.B
+                        self.Y, self._Y = self._Y, self.Y
+                        self.Z, self._Z = self._Z, self.Z
+                        self.F = 0x1
+
+                    elif ( self.INST == 0x6 ) :
+                        # 0xE6: CAL SIFT : Ar%2->Flag,Ar/2->Ar 
+                        self.F = self.A & 0x1
+                        self.A >>= 1
+                        
                     elif ( self.INST == 0x7 ) :
                         # 0xE7: CAL ENDS
                         print ("sound(end)")
@@ -193,6 +196,42 @@ class CPU:
                         # 0xEC: CAL TIMR
                         time.sleep(0.1*( self.A + 1 ))
                         self.F = 0x1
+
+                    elif ( self.INST == 0xD ) :
+                        # 0xED: CAL DSPR : M (5F/5E)→LED
+                        m5e = self.CPU_Read( 0x5E )
+                        m5f = self.CPU_Read( 0x5F )
+
+                        # M(5E)->LED[0:3]
+                        self.parent._IO.LED[ 0 ] = (m5e & 0x1)
+                        self.parent._IO.LED[ 1 ] = (m5e & 0x2) >> 1
+                        self.parent._IO.LED[ 2 ] = (m5e & 0x4) >> 2
+                        self.parent._IO.LED[ 3 ] = (m5e & 0x8) >> 4
+                        # M(5F)->LED[4:6]
+                        self.parent._IO.LED[ 4 ] = (m5f & 0x1) 
+                        self.parent._IO.LED[ 5 ] = (m5f & 0x2) >> 1
+                        self.parent._IO.LED[ 6 ] = (m5f & 0x4) >> 2
+                        self.F = 0x1
+
+                    elif ( self.INST == 0xE ) :
+                        # 0xEE: CAL DEM- : bcd(M(50+Y)-A)->M(50+Y), Y-1->Y
+                        #                  assuming that borrow does not occur
+                        _D = self.CPU_Read( 0x50+self.Y ) - self.A
+                        self.CPU_Write( self.Y, _D % 10 )
+                        self.Y -= 1
+                        self.F = 0x1
+
+                    elif ( self.INST == 0xF ) :
+                        # 0xEF: CAL DEM+ : bcd(M(50+Y)+A)->M(50+Y), Y-1->Y
+                        #                  assuming that carry occurs
+                        _D = self.CPU_Read( 0x50+self.Y ) + self.A 
+                        self.CPU_Write( 0x50+self.Y, _D % 10 )
+                        if ( _D & 0x10 ) :
+                            # If carry occurs, (Y-1)+1 -> (Y-1)
+                            _C = self.CPU_Read( 0x50+self.Y-1 ) + 1
+                            self.CPU_Write( 0x50+self.Y-1, _C )  
+                        self.Y -= 1
+                        self.F = 0x1
                         
             elif ( self.INST == 0xF ) :
                 # 0xF : JUMP xy, 1->F
@@ -204,8 +243,9 @@ class CPU:
                 self.F = 0x1
 
         # dummy wait
-        time.sleep(0.001)
-                
+        time.sleep(0)
+
+        # debug messages
 #        print ("PC:%02x,INST:%01x,F:%01x,A:%01x,B:%01x,Y:%01x,Z:%01x,A':%01x,B':%01x,Y':%01x,Z':%01x"
 #               %(self.PC,self.INST,self.F,self.A,self.B,self.Y,self.Z,self._A,self._B,self._Y,self._Z))
 
@@ -231,8 +271,8 @@ class CPU:
     def CPU_Read( self, byAddr ) :
         return self.parent._RAM[ byAddr ]
 
-    def CPU_Write( self, byAddr, byData ) :
-        self.parent._RAM[ byAddr ] = byData
+    def CPU_Write( self, byAddr, niData ) :
+        self.parent._RAM[ byAddr ] = niData
         return
 
 # End of CPU.py
