@@ -5,7 +5,7 @@
 PyGmc4 is a GMC-4 emulator runs on Pyxel/Python library.
 [Dev Notes](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/doc/091211_DevNotes.md) here.
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/nine01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/led03.gif)
 
 ## How to Play
 
