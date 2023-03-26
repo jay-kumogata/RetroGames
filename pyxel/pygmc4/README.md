@@ -33,7 +33,7 @@ The keys are mapped as follows.
 
 ### Registers
 - Data Registers (A,B,A',B')
-- Address Registers (X,Y,X',Y')
+- Address Registers (Y,Z,Y',Z')
 - Control Registers (PC, Flag)
 
 ### Graphics
