@@ -41,7 +41,7 @@ The keys are mapped as follows.
 - 7-segment LED 
 
 ### Instruction set
-- I/O instructions: Key input, Binary LED control, 7-segment LED control
+- I/O instructions: Key input, Binary LED control, 7-segment LED control, Sound
 - Transfer instructions: Assignment, Exchange
 - Arithmetic instructions: Real calculation, Compare
 - Conditional Branch: Jump, Timer wait

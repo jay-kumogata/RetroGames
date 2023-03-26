@@ -181,4 +181,21 @@ GMC-4の模擬器作成は，楽しいです．週末は，サウンド追加を
 	EE		CAL DEM-	DEC((Y)-Ar)→(Y),Y-- 	1
 	EF		CAL DEM+	DEC((Y)+Ar)→(Y),Y-- 	1
 
+### 2023-03-26
+
+本日も雨天でした．
+v0.5開始しました．
+サウンド命令は，単に音階を再生するだけの簡易実装をしてみました．
+
+[Nibbled XEVIOUS](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/nibbled-xevious.c)を動かしてみました．
+実機は4MHz動作なので，実行速度をそれに合うように直しました．
+サウンドが再生されるように修正しました．
+2進LED No.3が正しく表示されない事象は，CAL DSPR命令の実装誤りでした．
+2進LED No.3の動作が，オリジナルコメントと異なるのですが，理由は不明です．
+動作したということで，次に進むことにします．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pygmc4/screenshots/xevious01.gif)
+
+一通り動作したので，開発終了にします．
+
 以上

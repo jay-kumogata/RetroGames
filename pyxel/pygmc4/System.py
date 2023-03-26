@@ -1,4 +1,5 @@
-import re
+import re, time
+
 from CPU import *
 from IO import *
 
@@ -34,17 +35,18 @@ class System :
             # Failed
             return -1
         
-        # print (self._RAM)
-
         # Successful
         return 0
 
     def Run( self ) :
-
         # Main loop
         while ( 1 ) :
-            self._CPU.CPU_Step( 1 )
+            # number of instruction executed within 1 MHz = 4 MHz
+            self._CPU.CPU_Step( 4 )
 
+            # dummy wait (1 microsecond ) = 1 MHz
+            time.sleep(0.0000001)
+            
     # ------------------------------------------------------------
     #   Finalize Resources
     # ------------------------------------------------------------

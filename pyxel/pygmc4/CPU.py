@@ -1,5 +1,4 @@
 import time
-from random import *
 
 class CPU:
 
@@ -170,28 +169,33 @@ class CPU:
                     elif ( self.INST == 0x7 ) :
                         # 0xE7: CAL ENDS
                         print ("sound(end)")
+                        self.parent.parent.play( 0 ) 
                         self.F = 0x1
 
                     elif ( self.INST == 0x8 ) :
                         # 0xE8: CAL ERRS
                         print ("sound(error)")
+                        self.parent.parent.play( 1 ) 
                         self.F = 0x1
                         
                     elif ( self.INST == 0x9 ) :
                         # 0xE9: CAL SHTS
                         print ("sound(short)")
+                        self.parent.parent.play( 2 )
                         self.F = 0x1
 
                     elif ( self.INST == 0xA ) :
                         # 0xEA: CAL LONS
                         print ("sound(long)")
+                        self.parent.parent.play( 3 )
                         self.F = 0x1
 
                     elif ( self.INST == 0xB ) :
                         # 0xEB: CAL SUND
                         print ("sound(A)")
+                        self.parent.parent.play( self.A )
                         self.F = 0x1
-
+                        
                     elif ( self.INST == 0xC ) :
                         # 0xEC: CAL TIMR
                         time.sleep(0.1*( self.A + 1 ))
@@ -206,7 +210,7 @@ class CPU:
                         self.parent._IO.LED[ 0 ] = (m5e & 0x1)
                         self.parent._IO.LED[ 1 ] = (m5e & 0x2) >> 1
                         self.parent._IO.LED[ 2 ] = (m5e & 0x4) >> 2
-                        self.parent._IO.LED[ 3 ] = (m5e & 0x8) >> 4
+                        self.parent._IO.LED[ 3 ] = (m5e & 0x8) >> 3
                         # M(5F)->LED[4:6]
                         self.parent._IO.LED[ 4 ] = (m5f & 0x1) 
                         self.parent._IO.LED[ 5 ] = (m5f & 0x2) >> 1
@@ -241,9 +245,6 @@ class CPU:
                     self.PC += 2
 
                 self.F = 0x1
-
-        # dummy wait
-        time.sleep(0)
 
         # debug messages
 #        print ("PC:%02x,INST:%01x,F:%01x,A:%01x,B:%01x,Y:%01x,Z:%01x,A':%01x,B':%01x,Y':%01x,Z':%01x"

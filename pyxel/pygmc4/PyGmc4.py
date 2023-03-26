@@ -1,13 +1,18 @@
-# PyGmc4 v0.4: A GMC-4 emulator in Pyxel/Python
+# PyGmc4 v0.5: A GMC-4 emulator in Pyxel/Python
 # Copyright (c) 2023 Kumogata Computing Laboratory.
 # All Rights Reserved.
 
 import pyxel
 import sys, os
 import threading
+
 from System import *
 
 class PyGmc4:
+
+    # References
+    _Sys = None
+
     # Constants
     width = 176
     height = 104
@@ -47,16 +52,13 @@ class PyGmc4:
             [  3,13,10, 2 ],  # 6
             [ 17,25, 2, 2 ] ] # 7
 
-    # References
-    _Sys = None
-
     # ------------------------------------------------------------
     #   Main Routine
     # ------------------------------------------------------------
     
     # Constructor
     def __init__( self ):
-        pyxel.init( self.width, self.height, title="PyGmc4 v0.4", fps=30)
+        pyxel.init( self.width, self.height, title="PyGmc4 v0.5", fps=30)
         pyxel.load( "PyGmc4.pyxres")
         
         # Create Gmc4's System
@@ -200,7 +202,13 @@ class PyGmc4:
             self._Sys._IO.Key_F = 0x0
         if pyxel.btnr( pyxel.KEY_4 ) :
             self._Sys._IO.Key_F = 0x0
-                
+
+    # Sound play no.
+    # 0:G1 1:A2 2:B2 3:C2 4:D2 5:E2 6:F2 7:G2
+    # 8:A3 9:B3 A:C3 B:D3 C:E3 D:F3 E:G3 F:A4
+    def play(self, no):
+        pyxel.play(1, no, loop = False) 
+            
 # Main            
 PyGmc4()
                 
