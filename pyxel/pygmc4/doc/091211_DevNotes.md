@@ -187,6 +187,14 @@ GMC-4の模擬器作成は，楽しいです．週末は，サウンド追加を
 v0.5開始しました．
 サウンド命令は，単に音階を再生するだけの簡易実装をしてみました．
 
+	Opコード		ニーモニック 	内容			Flag
+	E7	 	CAL ENDS 	エンド音 		1
+	E8 		CAL ERRS 	エラー音 		1
+	E9 		CAL SHTS 	ショート音 		1
+	EA 		CAL LONS 	ロング音 		1
+	EB 		CAL SUND 	Arの音階の音 		1
+
+
 [Nibbled XEVIOUS](http://terus.jp/engineering/gmc4cc/compile.html?autoload=files/samples/nibbled-xevious.c)を動かしてみました．
 実機は4MHz動作なので，実行速度をそれに合うように直しました．
 サウンドが再生されるように修正しました．
