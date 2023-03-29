@@ -1,12 +1,6 @@
 # RetroGames
 Retrospective games and documents
 
-## Emulator list
-
-|No.|Date|Title|Platform|Content|
-|---|----|----|---------|-------|
-|1|2023-03-18|[pygmc4](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pygmc4)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/pygmc4/screenshots/xevious01.gif" width="176">|
-
 ## Game list
 
 |No.|Date|Title|Platform|Content|
