@@ -60,4 +60,15 @@ Pyxelで，ニキシー管時計を作りはじめました．
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/nixie/screenshots/Nixie01.gif)
 
+### 2023-04-28
+
+年初から，ピンボールを作りたいと思い，数日前から作りはじめました．
+PICO-8実装を写経するという手法です．
+Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)を写経しました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/pinball01.gif)
+
+ピンボールというか，ピンボールとブロック崩しが融合したゲームです．
+オリジナルはランダム要素が強かったので，シミュレーション要素を強めに変更しています．
+
 以上
