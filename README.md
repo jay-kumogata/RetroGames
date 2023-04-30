@@ -24,6 +24,7 @@ Retrospective games and documents
 |17|2022-02-04|[dodge_v3](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge23.png" width="150">|
 |18|2022-02-26|[dodge_v4](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge33.png" width="150">|
 |19|2022-03-06|[dodge_v5](https://github.com/jay-kumogata/RetroGames/tree/main/octo/dodge)|XO-Chip|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/octo/screenshots/dodge43.png" width="150">|
+|20|2023-04-30|[pinball](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball02.gif" width="150">|
 
 ## Demo list
 
