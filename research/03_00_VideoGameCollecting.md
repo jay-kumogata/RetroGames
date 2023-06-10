@@ -5,7 +5,8 @@
 ビデオゲームを収集する記録です．
 
 - サブテーマリスト
-  - [01_収集リスト](https://github.com/jay-kumogata/RetroGames/blob/main/research/03_01_CollectionList.md): 収集したビデオゲームをリスト化
+  - [01_収集リスト](03_01_CollectionList.md): 収集したビデオゲームをリスト化
+  - [02 メガドラミニ研究](03_02_MegadriveMini.md): ビデオゲーム復刻の事例として
 
 ### 2021-12-12
 
