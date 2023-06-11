@@ -6,7 +6,8 @@
 
 - サブテーマリスト
   - [01_収集リスト](03_01_CollectionList.md): 収集したビデオゲームをリスト化
-  - [02 メガドラミニ研究](03_02_MegadriveMini.md): ビデオゲーム復刻の事例として
+  - [02_メガドラミニ研究](03_02_MegadriveMini.md): ビデオゲーム復刻事例として研究
+  - [03_Final Fantasy研究](03_03_FinalFantasy.md): 代表的なJRPGとして研究
 
 ### 2021-12-12
 
