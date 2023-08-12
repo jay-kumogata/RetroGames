@@ -86,4 +86,17 @@ Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)を写経�
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball02.gif)
 
+### 2023-07-17
+
+Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)をPyxelに移植してみました．
+ピンボールとポンを組み合わせたようなゲームです．
+春頃に作って公開するのを忘れていました．
+任天堂ピンボールのツイートを見て，思い出しました．#Pyxel #Pinball
+
+### 2023-07-18
+
+Pyxelで動作するPinball Pong🕹️の[ソースリスト](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)📁を公開しました．#Pyxel #Pinball 
+
+
+
 以上
