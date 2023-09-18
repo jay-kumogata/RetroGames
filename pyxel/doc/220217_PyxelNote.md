@@ -109,6 +109,21 @@ Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)をPyxelに
 
 Pyxelで動作するPinball Pong🕹️の[ソースリスト](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)📁を公開しました．#Pyxel #Pinball 
 
+### 2023-09-11
 
+昔ベーマガに載ったゲームがありましたが，持っていない機種のゲームだったので，遊ぶことができませんでした．
+どんなゲームだろうと思っていたので，40年の時を超えて，Pyxelで作り直しています．
+異常に難しいゲームでした．
+ある程度まとまった時点で，リリースしようかと考えています．
+
+### 2023-09-18
+
+ウィングマン氏の[ACLM](https://archive.org/details/micom-basic-magazine-issue-16-october-1983/page/n92/mode/1up)をPyxelに移植しました．
+オリジナルは，「マイコン BASIC Magazine（1983年10月号）」に掲載されています．
+自機（赤）を操作して，敵機（青）を上下左右にぶつけて倒すゲームです．
+異常に難しいので，自機と敵機が衝突した場合は，「負け」ではなく，「引分け」にルール変更しました．
+また，オリジナルには，その後に，都市を攻撃するシーン（2面）があるようです．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm01.gif)
 
 以上
