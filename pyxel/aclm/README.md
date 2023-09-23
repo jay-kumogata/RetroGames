@@ -19,4 +19,4 @@ Please execute the following from the Pyxel (version 1.7.0) environment.
 ## How to Control
 
 - [right-arrow]: Rotate my aircraft to the right
-- [left-arrow]: Rotate my aircraft to the right
+- [left-arrow]: Rotate my aircraft to the left
