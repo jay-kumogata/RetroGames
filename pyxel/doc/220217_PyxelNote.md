@@ -98,6 +98,12 @@ Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)を写経�
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball02.gif)
 
+### 2023-07-16
+
+昔は，ピンボールとブロック崩しが合体したゲームが結構あったらしいです．
+ナムコのボムビーとか，キューティーキューとかです．
+結構作ってみると，フリッパーの処理が難しくて，パドルだと簡単に作れることがわかります．
+
 ### 2023-07-17
 
 Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)をPyxelに移植してみました．
@@ -131,6 +137,6 @@ Pyxelで動作するPinball Pong🕹️の[ソースリスト](https://github.co
 異常に難しいので，自機と敵機が衝突した場合は，「負け」ではなく，「引分け」にルール変更しました．
 また，オリジナルには，その後に，都市を攻撃するシーン（2面）があるようです．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm01.gif)　![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm02.gif) ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm03.gif)
 
 以上
