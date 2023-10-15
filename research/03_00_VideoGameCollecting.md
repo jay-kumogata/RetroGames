@@ -8,6 +8,7 @@
   - [01_収集リスト](03_01_CollectionList.md): 収集したビデオゲームをリスト化
   - [02_メガドラミニ研究](03_02_MegadriveMini.md): ビデオゲーム復刻事例として研究
   - [03_Final Fantasy研究](03_03_FinalFantasy.md): 代表的なJRPGとして研究
+  - [04_PlayStation5研究](03_04_PlayStation5.md): PlayStation5を購入するまでの記録
 
 ### 2021-12-12
 
