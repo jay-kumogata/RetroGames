@@ -139,4 +139,11 @@ Pyxelで動作するPinball Pong🕹️の[ソースリスト](https://github.co
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm01.gif)　![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm02.gif) ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm03.gif)
 
+### 2023-10-22
+
+週末に，春頃に作ってたPinball Pongを少し直しました．
+Pongということで，パドルでボールを跳ね返すゲームだったのを，Pinballらしく，フリッパーを付けました．
+しかも，デザインの都合で，ダブルフリッパーです．
+各アイテムの位置決めが結構大変で，いい感じにするのに時間がかかりました．
+
 以上
