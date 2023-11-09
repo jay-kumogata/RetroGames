@@ -109,11 +109,13 @@ Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)を写経�
 Isidor氏の[Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488)をPyxelに移植してみました．
 ピンボールとポンを組み合わせたようなゲームです．
 春頃に作って公開するのを忘れていました．
-任天堂ピンボールのツイートを見て，思い出しました．#Pyxel #Pinball
+任天堂ピンボールのツイートを見て，思い出しました．
+#Pyxel #Pinball
 
 ### 2023-07-18
 
-Pyxelで動作するPinball Pong🕹️の[ソースリスト](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)📁を公開しました．#Pyxel #Pinball 
+Pyxelで動作するPinball Pong🕹️の[ソースリスト](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)📁を公開しました．
+#Pyxel #Pinball 
 
 ### 2023-09-11
 
@@ -137,13 +139,22 @@ Pyxelで動作するPinball Pong🕹️の[ソースリスト](https://github.co
 異常に難しいので，自機と敵機が衝突した場合は，「負け」ではなく，「引分け」にルール変更しました．
 また，オリジナルには，その後に，都市を攻撃するシーン（2面）があるようです．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm01.gif)　![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm02.gif) ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm03.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm02.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm03.gif)
 
-### 2023-10-22
+### 2023-10-23
 
 週末に，春頃に作ってたPinball Pongを少し直しました．
 Pongということで，パドルでボールを跳ね返すゲームだったのを，Pinballらしく，フリッパーを付けました．
 しかも，デザインの都合で，ダブルフリッパーです．
 各アイテムの位置決めが結構大変で，いい感じにするのに時間がかかりました．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball03.gif)
+
+### 2023-11-09
+
+Pyxelで動作するPinball🕹️の[ソースリスト](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)📁を公開しました．
+#Pyxel #Pinball 
 
 以上
