@@ -1,20 +1,20 @@
 #
-# Pyxelを使ったPinball Pongゲーム
+# Pyxelを使ったPinballゲーム
 # Isidor氏作の「PINBALL PONG」を参考にしました．
 # https://www.lexaloffle.com/bbs/?tid=28488
 #
 # Apr 30, 2023 ver.1 (changed graphics library to pyxel)
+# Oct 23, 2023 ver.2 (added flippers and renamed to Pinball)
 #
 # -*- coding: utf-8 -*-
 import time
 import pyxel
 from random import *
 
-
 class Pinball:
     def __init__( self ):
         # Pyxel初期化
-        pyxel.init( 128,128, title="Pinball Pong", fps=60)
+        pyxel.init( 128, 128, title="Pinball", fps=60)
         pyxel.load("Pinball.pyxres")
         self.init()
         pyxel.run(self.update,self.draw)
@@ -33,7 +33,6 @@ class Pinball:
 
     # ゲーム初期化        
     def init( self ):
-        self.flipperx = 58
         self.score = 0
         self.ball = 1
         self.color = 0
@@ -43,7 +42,9 @@ class Pinball:
         self.vy = -1
         self.launch = 0
         self.fi = 0
-        self.bump = 0.8
+        self.bump = 0.6
+        self.left = 0         # 左フリッパー状態(0,1,2)
+        self.right = 0        # 右フリッパー状態(0,1,2)
 
     # PICO-8スプライト互換
     def spr( self, no, x, y ):
@@ -55,22 +56,28 @@ class Pinball:
         self.spr(1,42,58)
         self.spr(1,74,58)
         self.spr(1,58,68)
+
         self.spr(3,22,9)
         self.spr(4,98,9)
-        self.spr(5,22,107)
-        self.spr(6,22,115)
-        self.spr(7,91,107)
-        self.spr(8,91,115)
-        self.spr(9,27,25)
+
+        self.spr(5,28,87)
+        self.spr(6,28,95)
+        self.spr(7,85,87)
+        self.spr(8,85,95)
+
+        self.spr(9,30,25)
         self.spr(10,47,25)
         self.spr(10,67,25)
-        self.spr(9,87,25)
-        self.spr(11,28,54)
-        self.spr(11,28,62)
-        self.spr(11,28,70)
+        self.spr(9,84,25)
+        self.spr(11,27,54)
+        self.spr(11,27,62)
+        self.spr(11,27,70)
         self.spr(11,86,54)
         self.spr(11,86,62)
         self.spr(11,86,70)
+
+        self.spr(15,41,108) 
+        self.spr(16,72,108) 
         
         pyxel.line(22,0,105,0,7)
         pyxel.line(22,8,105,8,7)
@@ -85,11 +92,23 @@ class Pinball:
 
     # フリッパー
     def flipper( self ):
-        if ( pyxel.btn(pyxel.KEY_LEFT) and self.flipperx > 25 ):
-            self.flipperx = self.flipperx - 1
-        if ( pyxel.btn(pyxel.KEY_RIGHT) and self.flipperx < 88 ):
-            self.flipperx = self.flipperx + 1
-        self.spr(2,self.flipperx,123)
+        if ( pyxel.btn(pyxel.KEY_LEFT) ):
+            if (self.left < 2): self.left += 1
+        else:
+            if (self.left > 0): self.left -= 1
+
+        if ( pyxel.btn(pyxel.KEY_RIGHT) ):
+            if (self.right < 2): self.right += 1
+        else:
+            if (self.right > 0): self.right -= 1
+        
+        # 表示        
+        if (self.left == 0 ): self.spr( 12, 48, 114); self.spr( 12, 34, 102)
+        if (self.left == 1 ): self.spr( 13, 48, 113); self.spr( 13, 34, 101) 
+        if (self.left == 2 ): self.spr( 14, 48, 112); self.spr( 14, 34, 100)
+        if (self.right == 0 ): self.spr( 14, 65, 114); self.spr( 14, 79, 102)
+        if (self.right == 1 ): self.spr( 13, 65, 113); self.spr( 13, 79, 101)
+        if (self.right == 2 ): self.spr( 12, 65, 112); self.spr( 12, 79, 100)
         
     # ボール移動
     def move( self ):
@@ -114,7 +133,8 @@ class Pinball:
                 self.ball = self.ball + 1
 
         # 重力加速度
-        self.vy += 0.003
+        #self.vy += 0.003
+        self.vy += 0.004
 
         # 移動と衝突
         self.x = self.x + self.vx
