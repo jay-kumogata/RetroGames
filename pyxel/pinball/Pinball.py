@@ -214,8 +214,8 @@ class Pinball:
             # フリッパー(20点)
             self.score += 20
             if (self.x < 64 and self.vl == 1): self.vy = -0.7
-            if (self.x > 64 and self.vl == -1): self.vy = -0.1
-            if (self.x < 64 and self.vr == 1): self.vy = -0.7
+            if (self.x < 64 and self.vl == -1): self.vy = -0.1
+            if (self.x > 64 and self.vr == 1): self.vy = -0.7
             if (self.x > 64 and self.vr == -1): self.vy = -0.1
         elif (self.color == 2 or self.color == 6):
             # 左右バー(5点)
