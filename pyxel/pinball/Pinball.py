@@ -5,6 +5,7 @@
 #
 # Apr 30, 2023 ver.1 (changed graphics library to pyxel)
 # Oct 23, 2023 ver.2 (added flippers and renamed to Pinball)
+# Nov 17, 2023 ver.3 (fixed gravitational acceleration and added flipper speed)
 #
 # -*- coding: utf-8 -*-
 import time
@@ -14,7 +15,7 @@ from random import *
 class Pinball:
     def __init__( self ):
         # Pyxel初期化
-        pyxel.init( 128, 128, title="Pinball", fps=60)
+        pyxel.init( 128, 128, title="Pinball", fps=30)
         pyxel.load("Pinball.pyxres")
         self.init()
         pyxel.run(self.update,self.draw)
@@ -42,9 +43,11 @@ class Pinball:
         self.vy = -1
         self.launch = 0
         self.fi = 0
-        self.bump = 0.6
+        self.bump = 0.4
         self.left = 0         # 左フリッパー状態(0,1,2)
         self.right = 0        # 右フリッパー状態(0,1,2)
+        self.vl = 0           # 左フリッパー速度(0,1)
+        self.vr = 0           # 右フリッパー速度(0,1)
 
     # PICO-8スプライト互換
     def spr( self, no, x, y ):
@@ -92,15 +95,16 @@ class Pinball:
 
     # フリッパー
     def flipper( self ):
+        self.vl = self.vr = 0
         if ( pyxel.btn(pyxel.KEY_LEFT) ):
-            if (self.left < 2): self.left += 1
+            if (self.left < 2): self.left += 1; self.vl = 1
         else:
-            if (self.left > 0): self.left -= 1
+            if (self.left > 0): self.left -= 1; self.vl = -1
 
         if ( pyxel.btn(pyxel.KEY_RIGHT) ):
-            if (self.right < 2): self.right += 1
+            if (self.right < 2): self.right += 1; self.vr = 1
         else:
-            if (self.right > 0): self.right -= 1
+            if (self.right > 0): self.right -= 1; self.vr = -1
         
         # 表示        
         if (self.left == 0 ): self.spr( 12, 48, 114); self.spr( 12, 34, 102)
@@ -133,13 +137,13 @@ class Pinball:
                 self.ball = self.ball + 1
 
         # 重力加速度
-        #self.vy += 0.003
-        self.vy += 0.004
+        self.vy += 0.005
 
         # 移動と衝突
-        self.x = self.x + self.vx
-        self.y = self.y + self.vy
-        self.collision()
+        for n in range(3):
+            self.x = self.x + self.vx
+            self.y = self.y + self.vy
+            self.collision()
 
         # 残ボールチェック
         if (self.ball > 3):
@@ -164,19 +168,19 @@ class Pinball:
         
         if (col[4] != 1 and col[1] != 1):
             # 左上壁衝突(45°)
-            self.vx,self.vy = self.bump+random()/5,self.bump+random()/5
+            self.vx,self.vy = self.bump+random()/10,self.bump+random()/10
             self.color = col[4]
         elif (col[9] != 1 and col[6] != 1):
             # 左下壁衝突(135°)
-            self.vx,self.vy = self.bump+random()/5,-self.bump-random()/5
+            self.vx,self.vy = self.bump+random()/10,-self.bump-random()/10
             self.color = col[9]
         elif (col[7] != 1 and col[10] != 1):
             # 右下壁衝突(225°)
-            self.vx,self.vy = -self.bump-random()/5,-self.bump-random()/5
+            self.vx,self.vy = -self.bump-random()/10,-self.bump-random()/10
             self.color = col[7]
         elif (col[5] != 1 and col[2] != 1):
             # 右上壁衝突(315°)
-            self.vx,self.vy = -self.bump-random()/5,self.bump+random()/5
+            self.vx,self.vy = -self.bump-random()/10,self.bump+random()/10
             self.color = col[5]
             
         elif (col[1] != 1 and col[2] != 1):
@@ -209,7 +213,10 @@ class Pinball:
         elif (self.color == 5 or self.color == 12):
             # フリッパー(20点)
             self.score += 20
-            self.vy = -1.0
+            if (self.x < 64 and self.vl == 1): self.vy = -0.8
+            if (self.x > 64 and self.vr == -1): self.vy = -0.2
+            if (self.x > 64 and self.vr == 1): self.vy = -0.8
+            if (self.x > 64 and self.vr == -1): self.vy = -0.2
         elif (self.color == 2 or self.color == 6):
             # 左右バー(5点)
             self.score += 5

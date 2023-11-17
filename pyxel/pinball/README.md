@@ -5,7 +5,7 @@
 I ported Mr. Isidor's [Pinball Pong](https://www.lexaloffle.com/bbs/?tid=28488) to Pyxel/Python. 
 It's a pinball game, or rather, a combination of pinball and Atari's Breakout. 
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball03.gif" width="256"> 
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball04.gif" width="256"> 
 
 ## How to Run
 
