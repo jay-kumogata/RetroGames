@@ -43,7 +43,7 @@ class Pinball:
         self.vy = -1
         self.launch = 0
         self.fi = 0
-        self.bump = 0.4
+        self.bump = 0.3
         self.left = 0         # 左フリッパー状態(0,1,2)
         self.right = 0        # 右フリッパー状態(0,1,2)
         self.vl = 0           # 左フリッパー速度(0,1)
@@ -168,19 +168,19 @@ class Pinball:
         
         if (col[4] != 1 and col[1] != 1):
             # 左上壁衝突(45°)
-            self.vx,self.vy = self.bump+random()/10,self.bump+random()/10
+            self.vx,self.vy = self.bump+random()/5,self.bump+random()/5
             self.color = col[4]
         elif (col[9] != 1 and col[6] != 1):
             # 左下壁衝突(135°)
-            self.vx,self.vy = self.bump+random()/10,-self.bump-random()/10
+            self.vx,self.vy = self.bump+random()/5,-self.bump-random()/5
             self.color = col[9]
         elif (col[7] != 1 and col[10] != 1):
             # 右下壁衝突(225°)
-            self.vx,self.vy = -self.bump-random()/10,-self.bump-random()/10
+            self.vx,self.vy = -self.bump-random()/5,-self.bump-random()/5
             self.color = col[7]
         elif (col[5] != 1 and col[2] != 1):
             # 右上壁衝突(315°)
-            self.vx,self.vy = -self.bump-random()/10,self.bump+random()/10
+            self.vx,self.vy = -self.bump-random()/5,self.bump+random()/5
             self.color = col[5]
             
         elif (col[1] != 1 and col[2] != 1):
@@ -213,10 +213,10 @@ class Pinball:
         elif (self.color == 5 or self.color == 12):
             # フリッパー(20点)
             self.score += 20
-            if (self.x < 64 and self.vl == 1): self.vy = -0.8
-            if (self.x > 64 and self.vr == -1): self.vy = -0.2
-            if (self.x > 64 and self.vr == 1): self.vy = -0.8
-            if (self.x > 64 and self.vr == -1): self.vy = -0.2
+            if (self.x < 64 and self.vl == 1): self.vy = -0.7
+            if (self.x > 64 and self.vl == -1): self.vy = -0.1
+            if (self.x < 64 and self.vr == 1): self.vy = -0.7
+            if (self.x > 64 and self.vr == -1): self.vy = -0.1
         elif (self.color == 2 or self.color == 6):
             # 左右バー(5点)
             self.score += 5
