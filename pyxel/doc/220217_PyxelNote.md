@@ -157,4 +157,12 @@ Pongということで，パドルでボールを跳ね返すゲームだった�
 Pyxelで動作するPinball🕹️の[ソースリスト](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)📁を公開しました．
 #Pyxel #Pinball 
 
+### 2023-11-17
+
+Pinballの続きです．フリッパーを追加したのはよかったのですが，ボールの動きが不自然なままでした．
+そこで，重力加速度を強めにして，フリッパーの速度に応じて，ボールが上がるように修正しました．
+物理シミュレーションっぽい感じにはなりましたが，ビデオゲームとして面白いかは不明です．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball04.gif)
+
 以上
