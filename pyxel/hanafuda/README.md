@@ -4,7 +4,7 @@
 
 It is a demo of Hanafuda Koi-Koi (Japanese card game).
 
-![](https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/hanafuda/screenshots/hanafuda01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/hanafuda/screenshots/hanafuda01.png)
 
 ## How to Run
 
