@@ -17,3 +17,4 @@ Retrospective games and demos
 |1|2020-10-18|[ball](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/ball)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/ball/screenshots/hsp01.png" width="150">|
 |2|2020-10-24|[mandel](https://github.com/jay-kumogata/RetroGames/tree/main/hsp/mandel)|HSP|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/hsp/mandel/screenshots/hsp03.png" width="150">|
 |3|2022-07-21|[nixie](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/nixie)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/raw/main/pyxel/nixie/screenshots/Nixie01.gif" width="150">|
+|4|2023-11-26|[hanafuda](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/hanafuda)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/hanafuda/screenshots/hanafuda01.png" width="150">|
