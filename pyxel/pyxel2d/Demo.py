@@ -14,7 +14,7 @@ from Engine import *
 
 colors = [8, 9, 10, 11, 12] # 色の配列
 
-pyxel.init(600, 600, title="demo", fps=20)
+pyxel.init(550, 500, title="Demo", fps=20)
 engine = Engine(0, 0, 600, 600, 0, 9.8) # 物理エンジン作成
 r = RectangleEntity(500, 50, 50, 400) # 矩形を作成しエンジンに追加
 r.color = 2
