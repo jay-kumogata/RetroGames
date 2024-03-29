@@ -15,6 +15,7 @@ class CircleEntity:
         self.accel = Vec(0, 0)
         self.velocity = Vec(0, 0)
         self.color = 0
+        self.onhit = None
         
     # 円を移動
     def move(self, dx, dy): 
@@ -34,6 +35,9 @@ class CircleEntity:
         if (not self.isHit(nx, ny)):      # 衝突なし→リターン
             return
 
+        if (self.onhit):                  # 衝突時のコールバック
+            self.onhit(self, r)
+        
         d2 = (nx - self.x) ** 2 + (ny - self.y) ** 2
         overlap = abs(self.radius - math.sqrt(d2))
         mx = 0; my = 0
@@ -62,9 +66,13 @@ class CircleEntity:
         v1 = self.velocity
         v2 = Vec(line.x1 - line.x0, line.y1 - line.y0)
         cv1v2 = v1.cross(v2)
-        t1 = v0.cross(v1) / cv1v2
-        t2 = v0.cross(v2) / cv1v2
-        crossed = (0 <= t1 and t1 <= 1) and (0 <= t2 and t2 <= 1)
+        try:
+            t1 = v0.cross(v1) / cv1v2
+            t2 = v0.cross(v2) / cv1v2
+        except:
+            crossed = False
+        else:
+            crossed = (0 <= t1 and t1 <= 1) and (0 <= t2 and t2 <= 1)
 
         if (crossed):
             self.move(-self.velocity.x, -self.velocity.y)
@@ -79,6 +87,12 @@ class CircleEntity:
         if (d2 >= ((self.radius + peer.radius) ** 2)):
             return
 
+        if (self.onhit):                  # 衝突時のコールバック
+            self.onhit(self, peer)
+
+        if (peer.onhit):                  # 衝突時のコールバック
+            peer.onhit(peer, self)
+        
         distance = math.sqrt(d2)
         if (distance < 0.01): distance = 0.01
         overlap = self.radius + peer.radius - distance

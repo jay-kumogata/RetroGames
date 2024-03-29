@@ -40,7 +40,7 @@ class Engine:
                                     entities))
 
         # 衝突判定 & 衝突処理
-        for i in range(len(entities)):
+        for i in range(0, len(entities)-1):
             for j in range(i+1, len(entities)):
                 e0 = entities[i]
                 e1 = entities[j]
