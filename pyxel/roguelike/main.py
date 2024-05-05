@@ -44,10 +44,12 @@ def main() -> None:
     pyxel.run(update, draw)
     
 def update():
+    # メモ: イベントハンドラ(キー操作)を呼ぶ
     global engine
     engine.handle_events()
 
 def draw():
+    # メモ: 画面描画ルーチンを呼ぶ
     global engine
     engine.render()
     

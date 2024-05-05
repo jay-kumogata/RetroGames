@@ -11,7 +11,6 @@ import tile_types
 if TYPE_CHECKING:
     from entity import Entity
 
-
 class RectangularRoom:
     def __init__(self, x: int, y: int, width: int, height: int):
         self.x1 = x
@@ -54,6 +53,7 @@ def tunnel_between(
         corner_x, corner_y = x1, y2
 
     # Generate the coordinates for this tunnel.
+    # メモ: ブレゼンハムのアルゴリズムとは、近似的な直線を引くアルゴリズム
     for x, y in tcod.los.bresenham((x1, y1), (corner_x, corner_y)).tolist():
         yield x, y
     for x, y in tcod.los.bresenham((corner_x, corner_y), (x2, y2)).tolist():

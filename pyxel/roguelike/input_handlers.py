@@ -4,6 +4,7 @@ from actions import Action, EscapeAction, MovementAction
 
 class EventHandler:
     def dispatch(self) -> Optional[Action]:
+        # メモ: 何も押されていない場合はNoneを返却
         action = None
         
         if pyxel.btnp(pyxel.KEY_UP):
