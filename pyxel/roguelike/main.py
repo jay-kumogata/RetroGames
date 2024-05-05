@@ -1,19 +1,29 @@
 import pyxel
 
-from actions import EscapeAction, MovementAction
+from engine import Engine
+from entity import Entity
+from game_map import GameMap
 from input_handlers import EventHandler
 
 def main() -> None:
-    global player_x, player_y, event_handler
-
+    global engine
+    
     screen_width = 80
     screen_height = 50
 
-    player_x = int(screen_width / 2)
-    player_y = int(screen_height / 2)
-
+    map_width = 80
+    map_height = 50
+    
     event_handler = EventHandler()
 
+    player = Entity(int(screen_width / 2), int(screen_height / 2), "@", 7)
+    npc = Entity(int(screen_width / 2 - 5), int(screen_height / 2), "@", 10)
+    entities = {npc, player}
+
+    game_map = GameMap(map_width, map_height)
+    
+    engine = Engine(entities=entities, event_handler=event_handler, game_map=game_map, player=player)
+    
     pyxel.init(
         screen_width,
         screen_height,
@@ -23,23 +33,14 @@ def main() -> None:
     pyxel.run(update, draw)
 
 def update():
-    global player_x, player_y, event_handler
-
-    action = event_handler.dispatch()
-
-    if action is None:
-        return
-
-    if isinstance(action, MovementAction):
-        player_x += action.dx
-        player_y += action.dy
-
-    elif isinstance(action, MovementAction):
-        raise SystemExit()
+    global engine
+    engine.handle_events()
 
 def draw():
-    pyxel.cls(1)
-    pyxel.pset(player_x,player_y,7)
+    global engine
+    engine.render()
     
 if __name__ == "__main__":
     main()
+
+# end of main.py    

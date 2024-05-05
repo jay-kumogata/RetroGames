@@ -19,3 +19,5 @@ class EventHandler:
 
         # No valid key was pressed
         return action
+
+# end of input_handlers.py    
