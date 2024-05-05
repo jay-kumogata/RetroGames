@@ -2,12 +2,12 @@ from typing import Tuple
 
 import numpy as np  # type: ignore
 
-# Tile graphics structured type compatible with Console.tiles_rgb.
+# Tile graphics structured type 
 graphic_dt = np.dtype(
     [
-        ("ch", np.int32),  # Unicode codepoint.
-        ("fg", np.int32),  # 3 unsigned bytes, for RGB colors.
-        ("bg", np.int32),
+        ("ch", np.int32),  # Unicode codepoint.(未使用: キャラクタコード)
+        ("fg", np.int32),  # 文字色(Pyxelでの色情報)
+        ("bg", np.int32),  # 背景色(Pyxelでの色情報)
     ]
 )
 

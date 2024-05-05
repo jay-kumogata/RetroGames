@@ -5,6 +5,7 @@ from actions import Action, EscapeAction, MovementAction
 class EventHandler:
     def dispatch(self) -> Optional[Action]:
         action = None
+        
         if pyxel.btnp(pyxel.KEY_UP):
             action = MovementAction(dx=0, dy=-1)
         elif pyxel.btnp(pyxel.KEY_DOWN):

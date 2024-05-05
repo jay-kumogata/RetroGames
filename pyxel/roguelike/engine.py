@@ -1,6 +1,6 @@
 from typing import Set, Iterable, Any
 
-import pyxel
+import pyxel 
 
 from actions import EscapeAction, MovementAction
 from entity import Entity
@@ -15,7 +15,7 @@ class Engine:
         self.player = player
 
     def handle_events(self) -> None:
-        action = self.event_handler.dispatch()
+        action = self.event_handler.dispatch() 
 
         if action is None:
             return
