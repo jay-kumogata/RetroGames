@@ -1,7 +1,9 @@
+import copy
+
 import pyxel
 
 from engine import Engine
-from entity import Entity
+import entity_factories
 from input_handlers import EventHandler
 from procgen import generate_dungeon
 
@@ -17,12 +19,11 @@ def main() -> None:
     room_max_size = 10
     room_min_size = 6
     max_rooms = 30
+    max_monsters_per_room = 2
     
     event_handler = EventHandler()
 
-    player = Entity(int(screen_width / 2), int(screen_height / 2), "@", 7)
-    npc = Entity(int(screen_width / 2 - 5), int(screen_height / 2), "@", 10)
-    entities = {npc, player}
+    player = copy.deepcopy(entity_factories.player)
 
     game_map = generate_dungeon(
         max_rooms=max_rooms,
@@ -30,11 +31,13 @@ def main() -> None:
         room_max_size=room_max_size,
         map_width=map_width,
         map_height=map_height,
+        max_monsters_per_room=max_monsters_per_room,        
         player=player
     )
     
-    engine = Engine(entities=entities, event_handler=event_handler, game_map=game_map, player=player)
-    
+    engine = Engine(event_handler=event_handler, game_map=game_map, player=player)
+
+    # メモ: Pyxel初期化
     pyxel.init(
         screen_width,
         screen_height,
