@@ -9,6 +9,8 @@ from tcod.console import Console
 from tcod.map import compute_fov
 
 from input_handlers import MainGameEventHandler
+from message_log import MessageLog
+from render_functions import render_bar, render_names_at_mouse_location
 
 if TYPE_CHECKING:
     from entity import Entity
@@ -20,6 +22,8 @@ class Engine:
 
     def __init__(self, player: Entity):
         self.event_handler: EventHandler = MainGameEventHandler(self)
+        self.message_log = MessageLog()
+        self.mouse_location = (0, 0)
         self.player = player
     
     def handle_enemy_turns(self) -> None:
@@ -38,14 +42,15 @@ class Engine:
         self.game_map.explored |= self.game_map.visible
         
     def render(self) -> None:
-        pyxel.cls(0)
         self.game_map.render()
+        self.message_log.render(x=21, y=45, width=40, height=5)
+        
+        render_bar(
+            current_value=self.player.fighter.hp,
+            maximum_value=self.player.fighter.max_hp,
+            total_width=20,
+        )
 
-        #console.print(
-        #    x=1,
-        #    y=47,
-        #    string=f"HP: {self.player.fighter.hp}/{self.player.fighter.max_hp}",
-        #)
-        pyxel.line(1,47,6,47,7) # TODO: HitPoint表示(キャラ表示に変更時に)
+        render_names_at_mouse_location(x=21, y=44, engine=self)
         
 # end of engine.py        

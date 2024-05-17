@@ -2,6 +2,7 @@ import copy
 
 import pyxel
 
+import color
 from engine import Engine
 import entity_factories
 from procgen import generate_dungeon
@@ -13,7 +14,7 @@ def main() -> None:
     screen_height = 50
 
     map_width = 80
-    map_height = 45
+    map_height = 43
 
     room_max_size = 10
     room_min_size = 6
@@ -33,27 +34,32 @@ def main() -> None:
         engine=engine,        
     )
     engine.update_fov()    
-    
+
+    engine.message_log.add_message(
+        "Hello and welcome, adventurer, to yet another dungeon!", color.welcome_text
+    )
     
     # Pyxel初期化
     pyxel.init(
-        screen_width,
-        screen_height,
+        screen_width * color.chr_x,
+        screen_height * color.chr_y,
         title="Yet Another Roguelike Tutorial",
         fps=30
     )
+    pyxel.mouse(True) # メモ: マウスを表示
     pyxel.run(update, draw)
     
+def draw():
+    # メモ: 画面描画ルーチンを呼ぶ
+    global engine
+    pyxel.cls(0)
+    engine.event_handler.on_render()
+
 def update():
     # メモ: イベントハンドラを呼ぶ
     global engine
     engine.event_handler.handle_events()
 
-def draw():
-    # メモ: 画面描画ルーチンを呼ぶ
-    global engine
-    engine.render()
-    
 if __name__ == "__main__":
     main()
 

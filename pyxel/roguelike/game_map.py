@@ -5,6 +5,7 @@ from typing import Iterable, Iterator, Optional, TYPE_CHECKING
 import numpy as np  # type: ignore
 from tcod.console import Console
 import pyxel
+import color
 
 from entity import Actor
 import tile_types
@@ -71,15 +72,15 @@ class GameMap:
         Otherwise, the default is "SHROUD".
         """
 
-        # メモ: pyxel対応のため、愚直に表示(現時点では点描)
+        # メモ: pyxel対応のため、愚直に表示(4x5ピクセルの矩形を表示)
         for x in range(self.width):
             for y in range(self.height):
                 if self.visible[x][y]:
-                    pyxel.pset(x,y,self.tiles["light"][x,y]["fg"])
+                    pyxel.rect(x*color.chr_x ,y*color.chr_y, color.chr_x, color.chr_y, self.tiles["light"][x,y]["fg"])
                 elif self.explored[x][y]:
-                    pyxel.pset(x,y,self.tiles["dark"][x,y]["fg"])
+                    pyxel.rect(x*color.chr_x, y*color.chr_y, color.chr_x, color.chr_y, self.tiles["dark"][x,y]["fg"])
                 else:
-                    pyxel.pset(x,y,tile_types.SHROUD["fg"])
+                    pyxel.rect(x*color.chr_x, y*color.chr_y, color.chr_x, color.chr_y, tile_types.SHROUD["fg"])
 
         entities_sorted_for_rendering = sorted(
             self.entities, key=lambda x: x.render_order.value
@@ -89,8 +90,9 @@ class GameMap:
         for entity in entities_sorted_for_rendering:
             # Only print entities that are in the FOV
             if self.visible[entity.x, entity.y]:
-                pyxel.pset(
-                    entity.x, entity.y, entity.color
+                # メモ: 点描からキャラ表示に変更
+                pyxel.text(
+                    entity.x*color.chr_x, entity.y*color.chr_y, entity.char, entity.color
                 )
-                    
+
 # end of game_map.py

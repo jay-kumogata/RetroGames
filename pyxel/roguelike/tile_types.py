@@ -35,7 +35,7 @@ def new_tile(
 # SHROUD represents unexplored, unseen tiles
 SHROUD = np.array((ord(" "), 0, 7), dtype=graphic_dt)
 
-# メモ: 床と壁において， 光が当たっていない場合(dark)と当たっている場合(light)の情報
+# メモ: 床と壁において，光が当たっていない場合(dark)と当たっている場合(light)の情報
 floor = new_tile(
     walkable=True, transparent=True, dark=(ord(" "), 12, 1), light=(ord(" "), 10, 11),
 )
