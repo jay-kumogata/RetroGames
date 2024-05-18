@@ -26,14 +26,12 @@ def render_bar(
 ) -> None:
     bar_width = int(float(current_value) / maximum_value * total_width)
 
-    pyxel.rect(0*color.chr_x, 45*color.chr_y, total_width*color.chr_x, 1*color.chr_y, color.bar_empty)
+    color.rect(0, 45, total_width, 1, color.bar_empty)
 
     if bar_width > 0:
-        pyxel.rect(
-            0*color.chr_x, 45*color.chr_y, bar_width*color.chr_x, 1*color.chr_y, color.bar_filled
-        )
+        color.rect( 0, 45, bar_width, 1, color.bar_filled)
 
-    pyxel.text(1*color.chr_x, 45*color.chr_y, f"HP: {current_value}/{maximum_value}", color.bar_text)
+    color.text(1, 45, f"HP: {current_value}/{maximum_value}", color.bar_text)
 
 def render_names_at_mouse_location(
     x: int, y: int, engine: Engine
@@ -44,6 +42,6 @@ def render_names_at_mouse_location(
         x=mouse_x, y=mouse_y, game_map=engine.game_map
     )
 
-    pyxel.text(x*color.chr_x, y*color.chr_y, names_at_mouse_location, 7)
+    color.text(x, y, names_at_mouse_location, 7)
     
 # end of render_functions.py    

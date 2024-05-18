@@ -1,4 +1,5 @@
 import copy
+import traceback
 
 import pyxel
 
@@ -20,7 +21,8 @@ def main() -> None:
     room_min_size = 6
     max_rooms = 30
     max_monsters_per_room = 2
-
+    max_items_per_room = 2
+    
     player = copy.deepcopy(entity_factories.player)    
     engine = Engine(player=player)
 
@@ -31,6 +33,7 @@ def main() -> None:
         map_width=map_width,
         map_height=map_height,
         max_monsters_per_room=max_monsters_per_room,
+        max_items_per_room=max_items_per_room,        
         engine=engine,        
     )
     engine.update_fov()    
@@ -58,7 +61,13 @@ def draw():
 def update():
     # メモ: イベントハンドラを呼ぶ
     global engine
-    engine.event_handler.handle_events()
+
+    try:
+        engine.event_handler.handle_events()
+    except Exception:  # Handle exceptions in game.
+        traceback.print_exc()  # Print error to stderr.
+        # Then print the error to the message log.
+        engine.message_log.add_message(traceback.format_exc(), color.error)    
 
 if __name__ == "__main__":
     main()
