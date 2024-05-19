@@ -1,5 +1,6 @@
 from __future__ import annotations
-from typing import Optional, TYPE_CHECKING
+
+from typing import Callable, Optional, Tuple, TYPE_CHECKING
 
 import tcod.event
 import pyxel
@@ -55,6 +56,11 @@ WAIT_KEYS = {
     pyxel.KEY_CLEAR,
 }
 
+CONFIRM_KEYS = {
+    pyxel.KEY_RETURN,
+    pyxel.KEY_KP_ENTER,
+}
+
 class EventHandler:
 
     def __init__(self, engine: Engine):
@@ -84,7 +90,7 @@ class EventHandler:
         
     def on_render(self) -> None:
         self.engine.render()
-        
+
 class MainGameEventHandler(EventHandler):    
     
     def dispatch(self) -> Optional[Action]:
@@ -125,7 +131,10 @@ class MainGameEventHandler(EventHandler):
         # メモ: アイテムを落とす(Drop)
         elif pyxel.btnp(pyxel.KEY_D):
             self.engine.event_handler = InventoryDropHandler(self.engine)
-            
+        # メモ: マウスがない場合にキーボードで代替する(Look)
+        elif pyxel.btnp(pyxel.KEY_SLASH):
+            self.engine.event_handler = LookHandler(self.engine)
+
         # No valid key was pressed
         return action
 
@@ -192,8 +201,8 @@ class HistoryViewer(EventHandler):
             self.cursor = 0  # Move directly to the top message.
         elif pyxel.btnp(pyxel.KEY_END):
             self.cursor = self.log_length - 1  # Move directly to the last message.
-        elif pyxel.btnp(pyxel.KEY_RETURN):  # Any other key moves back to the main game state.
-                                            # メモ: RETURNキーで非表示に仕様変更
+        elif pyxel.btnp(pyxel.KEY_SPACE):  # Any other key moves back to the main game state.
+                                           # メモ: SPACEキーで非表示に仕様変更
             self.engine.event_handler = MainGameEventHandler(self.engine)
 
         # No valid key was pressed
@@ -211,11 +220,11 @@ class AskUserEventHandler(EventHandler):
 
     def dispatch(self) -> Optional[Action]:
         
-        if pyxel.btnp(pyxel.KEY_RETURN) or pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
+        if pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.MOUSE_BUTTON_RIGHT):
             """By default any key exits this input handler."""
-            """メモ: RETURNキーで非表示に仕様変更"""
+            """メモ: SPACEキーで非表示に仕様変更"""
             """By default any mouse click exits this input handler."""
-            """メモ: マウス左ボタンで非表示に仕様変更"""
+            """メモ: マウス右ボタンで非表示に仕様変更"""
             return self.on_exit()
         
         return None
@@ -326,5 +335,118 @@ class InventoryDropHandler(InventoryEventHandler):
         """Drop this item."""
         return actions.DropItem(self.engine.player, item)
 
+class SelectIndexHandler(AskUserEventHandler):
+    """Handles asking the user for an index on the map."""
+
+    def __init__(self, engine: Engine):
+        """Sets the cursor to the player when this handler is constructed."""
+        super().__init__(engine)
+        player = self.engine.player
+        engine.mouse_location = player.x, player.y
+
+    def on_render(self) -> None:
+        """Highlight the tile under the cursor."""
+        super().on_render()
+        x, y = self.engine.mouse_location
+        # メモ: pyxel対応のため、愚直に表示(4x5ピクセルの矩形を表示)
+        color.rect(x , y, 1, 1, color.black)
+        color.rect(x , y, 1, 1, color.white)
+
+    def dispatch(self) -> Optional[Action]:
+        action: Optional[Action] = None
+
+        """Check for key movement or confirmation keys."""
+        for key in MOVE_KEYS.keys():
+            if pyxel.btnp(key):
+                modifier = 1  # Holding modifier keys will speed up key movement.
+
+                if pyxel.btn(pyxel.KEY_LSHIFT) or pyxel.btn(pyxel.KEY_RSHIFT): 
+                    modifier *= 5
+                if pyxel.btn(pyxel.KEY_LCTRL) or pyxel.btn(pyxel.KEY_RCTRL): 
+                    modifier *= 10
+                if pyxel.btn(pyxel.KEY_LALT) or pyxel.btn(pyxel.KEY_RALT): 
+                    modifier *= 20
+
+                x, y = self.engine.mouse_location
+                dx, dy = MOVE_KEYS[key]
+                x += dx * modifier
+                y += dy * modifier
+
+                # Clamp the cursor index to the map size.
+                x = max(0, min(x, self.engine.game_map.width - 1))
+                y = max(0, min(y, self.engine.game_map.height - 1))
+                self.engine.mouse_location = x, y
+                return None
+
+        # メモ: 確定キー
+        for key in CONFIRM_KEYS:
+            if pyxel.btnp(key):
+                return self.on_index_selected(*self.engine.mouse_location)
+
+        # メモ: マウスイベント
+        """Left click confirms a selection."""
+        mouse_x = pyxel.mouse_x // color.chr_x
+        mouse_y = pyxel.mouse_y // color.chr_y
+        if self.engine.game_map.in_bounds(mouse_x, mouse_y):
+            if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
+                return self.on_index_selected(mouse_x, mouse_y)
+
+        return super().dispatch()                
+
+    def on_index_selected(self, x: int, y: int) -> Optional[Action]:
+        """Called when an index is selected."""
+        raise NotImplementedError()
+
+class LookHandler(SelectIndexHandler):
+    """Lets the player look around using the keyboard."""
+
+    def on_index_selected(self, x: int, y: int) -> None:
+        """Return to main handler."""
+        self.engine.event_handler = MainGameEventHandler(self.engine)
+
+class SingleRangedAttackHandler(SelectIndexHandler):
+    """Handles targeting a single enemy. Only the enemy selected will be affected."""
+
+    def __init__(
+        self, engine: Engine, callback: Callable[[Tuple[int, int]], Optional[Action]]
+    ):
+        super().__init__(engine)
+
+        self.callback = callback
+
+    def on_index_selected(self, x: int, y: int) -> Optional[Action]:
+        return self.callback((x, y))
+
+class AreaRangedAttackHandler(SelectIndexHandler):
+    """Handles targeting an area within a given radius. Any entity within the area will be affected."""
+
+    def __init__(
+        self,
+        engine: Engine,
+        radius: int,
+        callback: Callable[[Tuple[int, int]], Optional[Action]],
+    ):
+        super().__init__(engine)
+
+        self.radius = radius
+        self.callback = callback
+
+    def on_render(self) -> None:
+        """Highlight the tile under the cursor."""
+        super().on_render()
+
+        x, y = self.engine.mouse_location
+
+        # Draw a rectangle around the targeted area, so the player can see the affected tiles.
+        color.rectb(
+            x - self.radius - 1,
+            y - self.radius - 1,
+            self.radius ** 2,
+            self.radius ** 2,
+            color.red,
+        )
+        
+    def on_index_selected(self, x: int, y: int) -> Optional[Action]:
+        return self.callback((x, y))
     
 # end of input_handlers.py    

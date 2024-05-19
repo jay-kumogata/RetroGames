@@ -71,9 +71,7 @@ class MessageLog:
         y_offset = height - 1
 
         for message in reversed(messages):
-            #for line in reversed(textwrap.wrap(message.full_text, width)):
             for line in reversed(list(cls.wrap(message.full_text, width))):            
-                #pyxel.text(x*color.chr_x, (y + y_offset)*color.chr_y, line, message.fg)
                 color.text(x, y + y_offset, line, message.fg)
                 y_offset -= 1
                 if y_offset < 0:
