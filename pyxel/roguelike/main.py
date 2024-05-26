@@ -1,74 +1,79 @@
-import copy
 import traceback
 
 import pyxel
 
 import color
-from engine import Engine
-import entity_factories
-from procgen import generate_dungeon
+import exceptions
+import input_handlers
+import setup_game
+
+
+def save_game(handler: input_handlers.BaseEventHandler, filename: str) -> None:
+    """If the current event handler has an active Engine then save it."""
+    if isinstance(handler, input_handlers.EventHandler):
+        handler.engine.save_as(filename)
+        print("Game saved.")
 
 def main() -> None:
-    global engine
+    global engine, handler
     
     screen_width = 80
     screen_height = 50
 
-    map_width = 80
-    map_height = 43
-
-    room_max_size = 10
-    room_min_size = 6
-    max_rooms = 30
-    max_monsters_per_room = 2
-    max_items_per_room = 2
+    # メモ: "SyntaxError: annotated name 'handler' can't be global"発生(言語仕様)
+    #handler = input_handlers.MainGameEventHandler(engine)
+    handler = setup_game.MainMenu()
     
-    player = copy.deepcopy(entity_factories.player)    
-    engine = Engine(player=player)
-
-    engine.game_map = generate_dungeon(
-        max_rooms=max_rooms,
-        room_min_size=room_min_size,
-        room_max_size=room_max_size,
-        map_width=map_width,
-        map_height=map_height,
-        max_monsters_per_room=max_monsters_per_room,
-        max_items_per_room=max_items_per_room,        
-        engine=engine,        
-    )
-    engine.update_fov()    
-
-    engine.message_log.add_message(
-        "Hello and welcome, adventurer, to yet another dungeon!", color.welcome_text
-    )
-    
-    # Pyxel初期化
+    # メモ: 初期化(Pyxel)
     pyxel.init(
         screen_width * color.chr_x,
         screen_height * color.chr_y,
         title="Yet Another Roguelike Tutorial",
         fps=30
     )
+    
     pyxel.mouse(True) # メモ: マウスを表示
+
+    # メモ: 背景画像読み込み
+    # Load the background image and remove the alpha channel.
+    pyxel.images[0].load(0, 0, "menu_background.png") 
     pyxel.run(update, draw)
     
 def draw():
-    # メモ: 画面描画ルーチンを呼ぶ
-    global engine
-    pyxel.cls(0)
-    engine.event_handler.on_render()
-
-def update():
-    # メモ: イベントハンドラを呼ぶ
-    global engine
+    global engine, handler
 
     try:
-        engine.event_handler.handle_events()
-    except Exception:  # Handle exceptions in game.
-        traceback.print_exc()  # Print error to stderr.
-        # Then print the error to the message log.
-        engine.message_log.add_message(traceback.format_exc(), color.error)    
+        #メモ: オリジナルでは無限ループを構成(Pyxelではライブラリで実装)
+        #while True:
+        
+        # メモ: 画面描画処理を呼ぶ
+        pyxel.cls(0)
+        handler.on_render()
 
+        # メモ: イベントハンドラを呼ぶ
+        try:
+            handler = handler.handle_events()
+        except Exception:  # Handle exceptions in game.
+            traceback.print_exc()  # Print error to stderr.
+            # Then print the error to the message log.
+            if isinstance(handler, input_handlers.EventHandler):
+                handler.engine.message_log.add_message(
+                    traceback.format_exc(), color.error
+                )
+
+    except exceptions.QuitWithoutSaving:
+        raise
+    except SystemExit:  # Save and quit.
+        save_game(handler, "savegame.sav")
+        raise
+    except BaseException:  # Save on any other unexpected exception.
+        save_game(handler, "savegame.sav")
+        raise
+
+def update():
+    global engine, handler
+    # メモ: 更新処理(update())に記載すべき事項も、描画処理(draw())に統合
+    
 if __name__ == "__main__":
     main()
 

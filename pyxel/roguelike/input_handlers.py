@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from typing import Callable, Optional, Tuple, TYPE_CHECKING
+import os
+from typing import Callable, Optional, Tuple, TYPE_CHECKING, Union
 
-import tcod.event
 import pyxel
-import color
 
 import actions
 from actions import (
@@ -61,14 +60,104 @@ CONFIRM_KEYS = {
     pyxel.KEY_KP_ENTER,
 }
 
-class EventHandler:
+ActionOrHandler = Union[Action, "BaseEventHandler"]
+"""An event handler return value which can trigger an action or switch active handlers.
+
+If a handler is returned then it will become the active handler for future events.
+If an action is returned it will be attempted and if it's valid then
+MainGameEventHandler will become the active handler.
+"""
+
+class BaseEventHandler:
+    def handle_events(self) -> BaseEventHandler:
+        """Handle an event and return the next active event handler."""
+        state = self.dispatch()
+        if isinstance(state, BaseEventHandler):
+            return state
+        assert not isinstance(state, Action), f"{self!r} can not handle actions."
+        return self
+
+    def on_render(self) -> None:
+        raise NotImplementedError()
+
+    def ev_quit(self) -> Optional[Action]:
+        raise SystemExit()
+
+    # メモ: イベントハンドラとしての基本動作
+    def ev_keydown(self) -> Optional[Action]:
+        return None
+
+    def ev_mousebuttondown(self) -> Optional[Action]:
+        return None
+
+    def ev_mousemotion(self) -> Optional[Action]:
+        return None
+    
+    def dispatch(self) -> Optional[Action]:
+        action = self.ev_keydown()
+        if action is not None:
+            return action
+        action = self.ev_mousebuttondown()
+        if action is not None:
+            return action
+        return self.ev_mousemotion()
+
+class PopupMessage(BaseEventHandler):
+    """Display a popup text window."""
+
+    def __init__(self, parent_handler: BaseEventHandler, text: str):
+        self.parent = parent_handler
+        self.text = text
+
+    def on_render(self) -> None:
+        """Render the parent and dim the result, then print the message on top."""
+        self.parent.on_render()
+        #メモ: 格子模様を表示(全体的に色を暗くする演出)
+        for x in range(0, color.width * color.chr_x, 2):
+            for y in range(0, color.height * color.chr_y, 2):
+                pyxel.pset(x,y,0)
+                pyxel.pset(x+1,y+1,0)
+
+        #メモ: 文字の背景を黒くする(文字を読みやすくするため)
+        color.rect(
+            (color.width - len(self.text)) // 2,
+            color.height // 2,
+            len(self.text),
+            1,
+            color.black,
+        )
+        #メモ: 文字を白で表示する
+        color.textc(
+            color.width // 2,
+            color.height // 2,
+            self.text,
+            color.white,
+        )
+
+    def ev_keydown(self) -> Optional[BaseEventHandler]:
+        """Any key returns to the parent handler."""
+        """メモ: SPACEキーで親ハンドラに戻るに仕様変更"""
+        if pyxel.btnp(pyxel.KEY_SPACE):
+            return self.parent
+    
+class EventHandler(BaseEventHandler):
 
     def __init__(self, engine: Engine):
         self.engine = engine
 
-    def handle_events(self) -> None:
-        self.handle_action(self.dispatch())
-
+    def handle_events(self) -> BaseEventHandler:
+        """Handle events for input handlers with an engine."""
+        action_or_state = self.dispatch()
+        if isinstance(action_or_state, BaseEventHandler):
+            return action_or_state
+        if self.handle_action(action_or_state):
+            # A valid action was performed.
+            if not self.engine.player.is_alive:
+                # The player was killed sometime during or after the action.
+                return GameOverEventHandler(self.engine)
+            return MainGameEventHandler(self.engine)  # Return to the main handler.
+        return self
+    
     def handle_action(self, action: Optional[Action]) -> bool:
         """Handle actions returned from event methods.
 
@@ -87,13 +176,21 @@ class EventHandler:
 
         self.engine.update_fov()
         return True
-        
+
+    def ev_mousemotion(self) -> None:    
+        # メモ: マウス移動イベント
+        mouse_x = pyxel.mouse_x // color.chr_x
+        mouse_y = pyxel.mouse_y // color.chr_y
+        if self.engine.game_map.in_bounds(mouse_x, mouse_y):
+            self.engine.mouse_location = mouse_x, mouse_y
+        return None
+
     def on_render(self) -> None:
         self.engine.render()
 
 class MainGameEventHandler(EventHandler):    
     
-    def dispatch(self) -> Optional[Action]:
+    def ev_keydown(self) -> Optional[ActionOrHandler]:
         # メモ: 何も押されていない場合はNoneを返却
         action: Optional[Action] = None
 
@@ -109,40 +206,48 @@ class MainGameEventHandler(EventHandler):
         for key in WAIT_KEYS:
             if pyxel.btnp(key):
                 action = WaitAction(player)                
-            
-        # メモ: マウスイベント
-        mouse_x = pyxel.mouse_x // color.chr_x
-        mouse_y = pyxel.mouse_y // color.chr_y
-        if self.engine.game_map.in_bounds(mouse_x, mouse_y):
-            self.engine.mouse_location = mouse_x, mouse_y
+
+        # メモ: PyxelではESCAPEで終了となるため、Qに変更
+        if pyxel.btnp(pyxel.KEY_Q): 
+            raise SystemExit()
 
         # メモ: ログ閲覧窓を表示
-        if pyxel.btnp(pyxel.KEY_ESCAPE):
-            raise SystemExit()            
         elif pyxel.btnp(pyxel.KEY_V):
-            self.engine.event_handler = HistoryViewer(self.engine)
+            return HistoryViewer(self.engine)
 
         # メモ: アイテムを拾う(Get)
         elif pyxel.btnp(pyxel.KEY_G):
             action = PickupAction(player)            
+
         # メモ: アイテム一覧窓を表示(Item)
         elif pyxel.btnp(pyxel.KEY_I):
-            self.engine.event_handler = InventoryActivateHandler(self.engine)
+            return InventoryActivateHandler(self.engine)
+            
         # メモ: アイテムを落とす(Drop)
         elif pyxel.btnp(pyxel.KEY_D):
-            self.engine.event_handler = InventoryDropHandler(self.engine)
+            return InventoryDropHandler(self.engine)
         # メモ: マウスがない場合にキーボードで代替する(Look)
         elif pyxel.btnp(pyxel.KEY_SLASH):
-            self.engine.event_handler = LookHandler(self.engine)
-
+            return LookHandler(self.engine)
+        
         # No valid key was pressed
         return action
 
 class GameOverEventHandler(EventHandler):
 
-    def dispatch(self) -> None:
-        if pyxel.btnp(pyxel.KEY_ESCAPE):
-            raise SystemExit()            
+    def on_quit(self) -> None:
+        """Handle exiting out of a finished game."""
+        if os.path.exists("savegame.sav"):
+            os.remove("savegame.sav")  # Deletes the active save file.
+        raise exceptions.QuitWithoutSaving()  # Avoid saving a finished game.
+
+    def ev_quit(self) -> None:
+        self.on_quit()
+    
+    def ev_keydown(self) -> None:
+        # メモ: PyxelではESCAPEで終了となるため、Qに変更
+        if pyxel.btnp(pyxel.KEY_Q):
+            self.on_quit()
     
 CURSOR_Y_KEYS = {
     pyxel.KEY_UP: -1,
@@ -162,27 +267,20 @@ class HistoryViewer(EventHandler):
     def on_render(self) -> None:
         super().on_render()  # Draw the main state as the background.
 
-        # メモ: ログコンソールサイズ(定数)
-        log_console_width = 80 - 6 # console.width - 6
-        log_console_height = 50 - 6 # console.height - 6
-
         # Draw a frame with a custom banner title.
-        color.rect(3, 3, log_console_width,log_console_height, 1)
-        
-        color.text(32, 3, "┤Message history├", 7)
+        color.rect(3, 3, (color.width - 6), (color.height - 6), 1)
+        color.textc(3 + (color.width - 6) // 2, 3, "┤Message history├", 7)
         
         # Render the message log using the cursor parameter.
         self.engine.message_log.render_messages(
             1+3, # メモ: 補正
             1+3, # メモ: 補正
-            log_console_width - 2,
-            log_console_height - 2,
+            (color.width - 6) - 2,
+            (color.height - 6) - 2,
             self.engine.message_log.messages[: self.cursor + 1],
         )
 
-    def dispatch(self) -> Optional[Action]:
-        action: Optional[Action] = None
-
+    def ev_keydown(self) -> Optional[MainGameEventHandler]:
         # Fancy conditional movement to make it feel right.
         for key in CURSOR_Y_KEYS.keys():
             if pyxel.btnp(key):
@@ -203,53 +301,45 @@ class HistoryViewer(EventHandler):
             self.cursor = self.log_length - 1  # Move directly to the last message.
         elif pyxel.btnp(pyxel.KEY_SPACE):  # Any other key moves back to the main game state.
                                            # メモ: SPACEキーで非表示に仕様変更
-            self.engine.event_handler = MainGameEventHandler(self.engine)
+            return MainGameEventHandler(self.engine)
 
         # No valid key was pressed
-        return action
+        return None
 
 class AskUserEventHandler(EventHandler):
     """Handles user input for actions which require special input."""
-
-    def handle_action(self, action: Optional[Action]) -> bool:
-        """Return to the main event handler when a valid action was performed."""
-        if super().handle_action(action):
-            self.engine.event_handler = MainGameEventHandler(self.engine)
-            return True
-        return False
-
-    def dispatch(self) -> Optional[Action]:
+    def ev_keydown(self) -> Optional[ActionOrHandler]:
         
-        if pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.MOUSE_BUTTON_RIGHT):
-            """By default any key exits this input handler."""
-            """メモ: SPACEキーで非表示に仕様変更"""
-            """By default any mouse click exits this input handler."""
-            """メモ: マウス右ボタンで非表示に仕様変更"""
+        """By default any key exits this input handler."""
+        """メモ: SPACEキーで非表示に仕様変更"""
+        if pyxel.btnp(pyxel.KEY_SPACE): 
+            return self.on_exit()
+
+        return None
+
+    def ev_mousebuttondown(self) -> Optional[ActionOrHandler]:
+        """By default any mouse click exits this input handler."""
+        """メモ: マウス右ボタンで非表示に仕様変更"""
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_RIGHT):
             return self.on_exit()
         
         return None
 
-    def on_exit(self) -> Optional[Action]:
+    def on_exit(self) -> Optional[ActionOrHandler]:
         """Called when the user is trying to exit or cancel an action.
 
         By default this returns to the main event handler.
         """
-        self.engine.event_handler = MainGameEventHandler(self.engine)
-        return None
+        return MainGameEventHandler(self.engine)        
 
+# メモ: アイテム番号への変換表    
 ITEM_KEYS = {
-    pyxel.KEY_A:  0, pyxel.KEY_B:  1,
-    pyxel.KEY_C:  2, pyxel.KEY_D:  3,
-    pyxel.KEY_E:  4, pyxel.KEY_F:  5,
-    pyxel.KEY_G:  6, pyxel.KEY_H:  7,
-    pyxel.KEY_I:  8, pyxel.KEY_J:  9,
-    pyxel.KEY_K: 10, pyxel.KEY_L: 11,
-    pyxel.KEY_M: 12, pyxel.KEY_N: 13,
-    pyxel.KEY_O: 14, pyxel.KEY_P: 15,
-    pyxel.KEY_Q: 16, pyxel.KEY_R: 17,
-    pyxel.KEY_S: 18, pyxel.KEY_T: 19,
-    pyxel.KEY_U: 20, pyxel.KEY_V: 21,
-    pyxel.KEY_W: 22, pyxel.KEY_X: 23,
+    pyxel.KEY_A:  0, pyxel.KEY_B:  1, pyxel.KEY_C:  2, pyxel.KEY_D:  3,
+    pyxel.KEY_E:  4, pyxel.KEY_F:  5, pyxel.KEY_G:  6, pyxel.KEY_H:  7,
+    pyxel.KEY_I:  8, pyxel.KEY_J:  9, pyxel.KEY_K: 10, pyxel.KEY_L: 11,
+    pyxel.KEY_M: 12, pyxel.KEY_N: 13, pyxel.KEY_O: 14, pyxel.KEY_P: 15,
+    pyxel.KEY_Q: 16, pyxel.KEY_R: 17, pyxel.KEY_S: 18, pyxel.KEY_T: 19,
+    pyxel.KEY_U: 20, pyxel.KEY_V: 21, pyxel.KEY_W: 22, pyxel.KEY_X: 23,
     pyxel.KEY_Y: 24, pyxel.KEY_Z: 25,
 }
 
@@ -293,7 +383,7 @@ class InventoryEventHandler(AskUserEventHandler):
         else:
             color.text(x + 1, y + 1, "(Empty)",7)
 
-    def dispatch(self) -> Optional[Action]:
+    def ev_keydown(self) -> Optional[ActionOrHandler]:
         action: Optional[Action] = None
 
         player = self.engine.player
@@ -310,9 +400,9 @@ class InventoryEventHandler(AskUserEventHandler):
                         return None
                     return self.on_item_selected(selected_item)
                 
-        return super().dispatch()
+        return super().ev_keydown()
 
-    def on_item_selected(self, item: Item) -> Optional[Action]:
+    def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
         """Called when the user selects a valid item."""
         raise NotImplementedError()
 
@@ -321,17 +411,16 @@ class InventoryActivateHandler(InventoryEventHandler):
 
     TITLE = "Select an item to use"
 
-    def on_item_selected(self, item: Item) -> Optional[Action]:
+    def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
         """Return the action for the selected item."""
         return item.consumable.get_action(self.engine.player)
-
 
 class InventoryDropHandler(InventoryEventHandler):
     """Handle dropping an inventory item."""
 
     TITLE = "Select an item to drop"
 
-    def on_item_selected(self, item: Item) -> Optional[Action]:
+    def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
         """Drop this item."""
         return actions.DropItem(self.engine.player, item)
 
@@ -348,11 +437,12 @@ class SelectIndexHandler(AskUserEventHandler):
         """Highlight the tile under the cursor."""
         super().on_render()
         x, y = self.engine.mouse_location
-        # メモ: pyxel対応のため、愚直に表示(4x5ピクセルの矩形を表示)
+
+        # メモ: マウスカーソルをハイライト(4x5ピクセルの矩形を表示)
         color.rect(x , y, 1, 1, color.black)
         color.rect(x , y, 1, 1, color.white)
 
-    def dispatch(self) -> Optional[Action]:
+    def ev_keydown(self) -> Optional[ActionOrHandler]:
         action: Optional[Action] = None
 
         """Check for key movement or confirmation keys."""
@@ -383,6 +473,9 @@ class SelectIndexHandler(AskUserEventHandler):
             if pyxel.btnp(key):
                 return self.on_index_selected(*self.engine.mouse_location)
 
+        return super().ev_keydown()                
+
+    def ev_mousebuttondown(self) -> Optional[ActionOrHandler]:
         # メモ: マウスイベント
         """Left click confirms a selection."""
         mouse_x = pyxel.mouse_x // color.chr_x
@@ -390,19 +483,18 @@ class SelectIndexHandler(AskUserEventHandler):
         if self.engine.game_map.in_bounds(mouse_x, mouse_y):
             if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
                 return self.on_index_selected(mouse_x, mouse_y)
+        return super().ev_mousebuttondown()
 
-        return super().dispatch()                
-
-    def on_index_selected(self, x: int, y: int) -> Optional[Action]:
+    def on_index_selected(self, x: int, y: int) -> Optional[ActionOrHandler]:
         """Called when an index is selected."""
         raise NotImplementedError()
 
 class LookHandler(SelectIndexHandler):
     """Lets the player look around using the keyboard."""
 
-    def on_index_selected(self, x: int, y: int) -> None:
+    def on_index_selected(self, x: int, y: int) -> MainGameEventHandler:
         """Return to main handler."""
-        self.engine.event_handler = MainGameEventHandler(self.engine)
+        return MainGameEventHandler(self.engine)        
 
 class SingleRangedAttackHandler(SelectIndexHandler):
     """Handles targeting a single enemy. Only the enemy selected will be affected."""

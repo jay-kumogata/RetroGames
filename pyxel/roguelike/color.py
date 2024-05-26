@@ -1,29 +1,51 @@
 import pyxel
 
-white = 7
+# メモ: パレット(pyxel既定)
+
 black = 0
+dark_blue = 1
+purple = 2
+green = 3
+brown = 4
+blue = 5
+light_purple = 6
+white = 7
 red = 8
+amber = 9
+yellow = 10
+light_green = 11
+light_blue = 12
+gray = 13
+pink = 14
+beige = 15
 
-player_atk = 12
-enemy_atk = 13
+player_atk = light_blue
+enemy_atk = gray
 
-player_die = 14
-enemy_die = 15
-needs_target = 5
-status_effect_applied = 6
+player_die = pink
+enemy_die = beige
+needs_target = blue
+status_effect_applied = light_purple
 
-invalid = 9
-impossible = 10
-error = 2
+invalid = amber
+impossible = yellow
+error = purple
 
-welcome_text = 6
-health_recovered = 3
+welcome_text = light_purple
+health_recovered = green
 
 bar_text = white
-bar_filled = 11
-bar_empty = 8
+bar_filled = light_green
+bar_empty = red
+
+menu_title = yellow
+menu_text = white
 
 # メモ: 以下、色(color)とは直接関係ないコード(Pyxel関連)
+
+# メモ: コンソールサイズ(80x50)
+width = 80
+height = 50
 
 # メモ: 組込フォントのドット数(4x5)
 chr_x = 4
@@ -39,4 +61,8 @@ def rectb(x: int, y: int, w: int, h: int, col: int):
 def text(x: int, y: int, s: str, col: int):
     pyxel.text(x*chr_x, y*chr_y, s, col)
 
+# テキストを中央に表示    
+def textc(x: int, y: int, s: str, col: int):
+    pyxel.text((x - len(s) // 2)*chr_x, y*chr_y, s, col)
+    
 # end of color.py
