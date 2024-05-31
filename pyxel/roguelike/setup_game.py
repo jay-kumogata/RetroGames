@@ -27,9 +27,6 @@ def new_game() -> Engine:
     room_min_size = 6
     max_rooms = 30
 
-    max_monsters_per_room = 2
-    max_items_per_room = 2
-
     player = copy.deepcopy(entity_factories.player)
 
     engine = Engine(player=player)
@@ -41,8 +38,6 @@ def new_game() -> Engine:
         room_max_size=room_max_size,
         map_width=map_width,
         map_height=map_height,
-        max_monsters_per_room=max_monsters_per_room,
-        max_items_per_room=max_items_per_room,
     )
 
     engine.game_world.generate_floor()    
@@ -59,8 +54,6 @@ def load_game(filename: str) -> Engine:
         engine = pickle.loads(lzma.decompress(f.read()))
     assert isinstance(engine, Engine)
     return engine
-
-
 
 
 class MainMenu(input_handlers.BaseEventHandler):
