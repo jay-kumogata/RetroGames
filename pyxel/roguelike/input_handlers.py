@@ -60,6 +60,24 @@ CONFIRM_KEYS = {
     pyxel.KEY_KP_ENTER,
 }
 
+CURSOR_Y_KEYS = {
+    pyxel.KEY_UP: -1,
+    pyxel.KEY_DOWN: 1,
+    pyxel.KEY_PAGEUP: -10,
+    pyxel.KEY_PAGEDOWN: 10,
+}
+
+# メモ: アイテム番号への変換表    
+ITEM_KEYS = {
+    pyxel.KEY_A:  0, pyxel.KEY_B:  1, pyxel.KEY_C:  2, pyxel.KEY_D:  3,
+    pyxel.KEY_E:  4, pyxel.KEY_F:  5, pyxel.KEY_G:  6, pyxel.KEY_H:  7,
+    pyxel.KEY_I:  8, pyxel.KEY_J:  9, pyxel.KEY_K: 10, pyxel.KEY_L: 11,
+    pyxel.KEY_M: 12, pyxel.KEY_N: 13, pyxel.KEY_O: 14, pyxel.KEY_P: 15,
+    pyxel.KEY_Q: 16, pyxel.KEY_R: 17, pyxel.KEY_S: 18, pyxel.KEY_T: 19,
+    pyxel.KEY_U: 20, pyxel.KEY_V: 21, pyxel.KEY_W: 22, pyxel.KEY_X: 23,
+    pyxel.KEY_Y: 24, pyxel.KEY_Z: 25,
+}
+
 ActionOrHandler = Union[Action, "BaseEventHandler"]
 """An event handler return value which can trigger an action or switch active handlers.
 
@@ -118,20 +136,13 @@ class PopupMessage(BaseEventHandler):
                 pyxel.pset(x,y,0)
                 pyxel.pset(x+1,y+1,0)
 
-        #メモ: 文字の背景を黒くする(文字を読みやすくするため)
-        color.rect(
-            (color.width - len(self.text)) // 2,
-            color.height // 2,
-            len(self.text),
-            1,
-            color.black,
-        )
-        #メモ: 文字を白で表示する
-        color.textc(
+        #メモ: 文字の背景を黒くして、文字を白で表示する(文字を読みやすくするため)
+        color.textcbg(
             color.width // 2,
             color.height // 2,
             self.text,
             color.white,
+            color.black,
         )
 
     def ev_keydown(self) -> Optional[BaseEventHandler]:
@@ -155,6 +166,8 @@ class EventHandler(BaseEventHandler):
             if not self.engine.player.is_alive:
                 # The player was killed sometime during or after the action.
                 return GameOverEventHandler(self.engine)
+            elif self.engine.player.level.requires_level_up:
+                return LevelUpEventHandler(self.engine)            
             return MainGameEventHandler(self.engine)  # Return to the main handler.
         return self
     
@@ -195,6 +208,12 @@ class MainGameEventHandler(EventHandler):
         action: Optional[Action] = None
 
         player = self.engine.player
+
+        # メモ: 階段キーイベント
+        if pyxel.btnp(pyxel.KEY_PERIOD) and (
+            pyxel.btn(pyxel.KEY_LSHIFT) or pyxel.btn(pyxel.KEY_RSHIFT)
+        ):
+            return actions.TakeStairsAction(player)                
         
         # メモ: 移動キーイベント
         for key in MOVE_KEYS.keys():
@@ -226,6 +245,9 @@ class MainGameEventHandler(EventHandler):
         # メモ: アイテムを落とす(Drop)
         elif pyxel.btnp(pyxel.KEY_D):
             return InventoryDropHandler(self.engine)
+        # メモ: キャラクタ情報を表示(Character)
+        elif pyxel.btnp(pyxel.KEY_C):
+            return CharacterScreenEventHandler(self.engine)            
         # メモ: マウスがない場合にキーボードで代替する(Look)
         elif pyxel.btnp(pyxel.KEY_SLASH):
             return LookHandler(self.engine)
@@ -249,12 +271,6 @@ class GameOverEventHandler(EventHandler):
         if pyxel.btnp(pyxel.KEY_Q):
             self.on_quit()
     
-CURSOR_Y_KEYS = {
-    pyxel.KEY_UP: -1,
-    pyxel.KEY_DOWN: 1,
-    pyxel.KEY_PAGEUP: -10,
-    pyxel.KEY_PAGEDOWN: 10,
-}
 
 class HistoryViewer(EventHandler):
     """Print the history on a larger window which can be navigated."""
@@ -268,8 +284,10 @@ class HistoryViewer(EventHandler):
         super().on_render()  # Draw the main state as the background.
 
         # Draw a frame with a custom banner title.
-        color.rect(3, 3, (color.width - 6), (color.height - 6), 1)
-        color.textc(3 + (color.width - 6) // 2, 3, "┤Message history├", 7)
+        color.rect(3, 3, (color.width - 6), (color.height - 6), color.dark_blue)
+        color.rectb(3, 3, (color.width - 6), (color.height - 6), color.white)
+        color.textcbg(3 + (color.width - 6) // 2, 3, "Message history",
+                      color.white, color.dark_blue)
         
         # Render the message log using the cursor parameter.
         self.engine.message_log.render_messages(
@@ -332,17 +350,116 @@ class AskUserEventHandler(EventHandler):
         """
         return MainGameEventHandler(self.engine)        
 
-# メモ: アイテム番号への変換表    
-ITEM_KEYS = {
-    pyxel.KEY_A:  0, pyxel.KEY_B:  1, pyxel.KEY_C:  2, pyxel.KEY_D:  3,
-    pyxel.KEY_E:  4, pyxel.KEY_F:  5, pyxel.KEY_G:  6, pyxel.KEY_H:  7,
-    pyxel.KEY_I:  8, pyxel.KEY_J:  9, pyxel.KEY_K: 10, pyxel.KEY_L: 11,
-    pyxel.KEY_M: 12, pyxel.KEY_N: 13, pyxel.KEY_O: 14, pyxel.KEY_P: 15,
-    pyxel.KEY_Q: 16, pyxel.KEY_R: 17, pyxel.KEY_S: 18, pyxel.KEY_T: 19,
-    pyxel.KEY_U: 20, pyxel.KEY_V: 21, pyxel.KEY_W: 22, pyxel.KEY_X: 23,
-    pyxel.KEY_Y: 24, pyxel.KEY_Z: 25,
-}
+class CharacterScreenEventHandler(AskUserEventHandler):
+    TITLE = "Character Information"
 
+    def on_render(self) -> None:
+        super().on_render()
+
+        if self.engine.player.x <= 30:
+            x = 40
+        else:
+            x = 0
+
+        y = 0
+
+        width = len(self.TITLE) + 4
+
+        color.rect(x, y, width, 7, color.dark_blue)
+        color.rectb(x, y, width, 7, color.white)
+        color.textcbg(x + width // 2, y, self.TITLE, color.white, color.dark_blue )
+
+        color.text(
+            x + 1, y + 1, f"Level: {self.engine.player.level.current_level}",
+            color.white
+        )
+        color.text(
+            x + 1, y + 2, f"XP: {self.engine.player.level.current_xp}",
+            color.white
+        )
+        color.text(
+            x + 1,
+            y + 3,
+            f"XP for next Level: {self.engine.player.level.experience_to_next_level}",
+            color.white
+        )
+
+        color.text(
+            x + 1, y + 4, f"Attack: {self.engine.player.fighter.power}",
+            color.white
+        )
+        color.text(
+            x + 1, y + 5, f"Defense: {self.engine.player.fighter.defense}",
+            color.white
+        )
+
+class LevelUpEventHandler(AskUserEventHandler):
+    TITLE = "Level Up"
+
+    def on_render(self) -> None:
+        super().on_render()
+
+        if self.engine.player.x <= 30:
+            x = 40
+        else:
+            x = 0
+
+        color.rect(x, 0, 35, 8, color.dark_blue)
+        color.rectb(x, 0, 35, 8, color.white)
+        color.textcbg(x + 35 // 2, 0, self.TITLE, color.white, color.dark_blue)
+
+        color.text(x + 1, 1, "Congratulations! You level up!", color.white)
+        color.text(x + 1, 2, "Select an attribute to increase.", color.white)
+        
+        color.text(
+            x + 1,
+            4,
+            f"a) Constitution (+20 HP, from {self.engine.player.fighter.max_hp})",
+            color.white,
+        )
+        color.text(
+            x + 1,
+            5,
+            f"b) Strength (+1 attack, from {self.engine.player.fighter.power})",
+            color.white,
+        )
+        color.text(
+            x + 1,
+            6,
+            f"c) Agility (+1 defense, from {self.engine.player.fighter.defense})",
+            color.white,
+        )
+
+    def ev_keydown(self) -> Optional[ActionOrHandler]:
+        player = self.engine.player
+        
+        for key in ITEM_KEYS.keys():
+            if pyxel.btnp(key):
+                index = ITEM_KEYS[key]
+        
+                if 0 <= index <= 2:
+                    if index == 0:
+                        player.level.increase_max_hp()
+                    elif index == 1:
+                        player.level.increase_power()
+                    else:
+                        player.level.increase_defense()
+                    # メモ: 1度選択したら、窓を閉じる(無限に選択できるのを防止)
+                    return self.on_exit()
+                else:
+                    self.engine.message_log.add_message("Invalid entry.", color.invalid)
+                    return None
+
+        return super().ev_keydown()
+
+    def ev_mousebuttondown(
+        self
+    ) -> Optional[ActionOrHandler]:
+        """
+        Don't allow the player to click to exit the menu, like normal.
+        """
+        return None
+    
 class InventoryEventHandler(AskUserEventHandler):
     """This handler lets the user select an item.
 
@@ -373,8 +490,9 @@ class InventoryEventHandler(AskUserEventHandler):
 
         width = len(self.TITLE) + 4
 
-        color.rect(x, y, width,height, 1)
-        color.text(x, y, self.TITLE, 7)
+        color.rect(x, y, width, height, color.dark_blue)
+        color.rectb(x, y, width, height, color.white)
+        color.textcbg(x + width // 2, y, self.TITLE, color.white, color.dark_blue)
 
         if number_of_items_in_inventory > 0:
             for i, item in enumerate(self.engine.player.inventory.items):

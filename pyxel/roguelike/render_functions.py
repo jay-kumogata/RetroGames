@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import Tuple, TYPE_CHECKING
 
 import color
 import pyxel
@@ -33,6 +33,16 @@ def render_bar(
 
     color.text(1, 45, f"HP: {current_value}/{maximum_value}", color.bar_text)
 
+def render_dungeon_level(
+    dungeon_level: int, location: Tuple[int, int]        
+) -> None:
+    """
+    Render the level the player is currently on, at the given location.
+    """
+    x, y = location
+
+    color.text(x, y, f"Dungeon level: {dungeon_level}", color.white)
+    
 def render_names_at_mouse_location(
     x: int, y: int, engine: Engine
 ) -> None:
@@ -42,6 +52,6 @@ def render_names_at_mouse_location(
         x=mouse_x, y=mouse_y, game_map=engine.game_map
     )
 
-    color.text(x, y, names_at_mouse_location, 7)
+    color.text(x, y, names_at_mouse_location, color.white)
     
 # end of render_functions.py    

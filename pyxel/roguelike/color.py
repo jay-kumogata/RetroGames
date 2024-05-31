@@ -26,6 +26,7 @@ player_die = pink
 enemy_die = beige
 needs_target = blue
 status_effect_applied = light_purple
+descend = light_purple
 
 invalid = amber
 impossible = yellow
@@ -64,5 +65,15 @@ def text(x: int, y: int, s: str, col: int):
 # テキストを中央に表示    
 def textc(x: int, y: int, s: str, col: int):
     pyxel.text((x - len(s) // 2)*chr_x, y*chr_y, s, col)
+
+# 背景色を指定してテキストを表示
+def textbg(x: int, y: int, s: str, fg: int, bg: int):
+    rect(x, y, len(s), 1, bg)
+    text(x ,y, s, fg)
+
+# 背景色を指定してテキストを中央に表示
+def textcbg(x: int, y: int, s: str, fg: int, bg: int):
+    rect(x - len(s) // 2, y, len(s), 1, bg)
+    textc(x ,y, s, fg)
     
 # end of color.py

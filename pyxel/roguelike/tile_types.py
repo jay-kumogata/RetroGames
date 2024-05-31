@@ -1,6 +1,7 @@
 from typing import Tuple
 
 import numpy as np  # type: ignore
+import color
 
 # Tile graphics structured type 
 graphic_dt = np.dtype(
@@ -33,14 +34,26 @@ def new_tile(
     return np.array((walkable, transparent, dark, light), dtype=tile_dt)
 
 # SHROUD represents unexplored, unseen tiles
-SHROUD = np.array((ord(" "), 0, 7), dtype=graphic_dt)
+SHROUD = np.array((ord(" "), color.white, color.black), dtype=graphic_dt)
 
 # メモ: 床と壁において，光が当たっていない場合(dark)と当たっている場合(light)の情報
 floor = new_tile(
-    walkable=True, transparent=True, dark=(ord(" "), 12, 1), light=(ord(" "), 10, 11),
+    walkable=True,
+    transparent=True,
+    dark=(ord(" "), color.white, color.light_blue),
+    light=(ord(" "), color.white, color.yellow),
 )
 wall = new_tile(
-    walkable=False, transparent=False, dark=(ord(" "), 1, 2), light=(ord(" "), 9, 13),
+    walkable=False,
+    transparent=False,
+    dark=(ord(" "), color.white, color.dark_blue),
+    light=(ord(" "), color.white, color.amber),
+)
+down_stairs = new_tile(
+    walkable=True,
+    transparent=True,
+    dark=(ord(">"), color.dark_blue, color.blue),
+    light=(ord(">"), color.white, color.yellow),
 )
 
 # end of tile_types.py
