@@ -118,8 +118,10 @@ class BaseEventHandler:
         action = self.ev_mousebuttondown()
         if action is not None:
             return action
-        return self.ev_mousemotion()
-
+        #メモ: マウスを利用する場合
+        #return self.ev_mousemotion()
+        return None
+        
 class PopupMessage(BaseEventHandler):
     """Display a popup text window."""
 
@@ -497,9 +499,17 @@ class InventoryEventHandler(AskUserEventHandler):
         if number_of_items_in_inventory > 0:
             for i, item in enumerate(self.engine.player.inventory.items):
                 item_key = chr(ord("a") + i)
-                color.text(x + 1, y + i + 1, f"({item_key}) {item.name}",7)
+
+                is_equipped = self.engine.player.equipment.item_is_equipped(item)
+
+                item_string = f"({item_key}) {item.name}"
+
+                if is_equipped:
+                    item_string = f"{item_string} (E)"
+
+                color.text(x + 1, y + i + 1, item_string, color.white)
         else:
-            color.text(x + 1, y + 1, "(Empty)",7)
+            color.text(x + 1, y + 1, "(Empty)", color.white)
 
     def ev_keydown(self) -> Optional[ActionOrHandler]:
         action: Optional[Action] = None
@@ -530,8 +540,13 @@ class InventoryActivateHandler(InventoryEventHandler):
     TITLE = "Select an item to use"
 
     def on_item_selected(self, item: Item) -> Optional[ActionOrHandler]:
-        """Return the action for the selected item."""
-        return item.consumable.get_action(self.engine.player)
+        if item.consumable:
+            # Return the action for the selected item.
+            return item.consumable.get_action(self.engine.player)
+        elif item.equippable:
+            return actions.EquipAction(self.engine.player, item)
+        else:
+            return None
 
 class InventoryDropHandler(InventoryEventHandler):
     """Handle dropping an inventory item."""
