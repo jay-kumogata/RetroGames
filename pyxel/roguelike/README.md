@@ -15,18 +15,57 @@ Please execute the following from the Pyxel (version 1.9.18) environment.
 	
 ## How to Control
 
-- [Up-arrow] / [Numpad-1] / [H]: Move up
-- [Down-arrow] / [Numpad-2] / [J] : Move down
-- [Left-arrow] / [Numpad-3] / [K] : Move left
-- [Right-arrow] / [Numpad-4] / [L] : Move right
-- [Home] / [Numpad-6] / [Y] : Move left and up
-- [End] / [Numpad-7] / [U] : Move left and down
-- [Pageup] / [Numpad-7] / [B] : Move right and up
-- [Pagedown] / [Numpad-8] / [N] : Move right and down
-- [Enter] / [Numpad-enter]: Confirm
-- [Space\]: Cancel
-- [V]: View log messages
-- [G]: Get a item
-- [I]: View and use a item
-- [D]: View and drop a item
-- [C]: View player's property
+### Title screen
+
+- [N\]: New game
+- [C\]: Load game
+- [Q\]: Quit game
+
+### Inside dungeon 
+
+- [Up] / [Num1] / [H]: Move player up
+- [Down] / [Num2] / [J] : Move player down
+- [Left] / [Num3] / [K] : Move player left
+- [Right] / [Nump4] / [L] : Move player right
+- [Clear] / [Num5] / [:]: Wait player
+- [Home] / [Num6] / [Y] : Move player left and up
+- [End] / [Num7] / [U] : Move player left and down
+- [Pageup] / [Num8] / [B] : Move player right and up
+- [Pagedown] / [Num9] / [N] : Move player right and down
+- [>\]: Go down stairs
+- [Q\]: Save and Quit
+- [G]: Pick a item
+
+### Message window
+
+- [V]: View messages
+- [Up\]: Move messages up 1 line
+- [Down\]: Move messages down 1 line
+- [Pageup\]: Move messages up 10 lines
+- [Pagedown\]: Move messages down 10 lines
+- [Space\]: Close window
+
+### Item window
+
+- [I]: View a item list to use / equip
+- [D]: View a item list to drop
+- [A-Z\]: Select a item to use / equip / drop 
+- [Space\]: Close window
+
+### Attack mode
+
+- [Up] / [Num1] / [H]: Move cursor up
+- [Down] / [Num2] / [J] : Move cursor down
+- [Left] / [Num3] / [K] : Move cursor left
+- [Right] / [Nump4] / [L] : Move cursor right
+- [Home] / [Num6] / [Y] : Move cursor left and up
+- [End] / [Num7] / [U] : Move cursor left and down
+- [Pageup] / [Num8] / [B] : Move cursor right and up
+- [Pagedown] / [Num9] / [N] : Move cursor right and down
+- [Enter] / [Numpad-enter]: Confirm a target location
+- [Space\]: Cancel attack
+
+### Information window
+
+- [C]: View player's information
+- [Space\]: Close window
