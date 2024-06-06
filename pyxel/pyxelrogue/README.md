@@ -37,8 +37,8 @@ I ported Hugo & Coder's [Yet Another Roguelike Tutorial - Written in Python 3 an
 - [Pageup] / [Num8] / [B] : Move player right and up
 - [Pagedown] / [Num9] / [N] : Move player right and down
 - [V]: Open message log window
-- [I]: Open item list to use or equip
-- [D]: Open item list to drop
+- [I]: Open item list window to use or equip
+- [D]: Open item list window to drop
 - [C]: Open player's information window
 - [G]: Pick a item
 - [>\]: Go down stairs
