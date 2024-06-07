@@ -67,7 +67,7 @@ I ported Hugo & Coder's [Yet Another Roguelike Tutorial - Written in Python 3 an
 - [End] / [Num7] / [U] : Move cursor left and down
 - [Pageup] / [Num8] / [B] : Move cursor right and up
 - [Pagedown] / [Num9] / [N] : Move cursor right and down
-- [Enter] / [Numpad-enter]: Confirm a target location
+- [Enter] / [NumEnter]: Confirm a target location
 - [Space\]: Cancel attack mode
 
 ### Player's information window
