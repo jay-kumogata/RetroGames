@@ -7,7 +7,7 @@ I ported Hugo & Coder's [Yet Another Roguelike Tutorial - Written in Python 3 an
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelrogue/screenshots/pyxelrogue13.gif" width="480"> 
 
-### How to Install
+## How to Install
 
 	> cd src
 	> pip install -r requirements.txt
