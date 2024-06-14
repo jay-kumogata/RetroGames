@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I ported Miss Harumi Takahasi's [Autorace(1 screen software)](https://archive.org/details/Fm-7Fm-8/page/n173/mode/2up) to Pyxel/Python. 
+I ported Miss Harumi Takahasi's [Autorace(one screen software)](https://archive.org/details/Fm-7Fm-8/page/n173/mode/2up) to Pyxel/Python. 
 The original was published in [FM-7 FM-8 Harumi's Game Library](https://archive.org/details/Fm-7Fm-8/).
 This is a game where you operate your car and avoid obstacles.
 It is extremely difficult.
@@ -19,4 +19,4 @@ Please execute the following from the Pyxel (version 2.0.0) environment.
 
 - [Right]: Move car to the right
 - [Left]: Move car to the left
-- [S\]: Start new game
+- [S\]: Replay the game
