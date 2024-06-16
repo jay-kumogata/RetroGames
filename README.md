@@ -10,6 +10,7 @@ Retrospective games and demos
 |2|2023-04-30|[pinball](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pinball)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pinball/screenshots/Pinball04.gif" width="150">|
 |3|2023-09-24|[ACLM](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/aclm)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/aclm/screenshots/aclm01.gif" width="150">|
 |3|2024-06-07|[pyxelrogue](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/pyxelrogue)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelrogue/screenshots/pyxelrogue13.gif" width="160">|
+|4|2024-06-17|[autorace](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/autorace)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/autorace/screenshots/autorace01.gif" width="160">|
 
 ## Demo list
 
