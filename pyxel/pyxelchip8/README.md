@@ -1,3 +1,6 @@
-### Notice of relocation
+# PyxelChip8
 
-I created [a new repository](https://github.com/jay-kumogata/PyxelChip8) for PyxelChip8, a chip8 emulator that runs on pyxel/python.
+## Introduction
+
+PyxelChip8 is a CHIP-8/SUPER-CHIP emulator that runs on Pyxel/Python library.
+Moved to [a new repository](https://github.com/jay-kumogata/PyxelChip8).
