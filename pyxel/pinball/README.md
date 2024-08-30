@@ -10,6 +10,7 @@ It's a pinball game, or rather, a combination of pinball and Atari's Breakout.
 ## How to Run
 
 Please execute the following from the Pyxel (version 1.9.18) environment.
+Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.pinball.Pinball).
 
 	> python Pinball.py
 	
