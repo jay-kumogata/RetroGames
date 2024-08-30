@@ -12,7 +12,8 @@ Also, the original version seems to have a scene 2 in which they attack a city.
 
 ## How to Run
 
-Please execute the following from the Pyxel (version 1.7.0) environment.
+Please execute the following from the Pyxel (version 1.7.0) environment. 
+Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.aclm.aclm).
 
 	> python aclm.py
 	
