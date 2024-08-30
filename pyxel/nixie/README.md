@@ -9,6 +9,7 @@ It is a demo of the Nixie tube clock.
 ## How to Run
 
 Please execute the following from the Pyxel (version 1.7.1) environment.
+Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.nixie.Nixie).
 
 	> python Nixie.py
 
