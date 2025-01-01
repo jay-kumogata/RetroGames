@@ -167,4 +167,16 @@ Pinballの開発記を，[01_ゲーム製作: 02_ピンボール開発記](https
 
 子供向けに，Pyxel はいいと思います．Python の勉強できますし，AI戦士を育てる意味でも.
 
+### 2024-12-24
+
+PyxelもNintendo Switchで動くといいのかもしれません．
+
+### 2024-12-25
+
+秋頃に，Haskellで書いたAsteroidsを，Pyxel/Pythonに移植しました．
+Githubの方には，[ソースコード](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/asteroids)を公開しましたが，Xには投稿していませんでした．
+Haskellでは関数適用を繰り返す処理も，Pythonだと逐次的な処理になり，楽しい移植作業でした．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/asteroids/screenshots/asteroids01.gif" width=320 />
+
 以上
