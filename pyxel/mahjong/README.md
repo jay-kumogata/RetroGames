@@ -4,7 +4,7 @@
 
 It is a demo of Mahjong (Chinese table game).
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mahjong/screenshots/mahjong01.png)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mahjong/screenshots/mahjong01.png" width="192">
 
 ## How to Run
 
