@@ -1,4 +1,4 @@
-# Mastermind (4 row) for CHIP-8
+# Mastermind for Pyxel/Python
 
 ## Introduction
 
@@ -11,7 +11,7 @@ Please guess the 4 numbers referring to the hint.
 ## How to Play
 
 Please execute the following from the Pyxel (version 2.2.10) environment.
-Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind).
+Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind&packages=numpy).
 
 	> python mastermind.py
 
@@ -24,13 +24,11 @@ You can cancel the input with the [Enter] key.
 
 ### Ver. 4
 
-I remastered to Pyxel/Python.
+I ported to Pyxel/Python.
 Each number, white bar, and dotted bar are displayed randomly in 3 patterns.
 
-|Pattern|Number|White bar|Dotted bar|
-|-------|------|---------|----------|
-|1|Bamboos|1,000 point bar|10,000 point bar|
-|2|Circles|500 point bar|5,000 point bar|
-|3|Characters|100 point bar|1,000 point bar|
-
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="196">
+|Pattern|Number|White bar|Dotted bar|Screenshot|
+|-------|------|---------|----------|----------|
+|1|Bamboos|1,000 point bar|10,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="196">|
+|2|Circles|500 point bar|5,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="196">|
+|3|Characters|100 point bar|1,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="196">|
