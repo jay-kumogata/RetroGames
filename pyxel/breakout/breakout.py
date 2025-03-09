@@ -1,8 +1,35 @@
+#########################################################
+#
+# Breakout (Brix hack) [David Winter, 1997]
+# digitally remastered by Jay Kumogata.
+#
+# Dec. 20, 2021 (ver.1) decompiled from binary file[1]
+# Jan. 22, 2022 (ver.2) renamed labels and subroutines
+# Mar. 08, 2025 (ver.3) converted to Pyxel/Python with Grok3
+# Mar. 09, 2025 (ver.4) debug and refactor
+#
+# [1] Breakout (Brix hack) [David Winter, 1997].ch
+#
+##########################################################
+
+# Registers
+# --------- 
+# v0-v4	are scratch registers
+# v5	Score
+# v6	X coord. of ball
+# v7	Y coord. of ball
+# v8	X direction of ball motion
+# v9	Y direction of ball motion
+# vC	X coord. of paddle
+# vD	Y coord. of paddle
+# vE	Number of balls
+# vF	collision detection
+
 import pyxel
 import random
 
 # Pyxelの初期化
-pyxel.init(64, 32, title="Breakout (Brix hack)", fps=60)  # CHIP-8の画面サイズに合わせる
+pyxel.init(64, 32, title="Breakout (Brix hack)", fps=20)  # CHIP-8の画面サイズに合わせる
 
 # レジスタ（CHIP-8のV0-VFに相当）
 V = [0] * 16
@@ -44,17 +71,23 @@ def clear_screen():
 
 def draw_score():
     """スコアを描画"""
-    pyxel.text(50, 2, f"{V[5]:02d}", 7)  # 白でスコア表示
+    pyxel.text(50, 0, f"{V[5]:02d}", 7)  # 白でスコア表示
 
 def update():
     """ゲームの更新処理"""
     global V
 
+    # パドルの描画（前の位置を消してから）
+    draw_sprite(V[0xC], V[0xD], SPRITES["paddle"])  # 消す
+
     # キー入力（AとDキー）
-    if pyxel.btn(pyxel.KEY_A):
+    if pyxel.btn(pyxel.KEY_A) or pyxel.btn(pyxel.KEY_LEFT):
         V[0xC] = max(0, V[0xC] - 2)
-    if pyxel.btn(pyxel.KEY_D):
+    if pyxel.btn(pyxel.KEY_D) or pyxel.btn(pyxel.KEY_RIGHT):
         V[0xC] = min(0x3F - 6, V[0xC] + 2)  # パドルの幅を考慮
+
+    # パドルの描画（前の位置を消してから）
+    draw_sprite(V[0xC], V[0xD], SPRITES["paddle"])  # 描く
 
     # ボールの移動と衝突
     if "ball_active" not in globals() or not ball_active:
@@ -63,10 +96,7 @@ def update():
         V[8] = 1                      # X方向 (v8)
         V[9] = -1                     # Y方向 (v9)
         globals()["ball_active"] = True
-
-    # パドルの描画（前の位置を消してから）
-    draw_sprite(V[0xC], V[0xD], SPRITES["paddle"])  # 消す
-    draw_sprite(V[0xC], V[0xD], SPRITES["paddle"])  # 描く
+        draw_sprite(V[6], V[7], SPRITES["ball"])  # 描く
 
     # ボールの移動と描画
     draw_sprite(V[6], V[7], SPRITES["ball"])  # 消す
@@ -98,6 +128,8 @@ def update():
             V[0xE] -= 1  # ミス
             globals()["ball_active"] = False
             pyxel.play(0, 1)  # ミス音
+            draw_sprite(V[6], V[7], SPRITES["ball"])  # ボールを消す
+            draw_sprite((V[0xE]-1)*2, 0, SPRITES["ball"])  # ボール数を減らす
 
     # ブロックとの衝突
     if V[7] < 0x12 and V[0xF]:
@@ -154,3 +186,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# End of breakout.py    
