@@ -22,6 +22,10 @@ Defeat incoming plagues that land in Japan.
 
 ## Remarks
 
+I tried to convert 
+[the codes](https://github.com/jay-kumogata/PyxelChip8/tree/main/games/amabie)
+written in Chip8 assembler language to Pyxel/Python using Grok3.
+
 Refer to the following URLs for Amabie (*1) and Ofuda (*2). 
 Now in Japan, Amabie has been a character to overcome the COVID-19. 
 I hope it will subside and the Tokyo Olympics will be held.
