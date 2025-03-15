@@ -7,6 +7,7 @@
 # Jan. 22, 2022 (ver.2) renamed labels and subroutines
 # Mar. 08, 2025 (ver.3) converted to Pyxel/Python with Grok3
 # Mar. 09, 2025 (ver.4) debug and refactor
+# Mar. 15, 2025 (ver.5) colorize
 #
 # [1] Breakout (Brix hack) [David Winter, 1997].ch
 #
@@ -26,10 +27,14 @@
 # vF	collision detection
 
 import pyxel
-import random
+import random as rnd
 
 # Pyxelの初期化
 pyxel.init(64, 32, title="Breakout (Brix hack)", fps=20)  # CHIP-8の画面サイズに合わせる
+
+# 乱択パレット
+#pal = [1,3,11,14] # pink
+pal = [1,rnd.randint(2,6),rnd.randint(7,11),rnd.randint(12,15)]
 
 # レジスタ（CHIP-8のV0-VFに相当）
 V = [0] * 16
@@ -71,7 +76,7 @@ def clear_screen():
 
 def draw_score():
     """スコアを描画"""
-    pyxel.text(50, 0, f"{V[5]:02d}", 7)  # 白でスコア表示
+    pyxel.text(50, 0, f"{V[5]:02d}", pal[3])  # 前景色3でスコア表示
 
 def update():
     """ゲームの更新処理"""
@@ -91,7 +96,7 @@ def update():
 
     # ボールの移動と衝突
     if "ball_active" not in globals() or not ball_active:
-        V[6] = random.randint(0, 15)  # ボールのX座標 (v6)
+        V[6] = rnd.randint(0, 15)     # ボールのX座標 (v6)
         V[7] = 0x1E                   # ボールのY座標 (v7)
         V[8] = 1                      # X方向 (v8)
         V[9] = -1                     # Y方向 (v9)
@@ -149,11 +154,16 @@ def update():
 
 def draw():
     """画面の描画処理"""
-    pyxel.cls(0)  # 黒でクリア
+    pyxel.cls(pal[0])  # 背景色でクリア
     for y in range(32):
         for x in range(64):
             if display[y][x]:
-                pyxel.pset(x, y, 7)  # 白でピクセル描画
+                if y == 6 or y == 12:
+                    pyxel.pset(x, y, pal[1])  # 前景色1でピクセル描画
+                elif y == 8 or y == 14:
+                    pyxel.pset(x, y, pal[2])  # 前景色2でピクセル描画
+                else:
+                    pyxel.pset(x, y, pal[3])  # 前景色3でピクセル描画
     draw_score()
 
 def main():
