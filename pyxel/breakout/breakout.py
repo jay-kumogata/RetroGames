@@ -86,11 +86,9 @@ def update():
     draw_sprite(V[0xC], V[0xD], SPRITES["paddle"])  # 消す
 
     # キー入力（AとDキー）
-    if pyxel.btn(pyxel.KEY_A) or pyxel.btn(pyxel.KEY_LEFT) or \
-       pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT):
+    if pyxel.btn(pyxel.KEY_A) or pyxel.btn(pyxel.KEY_LEFT):
         V[0xC] = max(0, V[0xC] - 2)
-    if pyxel.btn(pyxel.KEY_D) or pyxel.btn(pyxel.KEY_RIGHT) or \
-       pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):
+    if pyxel.btn(pyxel.KEY_D) or pyxel.btn(pyxel.KEY_RIGHT):
         V[0xC] = min(0x3F - 6, V[0xC] + 2)  # パドルの幅を考慮
 
     # パドルの描画（前の位置を消してから）
