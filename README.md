@@ -13,6 +13,7 @@ Retrospective games and demos
 |5|2024-06-17|[autorace](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/autorace)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/autorace/screenshots/autorace01.gif" width="160">|
 |6|2024-09-03|[asteroids](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/asteroids)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/asteroids/screenshots/asteroids01.gif" width="160">|
 |7|2025-03-02|[mastermind](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mastermind)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="160"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="160"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="160">|
+|8|2025-03-09|[breakout](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/breakout)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout03.gif" width="160">|
 
 ## Demo list
 
