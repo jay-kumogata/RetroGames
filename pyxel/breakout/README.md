@@ -11,7 +11,7 @@ Furthermore, I tried to convert the codes written in Chip8 assembler language to
 ## How to Play
 
 Please execute the following from the Pyxel (version 2.2.10) environment.
-Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.breakout.breakout).
+Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.breakout.breakout&gamepad=enabled).
 
 	> python breakout.py
 
