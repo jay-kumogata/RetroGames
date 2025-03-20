@@ -5,7 +5,7 @@
 Amabie is a shooting game, in which Amabie throws Ofuda to disperse the plagues. 
 Stop them from landing in Japan.
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/amabie/screenshots/amabie02.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie02.gif)
 
 ## How to Play
 
