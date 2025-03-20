@@ -16,6 +16,7 @@
 # Mar 20, 2021 ver.4 changed characters and titles
 # Mar 11, 2025 ver.5 converted to Pyxel/Python with Grok3
 # Mar 12, 2025 ver.6 debug and refactor
+# Mar 20, 2025 ver.7 colorize
 #
 ###########################################
 
@@ -24,103 +25,7 @@ import random
 
 # Pyxelの初期化
 pyxel.init(64, 32, title="Amabie", fps=10)
-
-# リソース（スプライト）の定義
-pyxel.images[0].set(0, 0, [
-    "07777700",  # waves
-    "77700770",
-])
-pyxel.images[0].set(8, 0, [
-    "07777770",  # Amabie
-    "77777777",
-    "77077077",
-    "77700777",
-    "70077007",
-])
-pyxel.images[0].set(16, 0, [
-    "70777000",  # tomb
-    "00707070",
-    "00707000",
-    "07777700",
-    "77777770",
-])
-pyxel.images[0].set(24, 0, [
-    "00007000",  # Ofuda
-    "00070700",
-    "00070700",
-    "00707000",
-    "00707000",
-    "00070000",
-])
-pyxel.images[0].set(32, 0, [
-    "00707000",  # plague-0
-    "00770770",
-    "07707700",
-    "00070700",
-])
-pyxel.images[0].set(40, 0, [
-    "00070700",  # plague-1
-    "07707700",
-    "00770770",
-    "00707000",
-])
-pyxel.images[0].set(48, 0, [
-    "70070707",  # Enmaku
-    "00700070",
-    "00707070",
-    "07070700",
-    "07000707",
-    "00707000",
-    "70000070",
-])
-
-# タイトルスプライト（AMABIE）
-pyxel.images[0].set(56, 0, [
-    "07770007",  # title-0 (AM)
-    "77007077",
-    "77007077",
-    "77777077",
-    "77007077",
-    "77007077",
-    "77007077",
-])
-pyxel.images[0].set(64, 0, [
-    "77700077",  # title-1 (MA)
-    "07070770",
-    "07070770",
-    "07070777",
-    "07070770",
-    "07070770",
-    "07070770",
-])
-pyxel.images[0].set(72, 0, [
-    "70077770",  # title-2 (AB)
-    "07077007",
-    "07077007",
-    "77077770",
-    "07077007",
-    "07077007",
-    "07077770",
-])
-pyxel.images[0].set(80, 0, [
-    "07007777",  # title-3 (IE)
-    "07007700",
-    "07007700",
-    "07707777",
-    "07707700",
-    "07707700",
-    "07707777",
-])
-
-# 落下アニメーション用スプライト（fall）
-pyxel.images[0].set(88, 0, [
-    "00000000",  # falling Amabie
-    "70077007",
-    "77700777",
-    "77077077",
-    "77777777",
-    "07777770",
-])
+pyxel.load("amabie.pyxres")
 
 # ゲームの状態を管理するクラス
 class Game:
@@ -145,18 +50,22 @@ class Game:
 
     def draw_waves(self):
         for x in range(0, 64, 8):
+            for y in range(8, 32, 8):
+                pyxel.blt(x, y, 0, 32, 8, 8, 8)
+
+        for x in range(0, 64, 8):
             pyxel.blt(x, 7, 0, 0, 0, 8, 2)
 
     def draw_score(self):
-        pyxel.text(49, 1, f"{self.score:03d}", 7)
+        pyxel.text(49, 1, f"{self.score:03d}", 14)
 
     def draw_title(self):
-        pyxel.cls(0)
+        pyxel.cls(1)
         self.draw_waves()
-        pyxel.blt(16, 12, 0, 56, 0, 8, 7)  # AM
-        pyxel.blt(24, 12, 0, 64, 0, 8, 7)  # MA
-        pyxel.blt(32, 12, 0, 72, 0, 8, 7)  # AB
-        pyxel.blt(40, 12, 0, 80, 0, 8, 7)  # IE
+        pyxel.blt(16, 12, 0, 0, 8, 8, 7)  # AM
+        pyxel.blt(24, 12, 0, 8, 8, 8, 7)  # MA
+        pyxel.blt(32, 12, 0, 16, 8, 8, 7)  # AB
+        pyxel.blt(40, 12, 0, 24, 8, 8, 7)  # IE
 
     def update_player(self):
         old_x = self.player_x
@@ -216,27 +125,27 @@ class Game:
         if self.state == "title":
             self.draw_title()
         elif self.state == "playing":
-            pyxel.cls(0)
+            pyxel.cls(1)
+            self.draw_score()
             self.draw_waves()
-            pyxel.blt(self.player_x, self.player_y, 0, 8, 0, 8, 5)  # プレイヤー描画
+            pyxel.blt(self.player_x, self.player_y, 0, 8, 0, 8, 5, 1)  # プレイヤー描画
             if self.bomb_state == 1:
-                pyxel.blt(self.bomb_x, self.bomb_y, 0, 24, 0, 8, 6)  # ボム描画
+                pyxel.blt(self.bomb_x, self.bomb_y, 0, 24, 0, 8, 6, 1)  # ボム描画
             elif self.bomb_state >= 2:
-                pyxel.blt(self.bomb_x, self.bomb_y, 0, 48, 0, 8, 7)  # 爆発描画
+                pyxel.blt(self.bomb_x, self.bomb_y, 0, 48, 0, 8, 7, 1)  # 爆発描画
             for enemy in self.enemies:
                 frame = enemy[1] % 2
-                pyxel.blt(enemy[0], enemy[1], 0, 32 + frame * 8, 0, 8, 4)  # 敵描画
-            self.draw_score()
+                pyxel.blt(enemy[0], enemy[1], 0, 32 + frame * 8, 0, 8, 4, 1)  # 敵描画
         elif self.state == "sinking":
-            pyxel.cls(0)
-            pyxel.blt(self.player_x, self.player_y, 0, 16, 0, 8, 5)  # 墓描画
+            pyxel.cls(1)
+            pyxel.blt(self.player_x, self.player_y, 0, 16, 0, 8, 5, 1)  # 墓描画
             self.draw_waves()
-            pyxel.blt(self.player_x, self.sink_y, 0, 88, 0, 8, 6)  # 落下中のアマビエ
+            pyxel.blt(self.player_x, self.sink_y, 0, 56, 0, 8, 6, 1)  # 落下中のアマビエ
         elif self.state == "game_over":
-            pyxel.cls(0)
+            pyxel.cls(1)
             self.draw_waves()
-            pyxel.blt(self.player_x, self.sink_y, 0, 88, 0, 8, 6)  # 落下後のアマビエ
-            pyxel.text(20, 14, "THE END", 7)
+            pyxel.blt(self.player_x, self.sink_y, 0, 56, 0, 8, 6, 1)  # 落下後のアマビエ
+            pyxel.text(20, 14, "THE END", 14)
 
     def update(self):
         if self.state == "title":

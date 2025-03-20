@@ -5,7 +5,7 @@
 Amabie is a shooting game, in which Amabie throws Ofuda to disperse the plagues. 
 Stop them from landing in Japan.
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/amabie/screenshots/amabie02.gif)
 
 ## How to Play
 
@@ -21,10 +21,6 @@ Press [DOWN] key to throw an Ofuda and release [DOWN] key to rupture it.
 Defeat incoming plagues that land in Japan.
 
 ## Remarks
-
-I tried to convert 
-[the codes](https://github.com/jay-kumogata/PyxelChip8/tree/main/games/amabie)
-written in Chip8 assembler language to Pyxel/Python using Grok3.
 
 Refer to the following URLs for Amabie (*1) and Ofuda (*2). 
 Now in Japan, Amabie has been a character to overcome the COVID-19. 
