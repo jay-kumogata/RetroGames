@@ -69,16 +69,16 @@ class LunarLander:
                 pyxel.quit()
             return
 
-        if pyxel.btn(pyxel.KEY_W) and self.fuel > 0:
+        if pyxel.btn(pyxel.KEY_UP) and self.fuel > 0:
             self.vy -= 2
             self.fuel_use -= 0xC0
             self.thrust_visible = True
             pyxel.play(0, 0)
-        if pyxel.btn(pyxel.KEY_A) and self.fuel > 0:
+        if pyxel.btn(pyxel.KEY_LEFT) and self.fuel > 0:
             if self.vx > -60:
                 self.vx -= 2
             self.fuel_use -= 0x60
-        if pyxel.btn(pyxel.KEY_D) and self.fuel > 0:
+        if pyxel.btn(pyxel.KEY_RIGHT) and self.fuel > 0:
             if self.vx < 60:
                 self.vx += 2
             self.fuel_use -= 0x60
