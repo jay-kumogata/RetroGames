@@ -20,5 +20,6 @@ Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumo
 
 ## How to Controll
 
-Use the [up-arrow] / [left-arrow] / [right-arrow] key to move up / left / right.  
+Use the [W] / [A] / [D] key or [up-arrow] / [left-arrow] / [right-arrow] key to move up / left / right.  
 Operate the lunar module and land on the surface of the moon.
+
