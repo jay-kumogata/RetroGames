@@ -1,4 +1,4 @@
-# Lunar Lander for Pyxel/Python
+# Lunar Lander 
 
 ## Introduction
 
