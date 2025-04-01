@@ -26,4 +26,4 @@ Retrospective games and demos
 |4|2023-11-26|[hanafuda](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/hanafuda)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/hanafuda/screenshots/hanafuda01.png" width="160">|
 |5|2024-04-19|[sheep](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/sheep)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/sheep/screenshots/sheep01.gif" width="160">|
 |6|2024-06-28|[sombrero](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/sombrero)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/sombrero/screenshots/sombrero02.png" width="160">|
-|9|2025-02-07|[mahjong](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mahjong)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mahjong/screenshots/mahjong01.png" width="160">|
+|7|2025-02-07|[mahjong](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mahjong)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mahjong/screenshots/mahjong01.png" width="160">|
