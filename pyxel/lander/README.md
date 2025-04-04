@@ -9,7 +9,7 @@ This is a game where you operate a lunar module and land on the moon.
 Lunar Lander (Atari / 1979) is a famous implementation, 
 but the Apollo program's lunar lander simulator seems to be the original. 
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander02.gif)
 
 ## How to Play
 
@@ -20,6 +20,6 @@ Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumo
 
 ## How to Controll
 
-Use the [W] / [A] / [D] key or [up-arrow] / [left-arrow] / [right-arrow] key to move up / left / right.  
+Use the [up-arrow] / [left-arrow] / [right-arrow] key to move up / left / right.  
 Operate the lunar module and land on the surface of the moon.
 
