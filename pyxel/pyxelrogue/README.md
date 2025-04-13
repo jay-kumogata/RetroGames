@@ -5,7 +5,7 @@
 It's a traditional roguelike game. <br>
 I ported Hugo & Coder's [Yet Another Roguelike Tutorial - Written in Python 3 and TCOD](https://rogueliketutorials.com/tutorials/tcod/v2/) to Pyxel/Python. 
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelrogue/screenshots/pyxelrogue07.gif" width="360"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelrogue/screenshots/pyxelrogue10.gif" width="360"> 
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelrogue/screenshots/pyxelrogue07.gif" width="320"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelrogue/screenshots/pyxelrogue10.gif" width="320"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/pyxelrogue/screenshots/pyxelrogue13.gif" width="320"> 
 
 ## How to Install
 
