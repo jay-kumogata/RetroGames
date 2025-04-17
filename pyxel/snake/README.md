@@ -4,7 +4,10 @@
 
 It is a famous game where you control a snake and eat food. 
 Each time you eat food, the snake grows longer. 
+Hustle (1977 / Gremlin) might be the original. 
+There was a ported version of NEC's PC-8001.
 
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake01.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake02.gif)
 
 ## How to Play
@@ -22,6 +25,3 @@ Use the [up-arrow] / [left-arrow] / [right-arrow] key to move up / left / right.
 
 I also ported [snake](https://github.com/massung/CHIP-8/blob/master/games/sources/snake.c8) to octo assembly language. 
 Furthermore, I converted the codes written in octo assembly language into Pyxel/Python using Grok3(beta).
-
-Hustle (1977 / Gremlin) might be the original.
-At that time, there was a ported version of NEC's PC-8001.
