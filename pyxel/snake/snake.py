@@ -9,7 +9,7 @@ PIXEL_SCALE = 1     # CHIP-8の1ピクセルを1x1ピクセルに変換
 class SnakeGame:
     def __init__(self):
         # Pyxelの初期化
-        pyxel.init(SCREEN_WIDTH, SCREEN_HEIGHT, title="Snake (CHIP-8 Port)", fps=15)
+        pyxel.init(SCREEN_WIDTH, SCREEN_HEIGHT, title="Snake", fps=15)
         
         # 変数の初期化（CHIP-8のレジスタを模倣）
         self.head_x = 12  # v4: ヘッドのX座標
@@ -113,8 +113,6 @@ class SnakeGame:
     def erase_tail(self):
         # テールの消去（CHIP-8のerase_tail）
         self.tail += 1
-        #if self.tail >= len(self.snake_tail):
-        #    self.tail = 0  # 循環バッファを模倣
 
     def check_bounds(self):
         # 境界チェック（CHIP-8のcheck_bounds）
@@ -125,8 +123,8 @@ class SnakeGame:
     def spawn_food(self):
         # 食料の生成（CHIP-8のspawn_food）
         while True:
-            self.food_x = random.randint(0, 63)
-            self.food_y = random.randint(0, 31)
+            self.food_x = random.randint(1, 62)
+            self.food_y = random.randint(1, 30)
             if self.food_y > 7 or self.food_x < 54:  # スコア領域を避ける
                 break
 
