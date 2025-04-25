@@ -16,6 +16,7 @@ Retrospective games and demos
 |8|2025-03-09|[breakout](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/breakout)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout03.gif" width="160">|
 |9|2025-03-10|[amabie](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/amabie)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie02.gif" width="160">|
 |10|2025-03-21|[lander](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/lander)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander02.gif" width="160">|
+|11|2025-04-25|[snake](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/snake)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake04.gif" width="160">|
 
 ## Demo list
 
