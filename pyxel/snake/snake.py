@@ -1,3 +1,16 @@
+# Note: this source has been ported to Octo by Jay Kumogata on 14 Aug 2021.
+#       (only the notation changed: it has been converted manually.)
+#       And has been converted to Pyxel/Python with Grok3(beta) on 17 Apr 2025.
+# 
+#---------------------------------------------------------------------------
+# This is a simple version of the game Snake for the CHIP-8.
+#
+# Coded by Jeffrey Massung as an example of the
+# CHIP-8 assembler.
+#
+# Have fun!
+#
+
 import pyxel
 import random
 
@@ -9,17 +22,17 @@ PIXEL_SCALE = 1     # CHIP-8の1ピクセルを1x1ピクセルに変換
 class SnakeGame:
     def __init__(self):
         # Pyxelの初期化
-        pyxel.init(SCREEN_WIDTH, SCREEN_HEIGHT, title="Snake", fps=15)
+        pyxel.init(SCREEN_WIDTH * PIXEL_SCALE, SCREEN_HEIGHT * PIXEL_SCALE, title="Neon Snake", fps=20)
         
         # 変数の初期化（CHIP-8のレジスタを模倣）
-        self.head_x = 12  # v4: ヘッドのX座標
-        self.head_y = 10  # v5: ヘッドのY座標
-        self.score = 0    # v6: スコア
+        self.head_x = 12    # v4: ヘッドのX座標
+        self.head_y = 10    # v5: ヘッドのY座標
+        self.score = 0      # v6: スコア
         self.direction = 4  # v7: 初期方向（右）
-        self.head = 4     # va: ヘッドのメモリオフセット
-        self.tail = 2     # vb: テールのメモリオフセット
-        self.food_x = 0   # v8: 食料のX座標
-        self.food_y = 0   # v9: 食料のY座標
+        self.head = 4       # va: ヘッドのメモリオフセット
+        self.tail = 2       # vb: テールのメモリオフセット
+        self.food_x = 0     # v8: 食料のX座標
+        self.food_y = 0     # v9: 食料のY座標
         
         # 方向定数
         self.UP = 0
@@ -49,20 +62,6 @@ class SnakeGame:
         self.check_bounds()
         self.write_head()
         self.erase_tail()
-
-    def draw(self):
-        # 画面のクリア
-        pyxel.cls(0)
-        
-        # スネークの描画
-        for x, y in self.snake_tail[self.tail:self.head + 1]:
-            pyxel.rect(x * PIXEL_SCALE, y * PIXEL_SCALE, PIXEL_SCALE, PIXEL_SCALE, 13)
-        
-        # 食料の描画
-        pyxel.rect(self.food_x * PIXEL_SCALE, self.food_y * PIXEL_SCALE, PIXEL_SCALE, PIXEL_SCALE, 13)
-        
-        # スコアの描画
-        self.draw_score()
 
     def user_input(self):
         # キー入力処理（CHIP-8のuser_input）
@@ -104,7 +103,7 @@ class SnakeGame:
                 self.tail = 0
             self.spawn_food()
             
-        # 自己衝突（手動で記述）
+        # 自己衝突
         for x, y in self.snake_tail[self.tail:self.head]:
             if self.head_x == x and self.head_y == y:
                 pyxel.play(1, 1)  # ゲームオーバー音
@@ -128,11 +127,52 @@ class SnakeGame:
             if self.food_y > 7 or self.food_x < 54:  # スコア領域を避ける
                 break
 
+    # 画面の描画
+    def draw(self):
+        # 画面のクリア
+        pyxel.cls(1)
+        
+        # 壁の描画
+        for x in range(1, SCREEN_WIDTH-1):
+            pyxel.circ( x * PIXEL_SCALE,                 1 * PIXEL_SCALE, PIXEL_SCALE, 3)
+            pyxel.circ( x * PIXEL_SCALE, (SCREEN_HEIGHT-2) * PIXEL_SCALE, PIXEL_SCALE, 3)
+
+        for y in range(1, SCREEN_HEIGHT-1):
+            pyxel.circ(                1 * PIXEL_SCALE, y * PIXEL_SCALE,  PIXEL_SCALE, 3)
+            pyxel.circ( (SCREEN_WIDTH-2) * PIXEL_SCALE, y * PIXEL_SCALE,  PIXEL_SCALE, 3)
+
+        for x in range(1, SCREEN_WIDTH-1):
+            pyxel.pset( x * PIXEL_SCALE,                 1 * PIXEL_SCALE, 11)
+            pyxel.pset( x * PIXEL_SCALE, (SCREEN_HEIGHT-2) * PIXEL_SCALE, 11)
+
+        for y in range(1, SCREEN_HEIGHT-1):
+            pyxel.pset(                1 * PIXEL_SCALE, y * PIXEL_SCALE, 11)
+            pyxel.pset( (SCREEN_WIDTH-2) * PIXEL_SCALE, y * PIXEL_SCALE, 11)
+
+        # スネークの描画
+        for x, y in self.snake_tail[self.tail:self.head + 1]:
+            pyxel.circ(x * PIXEL_SCALE, y * PIXEL_SCALE, PIXEL_SCALE+1, 5)
+        for x, y in self.snake_tail[self.tail:self.head + 1]:
+            pyxel.circ(x * PIXEL_SCALE, y * PIXEL_SCALE, PIXEL_SCALE, 12)
+        for x, y in self.snake_tail[self.tail:self.head + 1]:
+            pyxel.pset(x * PIXEL_SCALE, y * PIXEL_SCALE, 6)
+        
+        # 食料の描画
+        pyxel.circ(self.food_x * PIXEL_SCALE, self.food_y * PIXEL_SCALE, PIXEL_SCALE+1, 2)
+        pyxel.circ(self.food_x * PIXEL_SCALE, self.food_y * PIXEL_SCALE, PIXEL_SCALE, 8)
+        pyxel.pset(self.food_x * PIXEL_SCALE, self.food_y * PIXEL_SCALE, 14)
+        
+        # スコアの描画
+        self.draw_score()
+
     def draw_score(self):
         # スコアの描画（CHIP-8のdraw_score）
         tens = self.score // 10
         ones = self.score % 10
-        pyxel.text(55, 0, f"{tens}{ones}", 13)
+        pyxel.text(54 * PIXEL_SCALE, 1 * PIXEL_SCALE, f"{tens}{ones}", 9)
+        pyxel.text(55 * PIXEL_SCALE, 0 * PIXEL_SCALE, f"{tens}{ones}", 10)
 
 # ゲームの実行
 SnakeGame()
+
+# End of snake.py

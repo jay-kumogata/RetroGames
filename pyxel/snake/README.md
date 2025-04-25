@@ -7,8 +7,8 @@ Each time you eat food, the snake grows longer.
 Hustle (1977 / Gremlin) might be the original. 
 There was a ported version of NEC's PC-8001.
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake01.gif)
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake02.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake03.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake04.gif)
 
 ## How to Play
 
