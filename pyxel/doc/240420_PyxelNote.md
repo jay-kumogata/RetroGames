@@ -17,14 +17,6 @@
 
 PyxelRogueの開発記を，[01_ゲーム製作: 01_ローグライク開発記](https://github.com/jay-kumogata/RetroGames/blob/main/research/01_01_RoguelikeNote.md)にまとめました．前半は，詩創作的なので，読み飛ばしてください．
 
-### 2024-06-14
-
-[オートレース(1画面ソフト)](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/autorace)を公開しました．
-昔懐かしい[はるみのゲームライブラリ](https://archive.org/details/Fm-7Fm-8/page/n173/mode/2up)からの移植です．
-PyxelRogueを開発(移植)する過程で蓄積された「キャラクタ画面の扱い方のノウハウ」を再利用してみました．
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/autorace/screenshots/autorace01.gif)
-
 ### 2024-06-15
 
 「40年前は，プログラミングしてる小中学生は，頭がおかしい子扱いされた」というが，正しいです．
