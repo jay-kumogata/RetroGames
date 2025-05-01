@@ -29,6 +29,6 @@ Each number, white bar, and dotted bar are displayed randomly in 3 patterns.
 
 |Pattern|Number|White bar|Dotted bar|Screenshot|
 |-------|------|---------|----------|----------|
-|1|Bamboos|1,000 point bar|10,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="196">|
-|2|Circles|500 point bar|5,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="196">|
-|3|Characters|100 point bar|1,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="196">|
+|1|Bamboos|1,000 point bar|10,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="294">|
+|2|Circles|500 point bar|5,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="294">|
+|3|Characters|100 point bar|1,000 point bar|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="294">|
