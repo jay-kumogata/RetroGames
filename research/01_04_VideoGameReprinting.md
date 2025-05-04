@@ -3,10 +3,9 @@
 ## はじめに
 
 ビデオゲームを復刻した記録です．
+元々のタイトルは，「ビデオゲーム復刻論」でしたが，「復刻論」を論じるつもりも，能力もありません．
 
-_(2025-04-29) 元々のタイトルは，「ビデオゲーム復刻論」でしたが，「復刻論」を論じるつもりも，能力もありません．_
-
-## 日記
+## Chip8からPyxelへの翻訳系の検討
 
 ### 2021-11-09
 
@@ -88,6 +87,8 @@ _(2025-04-29) Chip8からPyxelへの翻訳系を書く試みをしていたの�
 生成されるコードがかなりプリミティブであることがわかったので，この時点で一旦やる気を失いました．
 そして，手動での変換を指向するようになります．
 Chip8と同時にBASIC言語のソースを復刻することも試行していました．_
+
+## BasicとChip8からPyxelへの移植
 
 ### 2023-09-11
 
@@ -177,6 +178,8 @@ Chip8向け簡易版Mastermindをピクセルリマスタしてみました．�
 麻雀牌と点棒の組合せは，ランダムです．
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="245">
+
+## 生成AIによるChip8からPyxelへの移植
 
 ### 2025-03-08
 
@@ -377,8 +380,6 @@ Chip8のOctoアセンブラで書いた
 [Mastermind](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mastermind)は，
 生成AI使ってないんです．
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="245">
-
 ### 2025-04-22
 
 Grok君，なんでも知っていますね．怖いです．
@@ -391,6 +392,25 @@ Grok君の変換シリーズです．
 <img src="https://github.com/jay-kumogata/FractalArts/blob/main/pyxel/circle/screenshots/circle01.gif" width="250" />
 
 ### 2025-04-25
+
+Grok3で復刻したSnakeですが，画面が地味だったので，少しだけアレンジしてみました．
+Grok君のアイディアで，ネオン管をイメージしています．
+蛇と林檎の中央を完全に一致させないと，林檎は食べられません．
+[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.snake.snake)から遊べます．
+面白いかは不明です．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake01.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake02.gif)
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake03.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake04.gif)
+
+_(2025-05-04) Lunar Landerで生成AIの実力が見極められたことを勘案すると，
+Snakeの復刻は，蛇だけに「蛇足」だったかもしれないです．_
+
+## まとめ
+
+### 2025-04-28
 
 ビデオゲームの復刻については，
 1996年頃に住んでいた駅前のレンタルビデオ店で，映画「ローマの休日」を借りたところから話がはじまります．
@@ -418,23 +438,9 @@ Octo記法で復刻したアセンブリ言語のソースを，Pyxelに移植�
 JavaScriptに変換した．」というポストを発見します．
 試しに，最も規模が小さいBreakoutを生成AIでPyxelに変換してみると，普通に動いてしまったのです．
 
-### 2025-04-28
-
-Grok3で復刻したSnakeですが，画面が地味だったので，少しだけアレンジしてみました．
-Grok君のアイディアで，ネオン管をイメージしています．
-蛇と林檎の中央を完全に一致させないと，林檎は食べられません．
-[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.snake.snake)から遊べます．
-面白いかは不明です．
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake01.gif)
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake02.gif)
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake03.gif)
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake04.gif)
-
 ### 2025-05-01
 
-X(Twitter)へ投稿しました．
+X(Twitter)にも投稿しました．
 Chip8からPyxelへの変換で，ゲーム復刻というアイディアを考えてきました．
 最初は，純粋な翻訳系を書こうと考えていたのですが，出力結果がプリミティブ（アセンブラっぽいPython）になっちゃうことが分かった時点でやめてしまいました．
 意味論的なことも考えて，移植をしないと，プログラムとしての保守性も悪いし，模擬器で動かすのと大差ないことになってしまいます．
@@ -452,5 +458,7 @@ Chip8からPyxelへの変換で，ゲーム復刻というアイディアを考�
 最近は，生成AIを使っているみたいなのですが，CobolからJavaへ直接変換すると，CobolっぽいJava(=Jabol)になってしまうそうです．
 そこで，Cobolから仕様，仕様からJavaに変換するといい感じになるらしいです．
 一度仕様にすることで，意味が蒸留されるのでしょう．
+
+_(2025-05-04) ビデオゲームの復刻については，一旦完了で，新しいテーマに移ることにします．_
 
 以上
