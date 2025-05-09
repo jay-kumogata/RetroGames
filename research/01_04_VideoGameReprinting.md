@@ -215,8 +215,6 @@ Chip8向け簡易版Mastermindをピクセルリマスタしてみました．�
 [リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind&packages=numpy)から遊べます．
 麻雀牌と点棒の組合せは，ランダムです．
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="245">
-
 ## 生成AIによるChip8からPyxelへの移植
 
 ### 2025-03-08
@@ -234,7 +232,6 @@ Chip8のOctoアセンブラで書いたBreakoutを，Grok3(beta)に食わせて�
 時々表示は崩れますが，普通に動いてしまいました．
 今ビデオゲームの復刻は，模擬器でやることが多いですが，生成AIでの変換も盛んになるかもしれませんね．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout01.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout02.gif)
 
 2021年頃から，BASICとかアセンブラとかで書かれたレトロゲームを，Pythonに書き換えて復刻してきました．
@@ -293,8 +290,6 @@ Grok3(beta)で復刻した
 [Breakout](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/breakout)
 ですが，白黒だと寂しいので，少しだけカラフルにしてみました．色は毎回ランダムに決まります．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout01.gif)
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout02.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout03.gif)
 
 ### 2025-03-20
@@ -304,7 +299,6 @@ Grok3(beta)で復刻した
 ですが，白黒だと寂しいので，少しだけカラフルにしてみました．
 ドット絵をリソースファイルに書き出して，色を付けています．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie01.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie02.gif)
 
 _(2025-04-02) 3月18日に風邪になり，5日間自宅待機になりました．その期間で，ゲーム復刻と生成AIについて，少し論考しました．_
@@ -364,7 +358,6 @@ X(旧Twitter)に投稿しました．Grok3(beta)で復刻した
 [リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.amabie.amabie)
 から遊べます．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie01.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie02.gif)
 
 ### 2025-04-04
@@ -375,7 +368,6 @@ Grok3(beta)で復刻した
 [リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.lander.lander)
 から遊べます．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander01.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander02.gif)
 
 ### 2025-04-10
@@ -436,9 +428,6 @@ Grok君のアイディアで，ネオン管をイメージしています．
 蛇と林檎の中央を完全に一致させないと，林檎は食べられません．
 [リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.snake.snake)から遊べます．
 面白いかは不明です．
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake01.gif)
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake02.gif)
 
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake03.gif)
 ![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake04.gif)
