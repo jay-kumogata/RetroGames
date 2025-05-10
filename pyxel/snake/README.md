@@ -19,7 +19,7 @@ Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumo
 
 ## How to Controll
 
-Use the [up-arrow] / [left-arrow] / [right-arrow] key to move up / left / right.  
+Use the [up-arrow] / [down-arrow] / [left-arrow] / [right-arrow] key to move up / down / left / right.  
 
 ## Remarks
 
