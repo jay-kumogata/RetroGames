@@ -31,9 +31,14 @@ Chip8の画面(64x32ピクセル)は，3倍に拡大して，192x96ピクセル�
 
 ### 2023-01-06
 
-まず，Chip8の最も簡単なプログラムTankをPyxelに移植してみました．
+まず，Chip8の最も簡単なプログラム[Tank](https://johnearnest.github.io/Octo/index.html?key=30fe5_xD)をPyxelに移植してみました．
 意味論的なことを考えつつ，移植していきます．
 Pyxelはゲームエンジン的な書き方があるので，意味論を考えないと移植は難しかったです．
+
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tank/screenshots/tank01.gif)
+
+_(2025-05-10) 当時の[コード](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tank/)
+をGithubの方に上げました．ドット絵は，本日着色しました．_
 
 静的な翻訳系を書けるかなと考えていたが，難しいことが分かりました．
 動的な翻訳系を書けば，書けないことはない気がします．
@@ -195,7 +200,8 @@ Pyxelでも，MasterMindを作ってみることにしました．
 
 ### 2025-03-01
 
-[麻雀牌でMasterMind](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind&packages=numpy)は，完成しました．
+[麻雀牌でMasterMind](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind&packages=numpy)は，
+完成しました．
 適当にメッセージ等を出すようにして，終わりにしました．
 興味を失ったので，次の題材に移ることにします．
 Octo版の移植が楽しいかもしれないです．
@@ -357,8 +363,6 @@ X(旧Twitter)に投稿しました．Grok3(beta)で復刻した
 ですが，白黒だと寂しいので，少しだけカラフルにしてみました．
 [リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.amabie.amabie)
 から遊べます．
-
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie02.gif)
 
 ### 2025-04-04
 
