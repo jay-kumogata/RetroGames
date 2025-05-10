@@ -19,4 +19,4 @@ Use the [up] / [down] / [left] / [right] key to move up / down / left / right.
 
 ## Remarks
 
-I also ported a classic chip8 program, [tank](https://johnearnest.github.io/Octo/index.html?key=30fe5_xD), into Pyxel/Python.
+I also ported a classic chip8 program, [tank demo](https://johnearnest.github.io/Octo/index.html?key=30fe5_xD), into Pyxel/Python.
