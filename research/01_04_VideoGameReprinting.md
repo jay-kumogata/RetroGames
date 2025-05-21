@@ -391,11 +391,6 @@ Pyxelの方は，最大でも200K規模です．
 ビデオゲームの復刻として，Chip8アセンブラからPythonへの変換については，結構長く考えてきた．
 朝川沿いの道を散歩して，そこを歩きながら，考えていました．
 
-### 2025-04-15
-
-StixというQixモドキがあり，試しにGrok3(beta)で変換してみたが，うまくいかなかった模様です．
-仕方がないので，手で変換していくことにしました．
-
 ### 2025-04-17
 
 Chip8のOctoアセンブラで書いた
@@ -413,17 +408,6 @@ Chip8のOctoアセンブラで書いた
 製作者の苦労とかが，そう感じさせるのかも．
 [Mastermind](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mastermind)は，
 生成AI使ってないんです．
-
-### 2025-04-22
-
-Grok君，なんでも知っていますね．怖いです．
-
-### 2025-04-24
-
-Grok君の変換シリーズです．
-少し前に，「円の喧伝」というProcessingデモを，Grok君で移植しました．
-
-<img src="https://github.com/jay-kumogata/FractalArts/blob/main/pyxel/circle/screenshots/circle01.gif" width="250" />
 
 ### 2025-04-25
 
