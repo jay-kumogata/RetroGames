@@ -118,7 +118,7 @@ class Vbrix:
         if ball_x == BAT_X and bat_y <= ball_y < bat_y + 5:
             offset = ball_y - bat_y
             ball_dx = 1
-            ball_dy = [-1, -1, 0, 1, 1][offset // 1]  # Direction table
+            ball_dy = [-2, -1, 0, 1, 2][offset // 1]  # Direction table
             pyxel.play(0, 0)
         # Brick collision
         if ball_x >= BRICK_X - 1:
@@ -148,7 +148,7 @@ class Vbrix:
             for y in range(TOP_LINE, BOTTOM_LINE + 1, 1):
                 pyxel.rect(RIGHT_SIDE, y, 1, 1, 7)
             # Draw bat
-            pyxel.rect(BAT_X, bat_y, 1, 5, 7)
+            pyxel.rect(BAT_X, bat_y, 1, 5, 6)
             # Draw ball
             pyxel.rect(ball_x, ball_y, 1, 1, 7)
             # Draw bricks
@@ -159,7 +159,7 @@ class Vbrix:
             pyxel.text(20, 2, str(lives), 7)
 
     def draw_bricks(self):
-        rainbow= [2, 5, 12, 3, 10, 9, 8]
+        rainbow = [2, 5, 12, 3, 10, 9, 8]
         for y in range(BRICK_Y_COUNT):
             for x in range(BRICK_X_COUNT):
                 if self.bricks[y][x]:  # Only draw if brick exists
