@@ -5,6 +5,7 @@
 #
 # May 20, 2025 ver.1 converted to Pyxel/Python with Grok3 
 # May 29, 2025 ver.2 debug and refactor
+# May 30, 2025 ver.3 debug
 #
 # ****************************************************************************
 
@@ -90,9 +91,9 @@ class Vbrix:
     def move_bat(self):
         global bat_y
         if pyxel.btn(KEY_UP) and bat_y > TOP_LINE:
-            bat_y -= 2
+            bat_y -= 1
         if pyxel.btn(KEY_DOWN) and bat_y < BOTTOM_LINE - 4:
-            bat_y += 2
+            bat_y += 1
 
     def move_ball(self):
         global ball_x, ball_y, ball_dx, ball_dy
@@ -137,20 +138,23 @@ class Vbrix:
                     bricks_remaining = BRICK_X_COUNT * BRICK_Y_COUNT
 
     def draw(self):
-        pyxel.cls(0)
         if self.game_state == "title":
-            pyxel.text(6, 6, "Vertical Brix\nPress SPACE\nto start", 7)
+            pyxel.cls(1)
+            pyxel.text(6, 12, "Vertical Brix", 7)
         else:
+            pyxel.cls(1)
             # Draw border
             for x in range(LEFT_SIDE, RIGHT_SIDE, 1):
-                pyxel.rect(x, TOP_LINE, 1, 1, 7)
-                pyxel.rect(x, BOTTOM_LINE, 1, 1, 7)
+                pyxel.rect(x, TOP_LINE, 1, 1, 13)
+                pyxel.rect(x, BOTTOM_LINE, 1, 1, 13)
             for y in range(TOP_LINE, BOTTOM_LINE + 1, 1):
-                pyxel.rect(RIGHT_SIDE, y, 1, 1, 7)
+                pyxel.rect(RIGHT_SIDE, y, 1, 1, 13)
             # Draw bat
-            pyxel.rect(BAT_X, bat_y, 1, 5, 6)
+            pyxel.rect(BAT_X, bat_y, 1, 5, 13)
+            pyxel.rect(BAT_X, bat_y, 1, 1, 8)
+            pyxel.rect(BAT_X, bat_y + 4, 1, 1, 8)
             # Draw ball
-            pyxel.rect(ball_x, ball_y, 1, 1, 7)
+            pyxel.rect(ball_x, ball_y, 1, 1, 8)
             # Draw bricks
             self.draw_bricks()
             # Draw score

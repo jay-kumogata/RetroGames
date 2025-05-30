@@ -4,7 +4,7 @@
 
 Bounce the ball with the paddle to break the blocks. 
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/vbrix/screenshots/vbrix02.gif)
+![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/vbrix/screenshots/vbrix03.gif)
 
 ## How to Play
 
