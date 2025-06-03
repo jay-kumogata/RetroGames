@@ -13,12 +13,7 @@ Retrospective games and demos
 |5|2024-06-17|[autorace](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/autorace)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/autorace/screenshots/autorace01.gif" width="160">|
 |6|2024-09-03|[asteroids](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/asteroids)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/asteroids/screenshots/asteroids01.gif" width="160">|
 |7|2025-03-02|[mastermind](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mastermind)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="160"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="160"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="160">|
-|8|2025-03-09|[breakout](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/breakout)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout03.gif" width="160">|
-|9|2025-03-10|[amabie](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/amabie)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie02.gif" width="160">|
-|10|2025-03-21|[lander](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/lander)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander02.gif" width="160">|
-|11|2025-04-25|[snake](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/snake)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake04.gif" width="160">|
-|12|2025-05-22|[frogger](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/frogger)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/frogger/screenshots/frogger02.gif" width="160">|
-|13|2025-05-30|[vbrix](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/vbrix)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/vbrix/screenshots/vbrix03.gif" width="160">|
+|8|2025-05-22|[frogger](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/frogger)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/frogger/screenshots/frogger02.gif" width="160">|
 
 ## Demo list
 
@@ -31,4 +26,3 @@ Retrospective games and demos
 |5|2024-04-19|[sheep](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/sheep)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/sheep/screenshots/sheep01.gif" width="160">|
 |6|2024-06-28|[sombrero](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/sombrero)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/sombrero/screenshots/sombrero02.png" width="160">|
 |7|2025-02-07|[mahjong](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mahjong)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mahjong/screenshots/mahjong01.png" width="160">|
-|8|2025-05-10|[tank](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/tank)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tank/screenshots/tank01.gif" width="160">|
