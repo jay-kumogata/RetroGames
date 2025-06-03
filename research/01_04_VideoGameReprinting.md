@@ -200,25 +200,25 @@ Pyxelでも，MasterMindを作ってみることにしました．
 
 ### 2025-03-01
 
-[麻雀牌でMasterMind](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind&packages=numpy)は，
+[麻雀牌でMasterMind](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.PyxelChip8.pyxel.mastermind.mastermind&packages=numpy)は，
 完成しました．
 適当にメッセージ等を出すようにして，終わりにしました．
 興味を失ったので，次の題材に移ることにします．
 Octo版の移植が楽しいかもしれないです．
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="245"> <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="245">
+<img src="https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/mastermind/screenshots/mastermind01.gif" width="245"> <img src="https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/mastermind/screenshots/mastermind02.gif" width="245"> <img src="https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/mastermind/screenshots/mastermind03.gif" width="245">
 
 ### 2025-03-02
 
 昨日から，[Amabie](https://johnearnest.github.io/Octo/index.html?key=cXOhX6AA)を移植するために，Pyxelでドットを置き始めました．
 少し置いてみたのですが，テンションが低いです．
-今週は，[麻雀牌でMasterMind](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind&packages=numpy)ができたからいいことにします．
+今週は，[麻雀牌でMasterMind](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.PyxelChip8.pyxel.mastermind.mastermind&packages=numpy)ができたからいいことにします．
 
 ### 2025-03-07
 
 X(旧Twitter)に投稿しました．
 Chip8向け簡易版Mastermindをピクセルリマスタしてみました．先日公開した麻雀牌のドット絵を使っています．それにあわせて，点棒のドット絵も作ってみました．
-[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.mastermind.mastermind&packages=numpy)から遊べます．
+[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.PyxelChip8.pyxel.mastermind.mastermind&packages=numpy)から遊べます．
 麻雀牌と点棒の組合せは，ランダムです．
 
 ## 生成AIによるChip8からPyxelへの移植
@@ -229,7 +229,7 @@ Chip8のOctoアセンブラで書いたBreakoutを，Grok3(beta)に食わせて�
 ただ，人間が読むには読みづらいので，人間が読むには読みづらいので，少しリファクタリングは必要です．
 今ビデオゲームの復刻は，模擬器でやることが多いですが，生成AIでの変換も盛んになるかもしれません．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout01.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/breakout/screenshots/breakout01.gif)
 
 ### 2025-03-09
 
@@ -238,7 +238,7 @@ Chip8のOctoアセンブラで書いたBreakoutを，Grok3(beta)に食わせて�
 時々表示は崩れますが，普通に動いてしまいました．
 今ビデオゲームの復刻は，模擬器でやることが多いですが，生成AIでの変換も盛んになるかもしれませんね．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout02.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/breakout/screenshots/breakout02.gif)
 
 2021年頃から，BASICとかアセンブラとかで書かれたレトロゲームを，Pythonに書き換えて復刻してきました．
 そんな中，生成AIが出てきて，自分には関係ないと過ごしていましたが，結構使えるかもしれません．
@@ -256,7 +256,7 @@ Chip8のOctoアセンブラで書いたBreakoutを，Grok3(beta)に食わせて�
 Chip8のOctoアセンブラで書いたAmabieを，Grok3(beta)に食わせて，Pyxel/Pythonに変換してみました．
 今回も普通に動いてしまいました．キャラクタの色は，青から白に変更しています．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie01.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/amabie/screenshots/amabie01.gif)
 
 ### 2025-03-12
 
@@ -278,9 +278,9 @@ Grok3(beta)は，その位なら，余裕みたいです．次は，800L規模�
 でも，手動での変換は面倒なので，すぐに飽きてしまい中断してしまいました．
 
 2025年になり， Chip8のゲームを復刻しはじめました．
-[Mastermind](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mastermind)
+[Mastermind](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/mastermind)
 は手で書いてたのですが，
-[Breakout](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/breakout)以降はGrok3(beta)の力を借りることにしました．
+[Breakout](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/breakout)以降はGrok3(beta)の力を借りることにしました．
 いままで生成AIを敵視，もしくは無視してたのに，使えるとわかったら，急にGrok君とか言い出して，気持ちが悪いと言われそうです．
 
 ### 2025-03-14
@@ -293,19 +293,19 @@ Grok君，君ならできるよ．
 ### 2025-03-15
 
 Grok3(beta)で復刻した
-[Breakout](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/breakout)
+[Breakout](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/breakout)
 ですが，白黒だと寂しいので，少しだけカラフルにしてみました．色は毎回ランダムに決まります．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/breakout/screenshots/breakout03.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/breakout/screenshots/breakout03.gif)
 
 ### 2025-03-20
 
 Grok3(beta)で復刻した
-[Amabie](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/amabie)
+[Amabie](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/amabie)
 ですが，白黒だと寂しいので，少しだけカラフルにしてみました．
 ドット絵をリソースファイルに書き出して，色を付けています．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/amabie/screenshots/amabie02.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/amabie/screenshots/amabie02.gif)
 
 _(2025-04-02) 3月18日に風邪になり，5日間自宅待機になりました．その期間で，ゲーム復刻と生成AIについて，少し論考しました．_
 
@@ -325,7 +325,7 @@ Chip8のOctoアセンブラで書いたLunar Landerを，Grok3(beta)に食わせ
 何度か修正をお願いしたら，遊べるようになりました．
 着陸船をカーソルキー([←]/[↑]/[→])で操作して，着陸地点にゆっくりと着陸させてください．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander01.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/lander/screenshots/lander01.gif)
 
 生成AIが作るビデオゲームの不格好さと，経験が浅い方が作る資料の不格好さは，なんとなく似てる気がきます．
 センスが，まだないんですよね．
@@ -359,20 +359,20 @@ Grok3(beta)は，特に問題なく，Pyxelに変換してくれました．
 ### 2025-03-30
 
 X(旧Twitter)に投稿しました．Grok3(beta)で復刻した
-[Amabie](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/amabie)
+[Amabie](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/amabie)
 ですが，白黒だと寂しいので，少しだけカラフルにしてみました．
-[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.amabie.amabie)
+[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.PyxelChip8.pyxel.amabie.amabie)
 から遊べます．
 
 ### 2025-04-04
 
 Grok3(beta)で復刻した
-[Lunar Lander](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/lander)
+[Lunar Lander](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/lander)
 ですが，全体的にバランスが悪かったので，少しだけ直してみました．色は毎回ランダムに決まります．
-[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.lander.lander)
+[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.PyxelChip8.pyxel.lander.lander)
 から遊べます．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/lander/screenshots/lander02.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/lander/screenshots/lander02.gif)
 
 ### 2025-04-10
 
@@ -394,19 +394,19 @@ Pyxelの方は，最大でも200K規模です．
 ### 2025-04-17
 
 Chip8のOctoアセンブラで書いた
-[Snake](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/snake)
+[Snake](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/snake)
 を，Grok3(beta)に食わせて，Pyxel/Pythonに変換してみました．
 もう普通に動いても，驚きはありません．キャラクタの色は，白からグレーに変更しています．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake01.gif)
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake02.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/snake/screenshots/snake01.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/snake/screenshots/snake02.gif)
 
 ### 2025-04-18
 
 よく木工品とかで，「人が削り出した「温かみ」がある」みたい解説がついてたりするけど，
 個人的には，生成AIを使わないで復刻したゲームには，似たような「温かみ」を感じる気が．
 製作者の苦労とかが，そう感じさせるのかも．
-[Mastermind](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mastermind)は，
+[Mastermind](https://github.com/jay-kumogata/PyxelChip8/tree/main/pyxel/mastermind)は，
 生成AI使ってないんです．
 
 ### 2025-04-25
@@ -414,11 +414,11 @@ Chip8のOctoアセンブラで書いた
 Grok3で復刻したSnakeですが，画面が地味だったので，少しだけアレンジしてみました．
 Grok君のアイディアで，ネオン管をイメージしています．
 蛇と林檎の中央を完全に一致させないと，林檎は食べられません．
-[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.RetroGames.pyxel.snake.snake)から遊べます．
+[リンク](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumogata.PyxelChip8.pyxel.snake.snake)から遊べます．
 面白いかは不明です．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake03.gif)
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/snake/screenshots/snake04.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/snake/screenshots/snake03.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/snake/screenshots/snake04.gif)
 
 _(2025-05-04) Lunar Landerで生成AIの実力が見極められたことを勘案すると，
 Snakeの復刻は，蛇だけに「蛇足」だったかもしれないです．_
