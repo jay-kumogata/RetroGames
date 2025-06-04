@@ -35,9 +35,9 @@ Chip8の画面(64x32ピクセル)は，3倍に拡大して，192x96ピクセル�
 意味論的なことを考えつつ，移植していきます．
 Pyxelはゲームエンジン的な書き方があるので，意味論を考えないと移植は難しかったです．
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tank/screenshots/tank01.gif)
+![](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/tank/screenshots/tank01.gif)
 
-_(2025-05-10) 当時の[コード](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tank/)
+_(2025-05-10) 当時の[コード](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/tank/)
 をGithubの方に上げました．ドット絵は，本日着色しました．_
 
 静的な翻訳系を書けるかなと考えていたが，難しいことが分かりました．
