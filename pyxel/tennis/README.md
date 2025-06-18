@@ -5,7 +5,7 @@
 Tennis-for-Two is a sports video game that simulates a game of tennis,
 and was one of the first games developed in the early history of video games.
 
-![](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tennis/screenshots/tennis01.gif)
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tennis/screenshots/tennis01.gif" width="256">
 
 ## How to Play
 
