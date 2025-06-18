@@ -13,6 +13,7 @@ Retrospective games and demos
 |5|2024-06-17|[autorace](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/autorace)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/autorace/screenshots/autorace01.gif" width="160">|
 |6|2024-09-03|[asteroids](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/asteroids)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/asteroids/screenshots/asteroids01.gif" width="160">|
 |7|2025-05-22|[frogger](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/frogger)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/frogger/screenshots/frogger02.gif" width="160">|
+|8|2025-06-18|[tennis](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/tennis)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tennis/screenshots/tennis01.gif" width="160">|
 
 ## Demo list
 
