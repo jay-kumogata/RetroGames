@@ -1,4 +1,4 @@
-# 03_ビデオゲーム収集記: 05_Nintendo Switch研究記
+# 03_ビデオゲーム収集記: 05_NintendoSwitch2研究記
 
 ### はじめに
 
