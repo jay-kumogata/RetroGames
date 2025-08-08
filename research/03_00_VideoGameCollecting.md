@@ -9,6 +9,7 @@
   - [02_メガドラミニ研究](03_02_MegadriveMini.md): ビデオゲーム復刻事例として研究
   - [03_Final Fantasy研究](03_03_FinalFantasy.md): 代表的なJRPGとして研究
   - [04_PlayStation5研究](03_04_PlayStation5.md): PlayStation5を購入するまでの記録
+  - [05_NintendoSwitch2研究](03_05_NintendoSwitchNote.md): NintendoSwitch2を購入するまでの記録
 
 ### 2021-12-12
 
@@ -51,3 +52,4 @@
 そのため，私個人の活動としては，希少で人気がない(安価な)タイトルこそ，購入するように心がけています．
 
 以上
+
