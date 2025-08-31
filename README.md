@@ -27,3 +27,4 @@ Retrospective games and demos
 |6|2024-06-28|[sombrero](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/sombrero)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/sombrero/screenshots/sombrero02.png" width="160">|
 |7|2025-02-07|[mahjong](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/mahjong)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/mahjong/screenshots/mahjong01.png" width="160">|
 |8|2025-07-05|[galaxian](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/galaxian)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/galaxian/screenshots/galaxian01.gif" width="160">|
+|8|2025-08-31|[outrun](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/outrun)|Pyxel|<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/outrun/screenshots/outrun01.gif" width="160">|
