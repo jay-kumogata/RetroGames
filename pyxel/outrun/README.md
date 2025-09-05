@@ -4,7 +4,7 @@
 
 It is a Outrun(Sega/1986) demo.
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/outrun/screenshots/outrun01.gif" width="160">
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/outrun/screenshots/outrun02.gif" width="160">
 
 ## How to Play
 
@@ -15,4 +15,4 @@ Or you can play [here](https://kitao.github.io/pyxel/wasm/launcher/?run=jay-kumo
 
 ## Remarks
 
-[Easy OutRun in pseudo 3D](https://zenn.dev/sdkfz181tiger/articles/5b96fc307510a3) has been converted into Pyxel/Python using Grok4.
+[Simple OutRun in pseudo 3D](https://zenn.dev/sdkfz181tiger/articles/5b96fc307510a3) has been converted into Pyxel/Python using Grok4.

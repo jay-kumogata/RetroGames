@@ -73,7 +73,7 @@ class App:
         self.eyeZ += 2
 
     def draw(self):
-        pyxel.cls(0)  # Black background
+        pyxel.cls(1)  # Black background
 
         oX = 0
         dX = 0
