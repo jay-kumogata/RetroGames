@@ -10,6 +10,7 @@
   - [03_Final Fantasy研究](03_03_FinalFantasy.md): 代表的なJRPGとして研究
   - [04_PlayStation5研究](03_04_PlayStation5.md): PlayStation5を購入するまでの記録
   - [05_NintendoSwitch2研究](03_05_NintendoSwitchNote.md): NintendoSwitch2を購入するまでの記録
+  - [06_パルワールド研究記](03_06_PalWorldNote.md): ビデオゲームの模倣事例として研究
 
 ### 2021-12-12
 
@@ -59,5 +60,6 @@ vol.1からvol.4は，新品を買ったので，vol.1からvol.5までは揃い
 30年の時を越えて，一歩前進しました．
 
 以上
+
 
 
