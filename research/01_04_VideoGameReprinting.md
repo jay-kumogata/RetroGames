@@ -61,6 +61,30 @@ PyxelRogueを開発(移植)する過程で蓄積された「キャラクタ画�
 [Autorace](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/autorace)とかです．
 でも，手動での変換は面倒なので，すぐに飽きてしまい中断してしまいました．
 
+## JavaScriptからPyxelへの移植
+
+### 2025-05-21
+
+Chip8からPyxelへの変換は，限界が見えてきたので，視点を変えることにしました．
+今度は，古いBASICをターゲットにして，Pyxelへ変換していくことにしました．
+色々と検索する中で，古いゲームをJavaScriptで実装している
+[サイト](https://gist.github.com/straker/)
+を発見しました．
+ただ，このサイトのゲームは，JavaScriptで書かれており，基本的な構造のみ(Basic)という意味でした．
+
+そこで，Grok3で
+[Frogger](https://gist.github.com/straker/82a4368849cbd441b05bd6a044f2b2d3)
+をPyxelに変換してみました．
+また，ほぼ修正なく，動いてしまいました．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/frogger/screenshots/frogger01.gif" width="208">
+
+### 2025-05-22
+
+色を修正してみました．本物の色に近づけました．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/frogger/screenshots/frogger02.gif" width="208">
+
 ## まとめ
 
 ### 2025-04-28
