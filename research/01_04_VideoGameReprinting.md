@@ -85,6 +85,53 @@ Chip8からPyxelへの変換は，限界が見えてきたので，視点を変�
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/frogger/screenshots/frogger02.gif" width="208">
 
+### 2025-09-02
+
+ビデオゲームを作る技法で，すでに化石になってしまった「疑似3D」に興味を持ちました．
+「[疑似3Dでかんたんアウトラン](https://zenn.dev/sdkfz181tiger/articles/5b96fc307510a3)」
+という記事を見つけたので，Grok4でJavascriptからPyxelに変換してみました．
+Grok4は，Grok3よりも変換に時間を要しますが，正確なコードを出力します．
+我々が数十年歩んできた「コードを書く楽しい時代」が，ほぼ正確に終わろうとしています．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/outrun/screenshots/outrun01.gif" width="240">
+
+### 2025-09-05
+
+背景を黒から青に変えました．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/outrun/screenshots/outrun02.gif" width="240">
+
+### 2025-09-07
+
+お盆前に，ビデオゲームを作る技法で，すでに化石となってしまった「疑似3D」に興味を持ちました．「疑似3Dでかんたんアウトラン」 という記事を見つけたので，Grok4でPyxelに変換してみました． Grok4は，Grok3よりも正確なコードを出力するようです．
+
+## ProcessingからPyxelへの移植
+
+### 2025-06-14
+
+世界初のビデオゲーム(*1)である[Tennis for Two](https://ja.wikipedia.org/wiki/Tennis_for_Two)をPyxel/Pythonに
+[移植](https://github.com/jay-kumogata/RetroGames/tree/main/pyxel/tennis)
+しました．
+Processingの[ソース](https://openprocessing.org/sketch/9892/)を，Grok3で変換しました．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tennis/screenshots/tennis01.gif" width="256">
+
+_(2025-06-14) (*1) 諸説あります．_
+
+### 2025-06-20
+
+Xに投稿しました．ビデオゲームの歴史を逆にたどる旅もいよいよ終着です．
+[#pyxel](https://x.com/hashtag/pyxel?src=hashtag_click) 
+[#pixelart](https://x.com/hashtag/pixelart?src=hashtag_click)
+
+### 2025-07-29
+
+Tea for TwoからのTennis for Twoへのコンボです．
+「Tennis for Two（二人でテニスを）」のタイトルは，アメリカの楽曲および映画「二人でお茶を」に由来すると思われます
+（なお『～大全』及び『～時代』では名前はなかったとしています）．
+
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/tennis/screenshots/tennis01.gif" width="256">
+
 ## まとめ
 
 ### 2025-04-28
@@ -98,9 +145,5 @@ _(2025-04-29) 模擬器の開発経緯については，それぞれのリポジ
 
 その流れがあり，いくつかのビデオゲームは手動で復刻してみました．
 昔のBASICで書かれたコードも，Pyxelに移してみました．
-
-_(2025-07-11) Chip8からPyxelへの移植については，
-[こちら](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/doc/220424_PyxelNote.md)
-に，移動しました．_
 
 以上
