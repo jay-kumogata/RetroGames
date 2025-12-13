@@ -4,7 +4,7 @@ Retrospective games and demos<br>
 [DevNote in 2022](pyxel/doc/220217_PyxelNote.md), 
 [DevNote in 2023](pyxel/doc/230409_PyxelNote.md),
 [DevNote in 2024](pyxel/doc/240420_PyxelNote.md) and
-[DevNote in 2025](250101_PyxelNote.md) are here.
+[DevNote in 2025](pyxel/doc/250101_PyxelNote.md) are here.
 
 ## Game list
 
