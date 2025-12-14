@@ -8,14 +8,9 @@
 
 過去のPyxelによるゲーム開発記は，以下にあります．
 
-- [アステロイド開発記（2021年編）](https://github.com/jay-kumogata/RetroGames/blob/main/haskell/doc/210427_AsteroidsNote.md)
-- [Pyxelによるゲーム開発記（2022年編）](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/doc/220217_PyxelNote.md)
-- [ピンボール開発記（2022年編）](https://github.com/jay-kumogata/RetroGames/blob/main/research/01_02_PinballNote.md)
-- [Pyxelによるゲーム開発記（2023年編）](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/doc/230409_PyxelNote.md)
-- [Pyxelによるゲーム開発記（2024年編）](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/doc/240420_PyxelNote.md)
-- [アステロイド開発記（2024年編）](https://github.com/jay-kumogata/RetroGames/blob/main/research/01_03_AsteroidsNote.md)
-- [ローグライク開発記（2024年編）](https://github.com/jay-kumogata/RetroGames/blob/main/research/01_01_RoguelikeNote.md)
-- [ビデオゲーム復刻記（2025年編）](https://github.com/jay-kumogata/RetroGames/blob/main/research/01_04_VideoGameReprinting.md)
+- [Pyxelによるゲーム開発記（2022年編）](220217_PyxelNote.md)
+- [Pyxelによるゲーム開発記（2023年編）](230409_PyxelNote.md)
+- [Pyxelによるゲーム開発記（2024年編）](240420_PyxelNote.md)
 
 ### 2025-01-15
 
@@ -98,8 +93,12 @@ _(2025-07-11) Chip8からPyxelへの移植については，
 
 ### 2025-11-10
 
-まじ寒いですが，ちょっと出かけようと思います．
-最後に，野球とか，ゴルフとか，のゲーム作ろうかなと思います．
-コロナ禍の時，アマビエという新型ウィルスと闘うゲーム作ったから，次は市街地で熊を倒すゲームを作ろうかなと思います．
+まじ寒いですが，ちょっと出かけてきます．
+最後に，野球とか，ゴルフとか，のゲーム作ろうかなと考えています．
+コロナ禍の時，アマビエという新型ウィルスと闘うゲーム作ったので，次は市街地で熊を倒すゲームを作ってみます．
+
+### 2025-12-14
+
+今年も，Pyxelで色々作りましたが，今年は今日でPyxel納めします．
 
 以上
