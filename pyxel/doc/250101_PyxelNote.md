@@ -70,11 +70,11 @@ pyxelの回転機能で廻してみたら面白いかなと思い，デモを作
 ### 2025-07-11
 
 Grok3で復刻したVbrixの日記を
-[ここ](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/doc/220424_PyxelNote.md)
+[ここ](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/doc/220218_PyxelNote.md)
 に移動しました．
 
 _(2025-07-11) Chip8からPyxelへの移植については，
-[こちら](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/doc/220424_PyxelNote.md)
+[こちら](https://github.com/jay-kumogata/PyxelChip8/blob/main/pyxel/doc/220218_PyxelNote.md)
 に，移動しました．_
 
 ### 2025-09-04
