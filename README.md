@@ -5,8 +5,9 @@ Retrospective games and demos<br>
 [AsteroidsNote in 2021](haskell/doc/210427_AsteroidsNote.md),
 [PyxelNote in 2022](pyxel/doc/220217_PyxelNote.md), 
 [PyxelNote in 2023](pyxel/doc/230409_PyxelNote.md),
-[PyxelNote in 2024](pyxel/doc/240420_PyxelNote.md) and
-[PyxelNote in 2025](pyxel/doc/250101_PyxelNote.md) are here.
+[PyxelNote in 2024](pyxel/doc/240420_PyxelNote.md),
+[PyxelNote in 2025](pyxel/doc/250101_PyxelNote.md) and
+[ResearchOnVideoGames](research/00_ResearchOnVideoGames.md) are here.
 
 ## Game list
 
