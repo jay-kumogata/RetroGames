@@ -15,7 +15,6 @@
  
 import pyxel
 import random
-import sys
 import numpy as np
 from enum import IntEnum, auto, Enum
 
