@@ -17,7 +17,6 @@ import pyxel
 import random
 import sys
 import numpy as np
-from msvcrt import getch
 from enum import IntEnum, auto, Enum
 
 WINDOW_HEIGHT = 140

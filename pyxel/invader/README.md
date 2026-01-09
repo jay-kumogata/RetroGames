@@ -4,7 +4,7 @@
 
 It is a Space Invader(Taito/1978) like game.
 
-<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/invader/screenshots/invader01.gif" width="180">
+<img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/invader/screenshots/invader01.gif" width="240">
 
 ## How to Play
 
