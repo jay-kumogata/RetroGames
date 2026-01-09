@@ -21,6 +21,7 @@ Retrospective games and demos<br>
 |6|2024-09-03|[asteroids](pyxel/asteroids)|Pyxel|<img src="pyxel/asteroids/screenshots/asteroids01.gif" width="160">|
 |7|2025-05-22|[frogger](pyxel/frogger)|Pyxel|<img src="pyxel/frogger/screenshots/frogger02.gif" width="160">|
 |8|2025-06-18|[tennis](pyxel/tennis)|Pyxel|<img src="pyxel/tennis/screenshots/tennis01.gif" width="160">|
+|9|2026-01-09|[invaders](pyxel/invaders)|Pyxel|<img src="pyxel/invaders/screenshots/invaders02.gif" width="160">|
 
 ## Demo list
 
