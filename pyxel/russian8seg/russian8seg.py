@@ -4,6 +4,8 @@
 # cf. https://www.reddit.com/r/worldbuilding/comments/8887km/russian_8_segment_display_design/?tl=ja
 #
 # Jan 11, 2026 ver.1 (AからLまで実装)
+# Jan 12, 2026 ver.2 ()
+#
 
 import pyxel
 
@@ -31,7 +33,7 @@ class russian8seg:
     chr = [ [1,1,1,0,1,1,0,0], # A
             [1,0,1,1,1,1,1,1], # B
             [1,0,1,1,0,0,0,0], # C
-            [0,1,0,0,0,0,1,1], # D
+            [0,1,0,1,0,0,1,1], # D
             [1,0,1,1,1,0,1,0], # E
             [1,0,1,0,1,0,1,0], # F
             [1,0,1,1,0,0,0,1], # G
@@ -39,7 +41,19 @@ class russian8seg:
             [0,1,0,0,0,0,0,0], # I
             [0,1,0,1,0,0,0,0], # J
             [1,0,0,0,0,1,0,1], # K
-            [1,0,0,1,0,0,0,0]] # L
+            [1,0,0,1,0,0,0,0], # L
+            [1,1,0,0,1,1,0,0], # M
+            [1,1,0,0,1,0,0,1], # N
+            [1,1,1,1,0,0,0,0], # O
+            [1,0,1,0,1,1,0,0], # P
+            [0,0,1,0,1,1,0,1], # Q
+            [1,0,1,0,0,1,0,1], # R
+            [0,0,1,1,1,0,0,1], # S
+            [0,0,1,1,0,0,0,0], # T
+            [1,1,0,1,0,0,0,0], # U
+            [0,0,0,0,1,1,0,0], # V
+            [1,1,0,0,0,0,1,1], # W
+            [0,0,0,0,1,1,1,1]] # X
     
     # Constructor
     def __init__( self ):
@@ -60,9 +74,15 @@ class russian8seg:
 
         pyxel.cls(1)
         
-        # 8 Seg. LED
-        x = 10; y = 5
-        for n in range(len(self.chr)):
+        # 1st line
+        x = 8; y = 4
+        for n in range(12):
+            self.draw_led( x, y, self.chr[n] )
+            x += self.ledx
+
+        # 2nd line
+        x = 8; y = 78
+        for n in range(12, 24 ):
             self.draw_led( x, y, self.chr[n] )
             x += self.ledx
 
