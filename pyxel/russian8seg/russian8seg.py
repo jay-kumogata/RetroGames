@@ -3,10 +3,9 @@
 # 「ロシア語 8 セグメントディスプレイのデザイン」を参考にしました
 # cf. https://www.reddit.com/r/worldbuilding/comments/8887km/russian_8_segment_display_design/?tl=ja
 #
-# Jan 11, 2026 ver.1 (AからLまで実装)
-# Jan 12, 2026 ver.2 ()
+# Jan 10, 2026 ver.1 (AからLまで実装)
+# Jan 11, 2026 ver.2 (MからXまで実装)
 #
-
 import pyxel
 
 class russian8seg:
