@@ -1,6 +1,6 @@
 # RetroGames
 
-Retrospective games and demos<br>
+Retrospective games and demos.<br>
 [HspNote in 2020](hsp/doc/200724_HspNote.md),
 [AsteroidsNote in 2021](haskell/doc/210427_AsteroidsNote.md),
 [PyxelNote in 2022](pyxel/doc/220217_PyxelNote.md), 
