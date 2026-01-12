@@ -1,7 +1,6 @@
 # RetroGames
 
 Retrospective games and demos.<br>
-[HspNote in 2020](hsp/doc/200724_HspNote.md),
 [AsteroidsNote in 2021](haskell/doc/210427_AsteroidsNote.md),
 [PyxelNote in 2022](pyxel/doc/220217_PyxelNote.md), 
 [PyxelNote in 2023](pyxel/doc/230409_PyxelNote.md),
@@ -27,12 +26,9 @@ Retrospective games and demos.<br>
 
 |No.|Date|Title|Platform|Content|
 |---|----|----|---------|-------|
-|1|2020-10-18|[ball](hsp/ball)|HSP|<img src="hsp/ball/screenshots/hsp01.png" width="160">|
-|2|2020-10-24|[mandel](hsp/mandel)|HSP|<img src="hsp/mandel/screenshots/hsp03.png" width="160">|
-|3|2022-07-21|[nixie](pyxel/nixie)|Pyxel|<img src="pyxel/nixie/screenshots/Nixie01.gif" width="160">|
-|4|2023-11-26|[hanafuda](pyxel/hanafuda)|Pyxel|<img src="pyxel/hanafuda/screenshots/hanafuda01.png" width="160">|
-|5|2024-04-19|[sheep](pyxel/sheep)|Pyxel|<img src="pyxel/sheep/screenshots/sheep01.gif" width="160">|
-|6|2024-06-28|[sombrero](pyxel/sombrero)|Pyxel|<img src="pyxel/sombrero/screenshots/sombrero02.png" width="160">|
-|7|2025-02-07|[mahjong](pyxel/mahjong)|Pyxel|<img src="pyxel/mahjong/screenshots/mahjong01.png" width="160">|
-|8|2025-07-05|[galaxian](pyxel/galaxian)|Pyxel|<img src="pyxel/galaxian/screenshots/galaxian01.gif" width="160">|
-|8|2025-08-31|[outrun](pyxel/outrun)|Pyxel|<img src="pyxel/outrun/screenshots/outrun02.gif" width="160">|
+|1|2022-07-21|[nixie](pyxel/nixie)|Pyxel|<img src="pyxel/nixie/screenshots/Nixie01.gif" width="160">|
+|2|2023-11-26|[hanafuda](pyxel/hanafuda)|Pyxel|<img src="pyxel/hanafuda/screenshots/hanafuda01.png" width="160">|
+|3|2024-06-28|[sombrero](pyxel/sombrero)|Pyxel|<img src="pyxel/sombrero/screenshots/sombrero02.png" width="160">|
+|4|2025-02-07|[mahjong](pyxel/mahjong)|Pyxel|<img src="pyxel/mahjong/screenshots/mahjong01.png" width="160">|
+|5|2025-07-05|[galaxian](pyxel/galaxian)|Pyxel|<img src="pyxel/galaxian/screenshots/galaxian01.gif" width="160">|
+|6|2025-08-31|[outrun](pyxel/outrun)|Pyxel|<img src="pyxel/outrun/screenshots/outrun02.gif" width="160">|
