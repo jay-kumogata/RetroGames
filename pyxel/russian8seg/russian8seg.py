@@ -5,6 +5,7 @@
 #
 # Jan 10, 2026 ver.1 (AからLまで実装)
 # Jan 11, 2026 ver.2 (MからXまで実装)
+# Jan 13, 2026 ver.3 (Yから0まで実装)
 #
 import pyxel
 
@@ -52,7 +53,19 @@ class russian8seg:
             [1,1,0,1,0,0,0,0], # U
             [0,0,0,0,1,1,0,0], # V
             [1,1,0,0,0,0,1,1], # W
-            [0,0,0,0,1,1,1,1]] # X
+            [0,0,0,0,1,1,1,1], # X
+            [0,0,0,1,1,1,0,0], # Y
+            [0,0,1,1,0,1,1,0], # Z
+            [1,0,0,0,0,0,0,0], # 1
+            [0,0,1,1,0,1,1,0], # 2
+            [0,0,1,1,0,1,0,1], # 3
+            [0,1,0,0,1,1,0,0], # 4
+            [0,0,1,1,1,0,0,1], # 5
+            [0,0,1,1,1,0,1,1], # 6
+            [0,1,1,0,0,0,0,0], # 7
+            [0,0,1,1,1,1,1,1], # 8
+            [0,1,1,0,1,1,0,0], # 9
+            [1,1,1,1,0,0,0,0]] # 0
     
     # Constructor
     def __init__( self ):
@@ -74,17 +87,24 @@ class russian8seg:
         pyxel.cls(1)
         
         # 1st line
-        x = 8; y = 4
+        x = 8; y = 8
         for n in range(12):
             self.draw_led( x, y, self.chr[n] )
             x += self.ledx
 
         # 2nd line
-        x = 8; y = 78
-        for n in range(12, 24 ):
+        x = 8; y += self.ledy * 2
+        for n in range(12, 24):
             self.draw_led( x, y, self.chr[n] )
             x += self.ledx
 
+        # 3rd line
+        x = 8; y += self.ledy * 2
+        for n in range(24, 36):
+            self.draw_led( x, y, self.chr[n] )
+            x += self.ledx
+            
+            
     def draw_led( self, x, y, pat ):
         pyxel.blt( x, y, 0, 0, self.ledy, self.ledx, self.ledy )
         for n in range( 8 ):
