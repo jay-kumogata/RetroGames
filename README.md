@@ -8,12 +8,6 @@ Retrospective games and demos.<br>
 [PyxelNote in 2025](pyxel/doc/250101_PyxelNote.md) and
 [ResearchOnVideoGames](research/00_ResearchOnVideoGames.md) are here.
 
-## Ported from Haskell 
-
-|No.|Date|Title|Platform|Content|
-|---|----|----|---------|-------|
-|1|2024-09-03|[asteroids](pyxel/asteroids)|Pyxel|<img src="pyxel/asteroids/screenshots/asteroids01.gif" width="160">|
-
 ## Ported from Lua/PICO-8
 
 |No.|Date|Title|Platform|Content|
@@ -29,14 +23,6 @@ Retrospective games and demos.<br>
 |2|2024-06-17|[autorace](pyxel/autorace)|Pyxel|<img src="pyxel/autorace/screenshots/autorace01.gif" width="160">|
 |3|2024-06-28|[sombrero](pyxel/sombrero)|Pyxel|<img src="pyxel/sombrero/screenshots/sombrero02.png" width="160">|
 
-## Ported from JavaScript
-
-|No.|Date|Title|Platform|Content|
-|---|----|----|---------|-------|
-|1|2025-05-22|[frogger](pyxel/frogger)|Pyxel|<img src="pyxel/frogger/screenshots/frogger01.gif" width="160"> <img src="pyxel/frogger/screenshots/frogger02.gif" width="160">|
-|2|2025-06-18|[tennis](pyxel/tennis)|Pyxel|<img src="pyxel/tennis/screenshots/tennis01.gif" width="160">|
-|3|2025-08-31|[outrun](pyxel/outrun)|Pyxel|<img src="pyxel/outrun/screenshots/outrun01.gif" width="160"> <img src="pyxel/outrun/screenshots/outrun02.gif" width="160">|
-
 ## Ported from Python
 
 |No.|Date|Title|Platform|Content|
@@ -44,6 +30,20 @@ Retrospective games and demos.<br>
 |1|2024-06-07|[pyxelrogue](pyxel/pyxelrogue)|Pyxel|<img src="pyxel/pyxelrogue/screenshots/pyxelrogue05.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue07.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue10.gif" width="160">|
 |2|2025-07-05|[galaxian](pyxel/galaxian)|Pyxel|<img src="pyxel/galaxian/screenshots/galaxian01.gif" width="160">|
 |3|2026-01-09|[invaders](pyxel/invaders)|Pyxel|<img src="pyxel/invaders/screenshots/invaders01.gif" width="160"> <img src="pyxel/invaders/screenshots/invaders02.gif" width="160">|
+
+## Ported from Haskell 
+
+|No.|Date|Title|Platform|Content|
+|---|----|----|---------|-------|
+|1|2024-09-03|[asteroids](pyxel/asteroids)|Pyxel|<img src="pyxel/asteroids/screenshots/asteroids01.gif" width="160">|
+
+## Ported from JavaScript
+
+|No.|Date|Title|Platform|Content|
+|---|----|----|---------|-------|
+|1|2025-05-22|[frogger](pyxel/frogger)|Pyxel|<img src="pyxel/frogger/screenshots/frogger01.gif" width="160"> <img src="pyxel/frogger/screenshots/frogger02.gif" width="160">|
+|2|2025-06-18|[tennis](pyxel/tennis)|Pyxel|<img src="pyxel/tennis/screenshots/tennis01.gif" width="160">|
+|3|2025-08-31|[outrun](pyxel/outrun)|Pyxel|<img src="pyxel/outrun/screenshots/outrun01.gif" width="160"> <img src="pyxel/outrun/screenshots/outrun02.gif" width="160">|
 
 ## Miscellaneous
 
