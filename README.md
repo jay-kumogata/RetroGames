@@ -37,14 +37,19 @@ Retrospective games and demos.<br>
 |2|2025-06-18|[tennis](pyxel/tennis)|Pyxel|<img src="pyxel/tennis/screenshots/tennis01.gif" width="160">|
 |3|2025-08-31|[outrun](pyxel/outrun)|Pyxel|<img src="pyxel/outrun/screenshots/outrun01.gif" width="160"> <img src="pyxel/outrun/screenshots/outrun02.gif" width="160">|
 
+## Ported from Python
+
+|No.|Date|Title|Platform|Content|
+|---|----|----|---------|-------|
+|1|2024-06-07|[pyxelrogue](pyxel/pyxelrogue)|Pyxel|<img src="pyxel/pyxelrogue/screenshots/pyxelrogue05.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue07.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue10.gif" width="160">|
+|2|2025-07-05|[galaxian](pyxel/galaxian)|Pyxel|<img src="pyxel/galaxian/screenshots/galaxian01.gif" width="160">|
+|3|2026-01-09|[invaders](pyxel/invaders)|Pyxel|<img src="pyxel/invaders/screenshots/invaders01.gif" width="160"> <img src="pyxel/invaders/screenshots/invaders02.gif" width="160">|
+
 ## Miscellaneous
 
 |No.|Date|Title|Platform|Content|
 |---|----|----|---------|-------|
 |1|2021-08-28|[asteroids](haskell/asteroids)|Haskell|<img src="haskell/asteroids/screenshots/asteroids01.png" width="160"> <img src="haskell/asteroids/screenshots/asteroids02.png" width="160">|
 |2|2022-07-21|[nixie](pyxel/nixie)|Pyxel|<img src="pyxel/nixie/screenshots/Nixie01.gif" width="160">|
-|3|2024-06-07|[pyxelrogue](pyxel/pyxelrogue)|Pyxel|<img src="pyxel/pyxelrogue/screenshots/pyxelrogue05.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue07.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue10.gif" width="160">|
-|4|2025-02-07|[mahjong](pyxel/mahjong)|Pyxel|<img src="pyxel/mahjong/screenshots/mahjong01.png" width="160">|
-|5|2025-07-05|[galaxian](pyxel/galaxian)|Pyxel|<img src="pyxel/galaxian/screenshots/galaxian01.gif" width="160">|
-|6|2026-01-09|[invaders](pyxel/invaders)|Pyxel|<img src="pyxel/invaders/screenshots/invaders01.gif" width="160"> <img src="pyxel/invaders/screenshots/invaders02.gif" width="160">|
-|7|2026-01-14|[russian8seg](pyxel/russian8seg)|Pyxel|<img src="pyxel/russian8seg/screenshots/russian8seg01.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg02.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg03.png" width="160">|
+|3|2025-02-07|[mahjong](pyxel/mahjong)|Pyxel|<img src="pyxel/mahjong/screenshots/mahjong01.png" width="160">|
+|4|2026-01-14|[russian8seg](pyxel/russian8seg)|Pyxel|<img src="pyxel/russian8seg/screenshots/russian8seg01.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg02.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg03.png" width="160">|
