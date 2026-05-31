@@ -1,7 +1,6 @@
 # RetroGames
 
 Retrospective games and demos.<br>
-[AsteroidsNote in 2021](haskell/doc/210427_AsteroidsNote.md),
 [PyxelNote in 2022](pyxel/doc/220217_PyxelNote.md), 
 [PyxelNote in 2023](pyxel/doc/230409_PyxelNote.md),
 [PyxelNote in 2024](pyxel/doc/240420_PyxelNote.md),
@@ -49,7 +48,6 @@ Retrospective games and demos.<br>
 
 |No.|Date|Title|Platform|Content|
 |---|----|----|---------|-------|
-|1|2021-08-28|[asteroids](haskell/asteroids)|Haskell|<img src="haskell/asteroids/screenshots/asteroids01.png" width="160"> <img src="haskell/asteroids/screenshots/asteroids02.png" width="160">|
-|2|2022-07-21|[nixie](pyxel/nixie)|Pyxel|<img src="pyxel/nixie/screenshots/Nixie01.gif" width="160">|
-|3|2025-02-07|[mahjong](pyxel/mahjong)|Pyxel|<img src="pyxel/mahjong/screenshots/mahjong01.png" width="160">|
-|4|2026-01-14|[russian8seg](pyxel/russian8seg)|Pyxel|<img src="pyxel/russian8seg/screenshots/russian8seg01.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg02.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg03.png" width="160">|
+|1|2022-07-21|[nixie](pyxel/nixie)|Pyxel|<img src="pyxel/nixie/screenshots/Nixie01.gif" width="160">|
+|2|2025-02-07|[mahjong](pyxel/mahjong)|Pyxel|<img src="pyxel/mahjong/screenshots/mahjong01.png" width="160">|
+|3|2026-01-14|[russian8seg](pyxel/russian8seg)|Pyxel|<img src="pyxel/russian8seg/screenshots/russian8seg01.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg02.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg03.png" width="160">|
