@@ -7,10 +7,10 @@
 ### 2024-07-12
 
 過去に開発した
-[Asteroids in Haskell](https://github.com/jay-kumogata/RetroGames/tree/main/haskell/asteroids)
+[Asteroids in Haskell](https://github.com/jay-kumogata/Kumamoto/tree/main/haskell/asteroids)
 を，Pyxel/Pythonに移植してみることにしました．
 
-<img src="https://github.com/jay-kumogata/RetroGames/raw/main/haskell/asteroids/screenshots/asteroids02.png" width="300" />
+<img src="https://github.com/jay-kumogata/Kumamoto/raw/main/haskell/asteroids/screenshots/asteroids02.png" width="300" />
 
 ### 2024-07-13
 
