@@ -7,7 +7,7 @@
 ### 2024-04-20
 
 過去のゲーム開発記は，以下にあります．
-- [アステロイド開発記（2021年編）](https://github.com/jay-kumogata/RetroGames/blob/main/haskell/doc/210427_AsteroidsNote.md)
+- [アステロイド開発記（2021年編）](https://github.com/jay-kumogata/Kumamoto/blob/main/haskell/doc/210427_AsteroidsNote.md)
 - [Octo記法によるゲーム開発記（2021年編）](https://github.com/jay-kumogata/PyxelChip8/blob/main/games/doc/210307_OctoNote.md)
 - [Octo記法によるゲーム開発記（2022年編）](https://github.com/jay-kumogata/PyxelChip8/blob/main/games/doc/220116_OctoNote.md)
 - [Pyxelによるゲーム開発記（2022年編）](https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/doc/220217_PyxelNote.md)
