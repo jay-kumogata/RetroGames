@@ -96,6 +96,12 @@ Chip8からPyxelへの変換は，限界が見えてきたので，視点を変�
 
 <img src="https://github.com/jay-kumogata/RetroGames/blob/main/pyxel/frogger/screenshots/frogger02.gif" width="208">
 
+### 2025-05-23
+
+当たり前なのかもしれませんが，JavaScriptで書いたコードは，Grok3で簡単に，Pyxelに変換できました．
+基本的に構文も似てるので，簡単なのはわかっていたのですけど，ここまでできてしまうと驚きます．
+昔のBASICで書いたコードで，JavaScriptに変換されてるものがあるので，それをPyxel化していきます．
+
 ### 2025-09-02
 
 ビデオゲームを作る技法で，すでに化石になってしまった「疑似3D」に興味を持ちました．
