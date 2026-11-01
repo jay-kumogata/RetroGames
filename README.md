@@ -13,7 +13,7 @@ Retrospective games and demos.<br>
 |---|----|----|---------|-------|
 |1|2023-04-30|[pinball](pyxel/pinball)|Pyxel|<img src="pyxel/pinball/screenshots/Pinball02.gif" width="160"> <img src="pyxel/pinball/screenshots/Pinball04.gif" width="160">|
 |2|2023-09-24|[ACLM](pyxel/aclm)|Pyxel|<img src="pyxel/aclm/screenshots/aclm02.gif" width="160"> <img src="pyxel/aclm/screenshots/aclm03.gif" width="160">|
-|3|2024-06-07|[pyxelrogue](pyxel/pyxelrogue)|Pyxel|<img src="pyxel/pyxelrogue/screenshots/pyxelrogue05.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue07.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue10.gif" width="160">|
+|3|2024-06-07|[pyxelrogue](pyxel/pyxelrogue)|Pyxel|<img src="pyxel/pyxelrogue/screenshots/pyxelrogue07.gif" width="160"> <img src="pyxel/pyxelrogue/screenshots/pyxelrogue10.gif" width="160">|
 |4|2024-06-17|[autorace](pyxel/autorace)|Pyxel|<img src="pyxel/autorace/screenshots/autorace01.gif" width="160">|
 |5|2024-09-03|[asteroids](pyxel/asteroids)|Pyxel|<img src="pyxel/asteroids/screenshots/asteroids01.gif" width="160">|
 |6|2025-05-22|[frogger](pyxel/frogger)|Pyxel|<img src="pyxel/frogger/screenshots/frogger01.gif" width="160"> <img src="pyxel/frogger/screenshots/frogger02.gif" width="160">|
