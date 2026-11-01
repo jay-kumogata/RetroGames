@@ -30,4 +30,4 @@ Retrospective games and demos.<br>
 |4|2025-02-07|[mahjong](pyxel/mahjong)|Pyxel|<img src="pyxel/mahjong/screenshots/mahjong01.png" width="160">|
 |5|2025-07-05|[galaxian](pyxel/galaxian)|Pyxel|<img src="pyxel/galaxian/screenshots/galaxian01.gif" width="160">|
 |6|2025-08-31|[outrun](pyxel/outrun)|Pyxel|<img src="pyxel/outrun/screenshots/outrun01.gif" width="160"> <img src="pyxel/outrun/screenshots/outrun02.gif" width="160">|
-|7|2026-01-14|[russian8seg](pyxel/russian8seg)|Pyxel|<img src="pyxel/russian8seg/screenshots/russian8seg01.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg02.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg03.png" width="160">|
+|7|2026-01-14|[russian8seg](pyxel/russian8seg)|Pyxel|<img src="pyxel/russian8seg/screenshots/russian8seg02.png" width="160"> <img src="pyxel/russian8seg/screenshots/russian8seg03.png" width="160">|
